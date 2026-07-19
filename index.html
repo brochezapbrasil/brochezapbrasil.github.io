@@ -3,54 +3,103 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Broche Zap - Comunicação Acessível</title>
+<title>QR ZAP - Fale Comigo de Outro Jeito | Comunicação Acessível</title>
 <style>
-body{margin:0;font-family:Arial,sans-serif;background:#fff;color:#111}
-header{background:#081B33;color:#fff;padding:12px 20px;display:flex;justify-content:space-between;align-items:center}
-.logo{font-weight:900;letter-spacing:1px}
-.badge{background:#FFD60A;color:#081B33;padding:4px 8px;border-radius:6px;font-size:11px;font-weight:700}
-.hero{background:#081B33;color:#fff;padding:40px 20px;text-align:center}
-.hero h1{font-size:32px;margin:0 0 10px}
-.hero p{opacity:.9;margin:0 0 24px}
-.btn-contratar{display:block;background:#FFD60A;color:#081B33;text-decoration:none;font-weight:900;font-size:18px;padding:18px;border-radius:12px;margin:0 auto;max-width:400px}
+body{margin:0;font-family:Arial,system-ui,sans-serif;background:#fff;color:#111;line-height:1.5}
+header{background:#081B33;color:#fff;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.logo-wrap{display:flex;align-items:center;gap:10px}
+.logo{font-weight:900;letter-spacing:.5px;line-height:1}
+.logo b{color:#22C55E;font-size:22px;display:block}
+.logo span{font-size:11px;letter-spacing:1.5px;opacity:.9}
+.logo-icon{width:44px;height:44px;border:2px solid #22C55E;border-radius:10px;display:grid;place-items:center;font-size:20px}
+.badge{background:#22C55E;color:#000;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:800}
+.hero{background:#081B33;color:#fff;padding:48px 20px 56px;text-align:center}
+.hero h1{font-size:38px;margin:0;line-height:1.05;font-weight:900}
+.hero h1 .verde{color:#22C55E}
+.hero p{opacity:.9;margin:16px auto 0;max-width:640px;font-size:16px}
+.btn-contratar{display:inline-flex;align-items:center;gap:8px;background:#22C55E;color:#000;text-decoration:none;font-weight:900;font-size:18px;padding:18px 28px;border-radius:14px;margin:24px auto 0}
 section{padding:32px 20px;max-width:900px;margin:auto}
-.card{border:2px solid #eee;border-radius:16px;padding:20px;margin:16px 0}
-.card.cnpj{border-color:#081B33;background:#F6F8FC}
-.highlight{font-size:20px;font-weight:900;color:#081B33;margin-bottom:12px}
-.price{font-size:28px;font-weight:900}
-.btn{display:block;text-align:center;background:#081B33;color:#fff;text-decoration:none;padding:14px;border-radius:10px;margin-top:12px;font-weight:700}
-.btn.yellow{background:#FFD60A;color:#081B33}
-footer{background:#f5f5f5;padding:20px;font-size:12px;color:#555;text-align:center}
+.card{border:2px solid #e5e7eb;border-radius:16px;padding:20px;margin:18px 0;background:#fff}
+.card.cnpj{border-color:#081B33;background:#f0fdf4}
+.highlight{font-size:18px;font-weight:900;color:#081B33;margin-bottom:8px}
+.price{font-size:30px;font-weight:900;margin:8px 0}
+.price i{font-style:normal;font-size:14px;font-weight:700;color:#6A2FB5;margin-left:6px}
+ul{list-style:none;padding:0;margin:12px 0}
+ul li{padding:6px 0 6px 24px;position:relative;font-size:14px}
+ul li::before{content:"✔";position:absolute;left:0;color:#22C55E;font-weight:900}
+.btn{display:block;text-align:center;text-decoration:none;padding:14px;border-radius:10px;margin-top:12px;font-weight:800;font-size:15px}
+.btn.roxo{background:#3C1660;color:#fff}
+.btn.verde{background:#22C55E;color:#000}
+.aviso{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;font-size:12px;color:#57534e;margin-top:12px;line-height:1.4}
+.inclusao{background:#f8fafc;padding:24px 20px;border-radius:12px;margin-top:20px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px}
+.pill{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:10px}
+footer{background:#f5f5f5;padding:20px;font-size:12px;color:#555;text-align:center;line-height:1.6}
+@media(min-width:600px){.hero h1{font-size:48px}}
 </style>
 </head>
 <body>
-<header><div class="logo">BROCHE ZAP</div><div class="badge">OFICIAL CNPJ 68.088.847/0001-03</div></header>
+<header>
+  <div class="logo-wrap">
+    <div class="logo"><b>QR ZAP</b><span>FALE COMIGO</span></div>
+    <div class="logo-icon">💬</div>
+  </div>
+  <div class="badge">OFICIAL CNPJ 68.088.847/0001-03</div>
+</header>
 <div class="hero">
-<h1>Fale Comigo de Outro Jeito</h1>
-<p>O broche com QR Code que dá voz a quem é surdo e mudo</p>
-<a href="#precos" class="btn-contratar">Quero contratar</a>
+  <h1>Fale Comigo<br><span class="verde">de Outro Jeito</span></h1>
+  <p>QR Code que facilita a comunicação para quem se comunica de outro jeito. Ideal para pessoas surdas, autistas não verbais, com dificuldade de fala, apraxia, gagueira ou qualquer limitação na comunicação oral.</p>
+  <a href="https://wa.me/5518981950799?text=Oi!%20Vim%20do%20site%20QR%20ZAP%20e%20quero%20contratar" class="btn-contratar">📲 Quero contratar</a>
+  <p style="font-size:11px;opacity:.6;margin-top:14px">Comunicação acessível com respeito e dignidade • Panorama SP</p>
 </div>
 <section id="precos">
-<h2>Escolha seu plano</h2>
+<h2 style="font-size:24px;font-weight:900">Escolha seu plano</h2>
 <div class="card">
-<h3>Plano Individual</h3>
-<p class="price">R$ 50 único</p>
-<ul><li>Broche QR pessoal</li><li>Painel para trocar número</li><li>Suporte</li></ul>
-<a href="https://wa.me/5518981950799?text=Oi!%20Vim%20do%20site%20Broche%20Zap%20e%20quero%20meu%20broche%20Plano%20Individual%20por%20R$%2050" target="_blank" class="btn">Quero meu broche - R$ 50</a>
+<h3 style="color:#6A2FB5">Plano Individual</h3>
+<p class="price">R$ 50 <i>único • vitalício</i></p>
+<ul>
+  <li>QR Zap pessoal: broche, adesivo capinha ou card (você escolhe)</li>
+  <li>Ideal para pessoas surdas, autistas não verbais, com dificuldade de fala</li>
+  <li>Painel para trocar número quando quiser</li>
+  <li>Suporte humano no WhatsApp</li>
+</ul>
+<a href="https://wa.me/5518981950799?text=Oi!%20Vim%20do%20site%20QR%20ZAP%20e%20quero%20meu%20QR%20Zap%20Plano%20Individual%20por%20R$%2050" target="_blank" class="btn roxo">Quero meu QR Zap - R$ 50</a>
 </div>
 <div class="card cnpj">
-<h3>Plano CNPJ</h3>
+<h3>Selo Empresa Acessível</h3>
 <div class="highlight">Receba o Kit Comunicação Acessível</div>
-<p class="price">R$ 100/mês</p>
-<ul><li>Adesivo porta</li><li>Display balcão</li><li>Cartaz A3</li><li>Manual 1 pág</li><li>Selo digital + físico</li><li>Painel troca WhatsApp</li><li>Suporte</li></ul>
-<p style="font-size:12px">Impressão por conta do cliente. PDF via WhatsApp.</p>
-<a href="https://wa.me/5518981950799?text=Oi!%20Vim%20do%20site%20Broche%20Zap%20e%20quero%20contratar%20o%20Kit%20Comunica%C3%A7%C3%A3o%20Acess%C3%ADvel%20por%20R$%20100/m%C3%AAs" target="_blank" class="btn yellow">Quero contratar Kit - R$ 100/mês</a>
+<p class="price">R$ 100 <i>/mês por local</i></p>
+<ul>
+  <li>1 QR Code exclusivo da sua empresa com seu WhatsApp</li>
+  <li>Selo Oficial "Empresa Amiga da Comunicação Acessível"</li>
+  <li>Adesivo porta "Aqui tem Comunicação Acessível" com QR real</li>
+  <li>Display balcão + Cartaz A3 + Certificado digital</li>
+  <li>Manual 1 página para equipe + Suporte</li>
+</ul>
+<div class="aviso">
+  <b>🏛️ Prefeitura / vários setores?</b><br>
+  1 QR por secretaria: 5 setores R$ 250/mês • Completo (10-15 QRS) R$ 497/mês<br>
+  Cada setor com seu WhatsApp próprio.
+</div>
+<p style="font-size:11px;color:#666;margin-top:10px">Impressão por conta do cliente. Arquivos em PDF via WhatsApp em até 24h.</p>
+<a href="https://wa.me/5518981950799?text=Oi!%20Vim%20do%20site%20QR%20ZAP%20e%20quero%20contratar%20o%20Kit%20Comunica%C3%A7%C3%A3o%20Acess%C3%ADvel%20por%20R$%20100/m%C3%AAs" target="_blank" class="btn verde">Quero contratar Kit - R$ 100/mês</a>
+</div>
+<div class="inclusao">
+  <h3>💛 Por que mudamos?</h3>
+  <p style="font-size:12px;color:#475569;margin-bottom:10px">Antes usávamos "surdo e mudo" e só "broche". Agora somos <b>QR ZAP</b> porque nem todo mundo quer broche - tem gente que prefere adesivo na capinha. E respeitamos todas as formas de comunicação.</p>
+  <div class="grid2">
+    <div class="pill"><b>🧏 Pessoas surdas</b>Preferem texto</div>
+    <div class="pill"><b>💙 Autistas não verbais</b>Falam de outro jeito</div>
+    <div class="pill"><b>🗣️ Dificuldade de fala</b>Apraxia, gagueira...</div>
+    <div class="pill"><b>🏪 Empresas</b>Querem incluir</div>
+  </div>
 </div>
 </section>
 <footer>
 <b>68.088.847 FRANCIELLE KUNAST POSSARI CALAZANS</b><br>
 CNPJ 68.088.847/0001-03 ATIVA desde 19/07/2026<br>
-Panorama - SP | WhatsApp (18) 98195-0799
+Panorama - SP | WhatsApp (18) 98195-0799 / (18) 98167-0564<br>
+PIX: CNPJ 68.088.847/0001-03 | QR ZAP - Fale Comigo de Outro Jeito
 </footer>
 </body>
 </html>
