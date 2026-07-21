@@ -3,52 +3,60 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QR ZAP - Kit Digital R$100 - MVP</title>
+<title>QR ZAP - Kit Digital R$100</title>
 <style>
 *{box-sizing:border-box;font-family:Arial,sans-serif}
-body{margin:0;background:#f8f7ff;color:#222}
-header{background:#fff;padding:16px;border-bottom:3px solid #5B21B6;display:flex;justify-content:space-between;flex-wrap:wrap}
-.card{background:#fff;border-radius:16px;padding:20px;margin:16px;box-shadow:0 4px 18px rgba(0,0,0,.06);border:1px solid #eee}
-input,textarea{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;margin-top:6px;font-size:14px}
+body{margin:0;background:#f5f3ff;color:#222}
+header{background:#fff;padding:14px 16px;border-bottom:3px solid #5B21B6;display:flex;justify-content:space-between;align-items:center}
+.card{background:#fff;border-radius:18px;padding:18px;margin:14px;box-shadow:0 4px 20px rgba(91,33,182,.12);border:1px solid #e9e5ff}
+label{font-weight:700;font-size:13px;margin-top:12px;display:block;color:#5B21B6}
+input,textarea{width:100%;padding:12px;border:1.5px solid #ddd;border-radius:12px;margin-top:6px;font-size:14px}
+input:focus,textarea:focus{border-color:#5B21B6;outline:none}
 textarea{min-height:90px;background:#fbfbff}
-.preview{background:#f5f3ff;border:1px solid #5B21B6;border-radius:12px;padding:12px;margin-top:12px;font-size:14px;line-height:1.6}
-.link{background:#111;color:#0f0;padding:10px;border-radius:8px;font-size:11px;word-break:break-all;margin-top:10px;font-family:monospace}
-.btn{padding:12px 18px;border:0;border-radius:10px;font-weight:800;cursor:pointer}
-.btn1{background:#5B21B6;color:#fff}.btn2{background:#0F766E;color:#fff}.btn3{background:#eee;color:#333}
+.preview{background:#f5f3ff;border:1px dashed #5B21B6;border-radius:12px;padding:12px;margin-top:12px;font-size:14px;line-height:1.5}
+.link{font-size:10px;color:#666;margin-top:8px;word-break:break-all}
+.btn{padding:13px 16px;border:0;border-radius:12px;font-weight:800;cursor:pointer;width:100%;margin-top:8px}
+.btn1{background:#5B21B6;color:#fff}.btn2{background:#0F766E;color:#fff}.btn3{background:#f1f1f1;color:#333}
+.qrbox{display:flex;justify-content:center;margin-top:14px}
+.qrbox img{width:200px;height:200px;border-radius:12px;border:1px solid #ddd;padding:6px;background:#fff}
 </style>
 </head>
 <body>
 <header>
-<div><b style="color:#5B21B6">QR</b> <b style="color:#0F766E">ZAP</b> Implantação R$100/mês</div>
-<div style="background:#5B21B6;color:#fff;padding:6px 12px;border-radius:20px;font-size:12px">Kit Digital QR ZAP</div>
+<div><b style="color:#5B21B6">QR</b> <b style="color:#0F766E">ZAP</b> R$100/mês</div>
+<div style="background:#5B21B6;color:#fff;padding:6px 12px;border-radius:20px;font-size:11px">Kit Digital QR ZAP</div>
 </header>
-<div class="card" style="border:2px solid #5B21B6">
-<h2 style="color:#5B21B6;margin:0">Gerar Kit Digital QR ZAP - R$100/mês</h2>
-<p style="font-size:13px;color:#555;line-height:1.5">Você não vende QR Code. Você implanta comunicação acessível. O QR é apenas uma das ferramentas.</p>
+
+<div class="card">
+<h2 style="color:#5B21B6;margin:0 0 6px 0;font-size:20px">Gerar Kit Digital QR ZAP</h2>
+<p style="font-size:12px;color:#666;margin:0 0 12px 0">Você implanta comunicação acessível. O QR é só a ferramenta.</p>
+
 <label>Nome do estabelecimento</label>
 <input id="empresa" value="Broche Zap Brasil" oninput="gerar()">
-<label>WhatsApp do estabelecimento (com 55)</label>
+
+<label>WhatsApp (com 55)</label>
 <input id="numero" value="5518981950799" oninput="gerar()">
-<label>Mensagem de Acolhimento (padrão único - MVP)</label>
+
+<label>Mensagem de Acolhimento (padrão único)</label>
 <textarea id="msg" oninput="gerar()">Olá! Estou neste estabelecimento e prefiro me comunicar por mensagem. Por favor, responda por este chat para que possamos conversar. Obrigado(a)!</textarea>
+
 <div class="preview" id="prev"></div>
 <div class="link" id="long"></div>
-<div class="link" id="short" style="background:#0F766E;display:none"></div>
-<div style="display:flex;gap:14px;margin-top:14px;flex-wrap:wrap;align-items:center">
-<img id="qr" src="" style="width:190px;height:190px;border:1px solid #ddd;border-radius:12px">
-<div>
+<div class="qrbox"><img id="qr" src=""></div>
+
 <button class="btn btn1" onclick="encurtar()">⚡ Encurtar + Ativar Relatório</button>
-<div style="margin-top:8px;display:flex;gap:8px">
-<button class="btn btn3" onclick="copiar()">Copiar Link</button>
-<button class="btn btn2" onclick="baixar()">Baixar QR</button>
+<div id="short" style="font-size:11px;margin-top:8px;color:#0F766E;font-weight:700;display:none"></div>
+<div style="display:flex;gap:8px">
+<button class="btn btn3" onclick="copiar()" style="flex:1">Copiar Link</button>
+<button class="btn btn2" onclick="baixar()" style="flex:1">Baixar QR</button>
 </div>
-</div>
-</div>
-<p style="font-size:12px;color:#444;line-height:1.5;margin-top:16px">
-<b>Kit Digital QR ZAP:</b> Selo QR ZAP • QR personalizado • Mensagem de Acolhimento • Orientação para a equipe • Relatório de utilização.<br>
-<small style="color:#888">Regra da marca: Site → fala em Kit Digital QR ZAP | Painel → gera o Kit Digital QR ZAP | Cliente → recebe o Kit Digital QR ZAP. Impressão por conta do cliente. 100% grátis para o cidadão.</small>
+
+<p style="font-size:11px;color:#666;line-height:1.4;margin-top:16px;border-top:1px solid #eee;padding-top:10px">
+<b>Kit Digital QR ZAP:</b> Selo QR ZAP • QR personalizado • Mensagem de Acolhimento • Orientação para a equipe • Relatório.<br>
+<small>Site → fala em Kit | Painel → gera o Kit | Cliente → recebe o Kit. Impressão por conta do cliente. 100% grátis para o cidadão.</small>
 </p>
 </div>
+
 <script>
 let longUrl="",shortUrl="";
 function gerar(){
@@ -57,14 +65,13 @@ function gerar(){
  document.getElementById('prev').innerText='"'+msg+'"';
  longUrl=`https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
  document.getElementById('long').innerText=longUrl;
- document.getElementById('short').style.display='none';
- shortUrl="";
+ document.getElementById('short').style.display='none';shortUrl="";
  document.getElementById('qr').src=`https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent(longUrl)}`;
 }
 async function encurtar(){
  if(!longUrl) gerar();
  let el=document.getElementById('short');el.style.display='block';el.innerText='Encurtando...';
- try{let r=await fetch(`https://tinyurl.com/api-create.php?url=${encodeURIComponent(longUrl)}`);let t=await r.text();shortUrl=t;el.innerText='✅ Link rastreável: '+t;document.getElementById('qr').src=`https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent(t)}`;}catch(e){el.innerText='Cole em bit.ly para relatório: '+longUrl;}
+ try{let r=await fetch(`https://tinyurl.com/api-create.php?url=${encodeURIComponent(longUrl)}`);let t=await r.text();shortUrl=t;el.innerText='✅ Link rastreável: '+t;document.getElementById('qr').src=`https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent(t)}`;}catch(e){el.innerText='Erro, use o link longo';}
 }
 function copiar(){navigator.clipboard.writeText(shortUrl||longUrl);alert('Copiado!');}
 function baixar(){window.open(document.getElementById('qr').src,'_blank');}
