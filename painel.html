@@ -7,7 +7,7 @@
 <style>
 *{box-sizing:border-box;font-family:Arial,sans-serif}
 body{margin:0;background:#f8f7ff;color:#222}
-header{background:#fff;padding:16px;border-bottom:3px solid #5B21B6;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+header{background:#fff;padding:16px;border-bottom:3px solid #5B21B6;display:flex;justify-content:space-between;flex-wrap:wrap}
 .card{background:#fff;border-radius:16px;padding:20px;margin:16px;box-shadow:0 4px 18px rgba(0,0,0,.06);border:1px solid #eee}
 input,textarea{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;margin-top:6px;font-size:14px}
 textarea{min-height:90px;background:#fbfbff}
@@ -22,26 +22,18 @@ textarea{min-height:90px;background:#fbfbff}
 <div><b style="color:#5B21B6">QR</b> <b style="color:#0F766E">ZAP</b> Implantação R$100/mês</div>
 <div style="background:#5B21B6;color:#fff;padding:6px 12px;border-radius:20px;font-size:12px">Kit Digital QR ZAP</div>
 </header>
-
 <div class="card" style="border:2px solid #5B21B6">
 <h2 style="color:#5B21B6;margin:0">Gerar Kit Digital QR ZAP - R$100/mês</h2>
 <p style="font-size:13px;color:#555;line-height:1.5">Você não vende QR Code. Você implanta comunicação acessível. O QR é apenas uma das ferramentas.</p>
-
 <label>Nome do estabelecimento</label>
-value="Broche Zap Brasil"
-value="Broche Zap Brasil"
-value="5518981950799""
-
+<input id="empresa" value="Broche Zap Brasil" oninput="gerar()">
 <label>WhatsApp do estabelecimento (com 55)</label>
 <input id="numero" value="5518981950799" oninput="gerar()">
-
 <label>Mensagem de Acolhimento (padrão único - MVP)</label>
 <textarea id="msg" oninput="gerar()">Olá! Estou neste estabelecimento e prefiro me comunicar por mensagem. Por favor, responda por este chat para que possamos conversar. Obrigado(a)!</textarea>
-
 <div class="preview" id="prev"></div>
 <div class="link" id="long"></div>
 <div class="link" id="short" style="background:#0F766E;display:none"></div>
-
 <div style="display:flex;gap:14px;margin-top:14px;flex-wrap:wrap;align-items:center">
 <img id="qr" src="" style="width:190px;height:190px;border:1px solid #ddd;border-radius:12px">
 <div>
@@ -52,13 +44,11 @@ value="5518981950799""
 </div>
 </div>
 </div>
-
 <p style="font-size:12px;color:#444;line-height:1.5;margin-top:16px">
 <b>Kit Digital QR ZAP:</b> Selo QR ZAP • QR personalizado • Mensagem de Acolhimento • Orientação para a equipe • Relatório de utilização.<br>
 <small style="color:#888">Regra da marca: Site → fala em Kit Digital QR ZAP | Painel → gera o Kit Digital QR ZAP | Cliente → recebe o Kit Digital QR ZAP. Impressão por conta do cliente. 100% grátis para o cidadão.</small>
 </p>
 </div>
-
 <script>
 let longUrl="",shortUrl="";
 function gerar(){
