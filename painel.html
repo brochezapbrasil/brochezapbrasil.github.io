@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR ZAP - Kit Digital R$100 - MVP</title>
+<style>
+*{box-sizing:border-box;font-family:Arial,sans-serif}
+body{margin:0;background:#f8f7ff;color:#222}
+header{background:#fff;padding:16px;border-bottom:3px solid #5B21B6;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.card{background:#fff;border-radius:16px;padding:20px;margin:16px;box-shadow:0 4px 18px rgba(0,0,0,.06);border:1px solid #eee}
+input,textarea{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;margin-top:6px;font-size:14px}
+textarea{min-height:90px;background:#fbfbff}
+.preview{background:#f5f3ff;border:1px solid #5B21B6;border-radius:12px;padding:12px;margin-top:12px;font-size:14px;line-height:1.6}
+.link{background:#111;color:#0f0;padding:10px;border-radius:8px;font-size:11px;word-break:break-all;margin-top:10px;font-family:monospace}
+.btn{padding:12px 18px;border:0;border-radius:10px;font-weight:800;cursor:pointer}
+.btn1{background:#5B21B6;color:#fff}.btn2{background:#0F766E;color:#fff}.btn3{background:#eee;color:#333}
+</style>
+</head>
+<body>
+<header>
+<div><b style="color:#5B21B6">QR</b> <b style="color:#0F766E">ZAP</b> Implantação R$100/mês</div>
+<div style="background:#5B21B6;color:#fff;padding:6px 12px;border-radius:20px;font-size:12px">Kit Digital QR ZAP</div>
+</header>
+
+<div class="card" style="border:2px solid #5B21B6">
+<h2 style="color:#5B21B6;margin:0">Gerar Kit Digital QR ZAP - R$100/mês</h2>
+<p style="font-size:13px;color:#555;line-height:1.5">Você não vende QR Code. Você implanta comunicação acessível. O QR é apenas uma das ferramentas.</p>
+
+<label>Nome do estabelecimento</label>
+<input id="empresa" value="Farmácia Central" oninput="gerar()">
+
+<label>WhatsApp do estabelecimento (com 55)</label>
+<input id="numero" value="5518981950799" oninput="gerar()">
+
+<label>Mensagem de Acolhimento (padrão único - MVP)</label>
+<textarea id="msg" oninput="gerar()">Olá! Estou neste estabelecimento e prefiro me comunicar por mensagem. Por favor, responda por este chat para que possamos conversar. Obrigado(a)!</textarea>
+
+<div class="preview" id="prev"></div>
+<div class="link" id="long"></div>
+<div class="link" id="short" style="background:#0F766E;display:none"></div>
+
+<div style="display:flex;gap:14px;margin-top:14px;flex-wrap:wrap;align-items:center">
+<img id="qr" src="" style="width:190px;height:190px;border:1px solid #ddd;border-radius:12px">
+<div>
+<button class="btn btn1" onclick="encurtar()">⚡ Encurtar + Ativar Relatório</button>
+<div style="margin-top:8px;display:flex;gap:8px">
+<button class="btn btn3" onclick="copiar()">Copiar Link</button>
+<button class="btn btn2" onclick="baixar()">Baixar QR</button>
+</div>
+</div>
+</div>
+
+<p style="font-size:12px;color:#444;line-height:1.5;margin-top:16px">
+<b>Kit Digital QR ZAP:</b> Selo QR ZAP • QR personalizado • Mensagem de Acolhimento • Orientação para a equipe • Relatório de utilização.<br>
+<small style="color:#888">Regra da marca: Site → fala em Kit Digital QR ZAP | Painel → gera o Kit Digital QR ZAP | Cliente → recebe o Kit Digital QR ZAP. Impressão por conta do cliente. 100% grátis para o cidadão.</small>
+</p>
+</div>
+
+<script>
+let longUrl="",shortUrl="";
+function gerar(){
+ let msg=document.getElementById('msg').value.trim();
+ let num=document.getElementById('numero').value.replace(/\D/g,'')||'5518981950799';
+ document.getElementById('prev').innerText='"'+msg+'"';
+ longUrl=`https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
+ document.getElementById('long').innerText=longUrl;
+ document.getElementById('short').style.display='none';
+ shortUrl="";
+ document.getElementById('qr').src=`https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent(longUrl)}`;
+}
+async function encurtar(){
+ if(!longUrl) gerar();
+ let el=document.getElementById('short');el.style.display='block';el.innerText='Encurtando...';
+ try{let r=await fetch(`https://tinyurl.com/api-create.php?url=${encodeURIComponent(longUrl)}`);let t=await r.text();shortUrl=t;el.innerText='✅ Link rastreável: '+t;document.getElementById('qr').src=`https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent(t)}`;}catch(e){el.innerText='Cole em bit.ly para relatório: '+longUrl;}
+}
+function copiar(){navigator.clipboard.writeText(shortUrl||longUrl);alert('Copiado!');}
+function baixar(){window.open(document.getElementById('qr').src,'_blank');}
+gerar();
+</script>
+</body>
+</html>
