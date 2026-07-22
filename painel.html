@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QR ZAP - Kit Digital R$100</title>
+<title>QR ZAP - Kit Digital Completo R$100/mês</title>
 <style>
 *{box-sizing:border-box;font-family:Arial,sans-serif}
 body{margin:0;background:#f5f3ff;color:#222}
@@ -11,70 +11,101 @@ header{background:#fff;padding:14px 16px;border-bottom:3px solid #5B21B6;display
 .card{background:#fff;border-radius:18px;padding:18px;margin:14px;box-shadow:0 4px 20px rgba(91,33,182,.12);border:1px solid #e9e5ff}
 label{font-weight:700;font-size:13px;margin-top:12px;display:block;color:#5B21B6}
 input,textarea{width:100%;padding:12px;border:1.5px solid #ddd;border-radius:12px;margin-top:6px;font-size:14px}
-input:focus,textarea:focus{border-color:#5B21B6;outline:none}
-textarea{min-height:90px;background:#fbfbff}
-.preview{background:#f5f3ff;border:1px dashed #5B21B6;border-radius:12px;padding:12px;margin-top:12px;font-size:14px;line-height:1.5}
-.link{font-size:10px;color:#666;margin-top:8px;word-break:break-all}
-.btn{padding:13px 16px;border:0;border-radius:12px;font-weight:800;cursor:pointer;width:100%;margin-top:8px}
+.btn{padding:13px 16px;border:0;border-radius:12px;font-weight:800;cursor:pointer;width:100%;margin-top:8px;display:block;text-align:center;text-decoration:none}
 .btn1{background:#5B21B6;color:#fff}.btn2{background:#0F766E;color:#fff}.btn3{background:#f1f1f1;color:#333}
 .qrbox{display:flex;justify-content:center;margin-top:14px}
-.qrbox img{width:200px;height:200px;border-radius:12px;border:1px solid #ddd;padding:6px;background:#fff}
+.qrbox img{width:220px;height:220px;border-radius:12px;border:1px solid #ddd;padding:6px;background:#fff}
+.kit-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.kit-item{border:1.5px solid #e9e5ff;border-radius:12px;padding:12px;text-align:center;background:#faf8ff}
+.selo{width:100%;height:90px;background:#5B21B6;color:white;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:900}
+.cartaz{border:2px solid #5B21B6;border-radius:12px;padding:12px;text-align:center;background:white}
+.cert{border:2px solid #0F766E;border-radius:12px;padding:12px;text-align:center;background:#f0fdfa}
 </style>
 </head>
 <body>
 <header>
-<div><b style="color:#5B21B6">QR</b> <b style="color:#0F766E">ZAP</b> R$100/mês</div>
-<div style="background:#5B21B6;color:#fff;padding:6px 12px;border-radius:20px;font-size:11px">Kit Digital QR ZAP</div>
+<div><b style="color:#5B21B6">QR</b> <b style="color:#0F766E">ZAP</b> KIT COMPLETO</div>
+<div style="background:#10b981;color:#fff;padding:6px 12px;border-radius:20px;font-size:10px">✅ PAGO</div>
 </header>
 
 <div class="card">
-<h2 style="color:#5B21B6;margin:0 0 6px 0;font-size:20px">Gerar Kit Digital QR ZAP</h2>
-<p style="font-size:12px;color:#666;margin:0 0 12px 0">Você implanta comunicação acessível. O QR é só a ferramenta.</p>
-
+<h2 style="color:#5B21B6;margin:0;font-size:20px">Gerar Kit Digital Completo</h2>
+<p style="font-size:12px;color:#666">Digite os dados e baixe TODO o kit na hora.</p>
 <label>Nome do estabelecimento</label>
-<input id="empresa" value="Broche Zap Brasil" oninput="gerar()">
-
+<input id="empresa" value="Sua Empresa Aqui" oninput="gerar()">
 <label>WhatsApp (com 55)</label>
 <input id="numero" value="5518981950799" oninput="gerar()">
-
-<label>Mensagem de Acolhimento (padrão único)</label>
-<textarea id="msg" oninput="gerar()">Olá! Estou neste estabelecimento e prefiro me comunicar por mensagem. Por favor, responda por este chat para que possamos conversar. Obrigado(a)!</textarea>
-
-<div class="preview" id="prev"></div>
-<div class="link" id="long"></div>
+<label>Mensagem de Acolhimento</label>
+<textarea id="msg" oninput="gerar()">Olá! Estou neste estabelecimento e prefiro me comunicar por mensagem. Por favor, responda por este chat. Obrigado(a)!</textarea>
 <div class="qrbox"><img id="qr" src=""></div>
+<p id="link" style="font-size:9px;color:#999;word-break:break-all;text-align:center"></p>
+</div>
 
+<div class="card">
+<h3 style="color:#5B21B6;margin:0 0 10px 0">📦 Seu Kit - Clique para baixar</h3>
+<div class="kit-grid">
+<div class="kit-item">
+<div class="selo"><span id="sNome">Sua Empresa</span><span style="font-size:18px">QR ZAP</span><span style="font-size:7px">EMPRESA ACESSIVEL</span></div>
+<h4>1. Selo</h4>
+<button class="btn btn3" onclick="baixarSelo()">Baixar Selo</button>
+</div>
+<div class="kit-item">
+<div class="cartaz"><b style="color:#5B21B6;font-size:10px">Fale Comigo de Outro Jeito</b><br><img id="q1" style="width:60px"><br><span id="cNome" style="font-size:8px">Sua Empresa</span></div>
+<h4>2. Cartaz A4</h4>
+<button class="btn btn3" onclick="window.print()">Imprimir</button>
+</div>
+<div class="kit-item">
+<div class="cert"><b style="font-size:9px">CERTIFICADO</b><br><span id="certNome" style="color:#5B21B6;font-weight:900">Sua Empresa</span><br><span style="font-size:7px">Empresa Amiga da Comunicação Acessível</span></div>
+<h4>3. Certificado</h4>
+<button class="btn btn3" onclick="baixarCert()">Baixar</button>
+</div>
+<div class="kit-item">
+<div style="background:#f5f3ff;padding:10px;border-radius:8px;font-size:9px;text-align:left"><b>Manual:</b><br>• Deixe QR visível<br>• Olhe WhatsApp<br>• Responda com calma</div>
+<h4>4. Manual</h4>
+<button class="btn btn3" onclick="alert('1-Deixe QR visível na entrada 2-Oriente equipe 3-Responda no WhatsApp')">Ver</button>
+</div>
+</div>
 <button class="btn btn1" onclick="encurtar()">⚡ Encurtar + Ativar Relatório</button>
-<div id="short" style="font-size:11px;margin-top:8px;color:#0F766E;font-weight:700;display:none"></div>
-<div style="display:flex;gap:8px">
-<button class="btn btn3" onclick="copiar()" style="flex:1">Copiar Link</button>
-<button class="btn btn2" onclick="baixar()" style="flex:1">Baixar QR</button>
+<div id="short" style="font-size:11px;color:#0F766E;text-align:center;margin-top:8px;display:none"></div>
+<div style="display:flex;gap:8px;margin-top:10px"><button class="btn btn3" onclick="copiar()" style="flex:1">Copiar Link</button><button class="btn btn2" onclick="baixarQR()" style="flex:1">Baixar QR</button></div>
 </div>
-
-<p style="font-size:11px;color:#666;line-height:1.4;margin-top:16px;border-top:1px solid #eee;padding-top:10px">
-<b>Kit Digital QR ZAP:</b> Selo QR ZAP • QR personalizado • Mensagem de Acolhimento • Orientação para a equipe • Relatório.<br>
-<small>Site → fala em Kit | Painel → gera o Kit | Cliente → recebe o Kit. Impressão por conta do cliente. 100% grátis para o cidadão.</small>
-</p>
-</div>
-
+<canvas id="cv" style="display:none"></canvas>
 <script>
 let longUrl="",shortUrl="";
 function gerar(){
- let msg=document.getElementById('msg').value.trim();
- let num=document.getElementById('numero').value.replace(/\D/g,'')||'5518981950799';
- document.getElementById('prev').innerText='"'+msg+'"';
- longUrl=`https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
- document.getElementById('long').innerText=longUrl;
- document.getElementById('short').style.display='none';shortUrl="";
- document.getElementById('qr').src=`https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent(longUrl)}`;
+let emp=document.getElementById('empresa').value||'Sua Empresa';
+let msg=document.getElementById('msg').value;
+let num=document.getElementById('numero').value.replace(/\D/g,'');
+longUrl=`https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
+document.getElementById('link').innerText=longUrl;
+document.getElementById('sNome').innerText=emp;
+document.getElementById('cNome').innerText=emp;
+document.getElementById('certNome').innerText=emp;
+let qr=`https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent(longUrl)}`;
+document.getElementById('qr').src=qr;
+document.getElementById('q1').src=qr;
 }
 async function encurtar(){
- if(!longUrl) gerar();
- let el=document.getElementById('short');el.style.display='block';el.innerText='Encurtando...';
- try{let r=await fetch(`https://tinyurl.com/api-create.php?url=${encodeURIComponent(longUrl)}`);let t=await r.text();shortUrl=t;el.innerText='✅ Link rastreável: '+t;document.getElementById('qr').src=`https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent(t)}`;}catch(e){el.innerText='Erro, use o link longo';}
+if(!longUrl) gerar();
+let el=document.getElementById('short');el.style.display='block';el.innerText='Encurtando...';
+try{let r=await fetch(`https://tinyurl.com/api-create.php?url=${encodeURIComponent(longUrl)}`);let t=await r.text();shortUrl=t;el.innerText='Link: '+t;let qr=`https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent(t)}`;document.getElementById('qr').src=qr;document.getElementById('q1').src=qr;}catch(e){el.innerText='Erro';}
 }
 function copiar(){navigator.clipboard.writeText(shortUrl||longUrl);alert('Copiado!');}
-function baixar(){window.open(document.getElementById('qr').src,'_blank');}
+function baixarQR(){window.open(document.getElementById('qr').src,'_blank');}
+function baixarSelo(){
+let emp=document.getElementById('empresa').value;
+let c=document.getElementById('cv');c.width=800;c.height=400;let x=c.getContext('2d');
+x.fillStyle='#5B21B6';x.fillRect(0,0,800,400);x.fillStyle='white';x.font='bold 40px Arial';x.textAlign='center';x.fillText(emp,400,200);x.font='bold 20px Arial';x.fillText('SELO QR ZAP - EMPRESA ACESSIVEL',400,260);
+let a=document.createElement('a');a.download='Selo-'+emp+'.png';a.href=c.toDataURL();a.click();
+}
+function baixarCert(){
+let emp=document.getElementById('empresa').value;
+let c=document.getElementById('cv');c.width=1000;c.height=700;let x=c.getContext('2d');
+x.fillStyle='white';x.fillRect(0,0,1000,700);x.strokeStyle='#0F766E';x.lineWidth=8;x.strokeRect(10,10,980,680);
+x.fillStyle='#5B21B6';x.font='bold 36px Arial';x.textAlign='center';x.fillText(emp,500,300);
+x.font='20px Arial';x.fillText('CERTIFICADO - Empresa Amiga da Comunicação Acessível',500,400);
+let a=document.createElement('a');a.download='Certificado-'+emp+'.png';a.href=c.toDataURL();a.click();
+}
 gerar();
 </script>
 </body>
