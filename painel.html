@@ -1,110 +1,80 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QR ZAP - Kit Digital Completo R$100/mês</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kit Oficial BrocheZap - Certificado e Adesivo</title>
 <style>
 *{box-sizing:border-box;font-family:Arial,sans-serif}
-body{margin:0;background:#f5f3ff;color:#222}
-header{background:#fff;padding:14px 16px;border-bottom:3px solid #5B21B6;display:flex;justify-content:space-between;align-items:center}
-.card{background:#fff;border-radius:18px;padding:18px;margin:14px;box-shadow:0 4px 20px rgba(91,33,182,.12);border:1px solid #e9e5ff}
-label{font-weight:700;font-size:13px;margin-top:12px;display:block;color:#5B21B6}
-input,textarea{width:100%;padding:12px;border:1.5px solid #ddd;border-radius:12px;margin-top:6px;font-size:14px}
-.btn{padding:13px 16px;border:0;border-radius:12px;font-weight:800;cursor:pointer;width:100%;margin-top:8px;display:block;text-align:center;text-decoration:none}
-.btn1{background:#5B21B6;color:#fff}.btn2{background:#0F766E;color:#fff}.btn3{background:#f1f1f1;color:#333}
-.qrbox{display:flex;justify-content:center;margin-top:14px}
-.qrbox img{width:220px;height:220px;border-radius:12px;border:1px solid #ddd;padding:6px;background:#fff}
-.kit-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
-.kit-item{border:1.5px solid #e9e5ff;border-radius:12px;padding:12px;text-align:center;background:#faf8ff}
-.selo{width:100%;height:90px;background:#5B21B6;color:white;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:900}
-.cartaz{border:2px solid #5B21B6;border-radius:12px;padding:12px;text-align:center;background:white}
-.cert{border:2px solid #0F766E;border-radius:12px;padding:12px;text-align:center;background:#f0fdfa}
+body{margin:0;background:#f2f0ff}
+header{background:#6A2FB5;color:#fff;padding:12px;text-align:center;font-weight:900}
+.card{background:#fff;margin:12px;padding:16px;border-radius:12px;border:1px solid #e5e0ff}
+label{font-size:11px;font-weight:800;color:#6A2FB5;display:block;margin-top:10px}
+input,textarea{width:100%;padding:10px;border:1.5px solid #ddd;border-radius:8px;margin-top:4px}
+.btn{background:#6A2FB5;color:#fff;padding:14px;border:0;border-radius:10px;width:100%;font-weight:900;margin-top:10px;cursor:pointer}
+.btn2{background:#00B894}
+.cert{border:2px solid #6A2FB5;border-radius:8px;padding:18px;background:#fff;position:relative;text-align:center}
+.adesivo{border:1px solid #ddd;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:10px;gap:8px}
 </style>
 </head>
 <body>
-<header>
-<div><b style="color:#5B21B6">QR</b> <b style="color:#0F766E">ZAP</b> KIT COMPLETO</div>
-<div style="background:#10b981;color:#fff;padding:6px 12px;border-radius:20px;font-size:10px">✅ PAGO</div>
-</header>
-
+<header>KIT OFICIAL BROCHEZAP - PAGO - R$100/mês</header>
 <div class="card">
-<h2 style="color:#5B21B6;margin:0;font-size:20px">Gerar Kit Digital Completo</h2>
-<p style="font-size:12px;color:#666">Digite os dados e baixe TODO o kit na hora.</p>
-<label>Nome do estabelecimento</label>
-<input id="empresa" value="Sua Empresa Aqui" oninput="gerar()">
-<label>WhatsApp (com 55)</label>
+<label>Nome da Empresa (vai no Certificado)</label>
+<input id="empresa" value="Nome da Empresa" oninput="gerar()">
+<label>WhatsApp com 55</label>
 <input id="numero" value="5518981950799" oninput="gerar()">
-<label>Mensagem de Acolhimento</label>
-<textarea id="msg" oninput="gerar()">Olá! Estou neste estabelecimento e prefiro me comunicar por mensagem. Por favor, responda por este chat. Obrigado(a)!</textarea>
-<div class="qrbox"><img id="qr" src=""></div>
-<p id="link" style="font-size:9px;color:#999;word-break:break-all;text-align:center"></p>
+<label>Mensagem</label>
+<textarea id="msg">Olá! Estou neste estabelecimento e prefiro me comunicar por mensagem.</textarea>
+<button class="btn" onclick="gerar()">GERAR KIT FIEL COM MEUS DADOS</button>
+<div style="text-align:center;margin-top:12px"><img id="qr" style="width:160px;border:1px solid #ddd;padding:4px"><p id="link" style="font-size:7px;color:#999;word-break:break-all"></p></div>
 </div>
 
 <div class="card">
-<h3 style="color:#5B21B6;margin:0 0 10px 0">📦 Seu Kit - Clique para baixar</h3>
-<div class="kit-grid">
-<div class="kit-item">
-<div class="selo"><span id="sNome">Sua Empresa</span><span style="font-size:18px">QR ZAP</span><span style="font-size:7px">EMPRESA ACESSIVEL</span></div>
-<h4>1. Selo</h4>
-<button class="btn btn3" onclick="baixarSelo()">Baixar Selo</button>
+<h3 style="color:#6A2FB5;margin:0">1. CERTIFICADO - Empresa Amiga da Comunicação Acessível</h3>
+<div class="cert" id="certBox">
+<div style="font-weight:900;color:#6A2FB5;font-size:18px">BrocheZap</div>
+<div style="font-size:9px;color:#00B894">FALE COMIGO DE OUTRO JEITO</div>
+<div style="color:#b8962e;font-size:18px;letter-spacing:4px;margin:8px 0">CERTIFICADO</div>
+<div style="font-size:9px;color:#00B894">CERTIFICADO CONCEDIDO À</div>
+<div id="certNome" style="font-family:'Brush Script MT',cursive;font-size:36px;color:#6A2FB5;border-bottom:1px solid #ccc;display:inline-block;min-width:250px;margin:6px 0">Nome da Empresa</div>
+<div style="font-size:10px;line-height:1.3">por demonstrar compromisso com a inclusão e a comunicação acessível.<br>Esta empresa faz parte do Programa Broche Zap - Fale Comigo de Outro Jeito<br>e atende aos critérios do Selo Empresa Amiga da Comunicação Acessível.</div>
+<div style="display:flex;justify-content:space-around;margin-top:14px;font-size:7px;font-weight:800"><div>QR CODE<br>INSTALADO</div><div>EQUIPE<br>ORIENTADA</div><div>SERVIÇO<br>ATIVO</div><div>PRIVACIDADE E<br>ACESSIBILIDADE<br>RESPEITADAS</div></div>
+<div style="background:#6A2FB5;color:#fff;display:flex;justify-content:space-around;font-size:7px;padding:8px;border-radius:0 0 8px 8px;margin:14px -18px -18px -18px"><span>INCLUSÃO</span><span>RESPEITO</span><span>ACESSO</span><span>DIGNIDADE</span></div>
 </div>
-<div class="kit-item">
-<div class="cartaz"><b style="color:#5B21B6;font-size:10px">Fale Comigo de Outro Jeito</b><br><img id="q1" style="width:60px"><br><span id="cNome" style="font-size:8px">Sua Empresa</span></div>
-<h4>2. Cartaz A4</h4>
-<button class="btn btn3" onclick="window.print()">Imprimir</button>
+<button class="btn btn2" onclick="baixarCert()">Baixar Certificado Oficial PNG</button>
+
+<h3 style="color:#6A2FB5;margin:20px 0 0 0">2. ADESIVO PARA PORTA OU BALCÃO</h3>
+<p style="font-size:10px;margin:0 0 6px 0">AQUI TEM COMUNICAÇÃO ACESSÍVEL</p>
+<div class="adesivo">
+<div style="background:#6A2FB5;color:#fff;border-radius:50%;width:70px;height:70px;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:900;text-align:center">SELO<br>OFICIAL<br>BrocheZap</div>
+<div style="flex:1;padding:0 6px"><b style="color:#6A2FB5;font-size:12px">AQUI TEM COMUNICAÇÃO ACESSÍVEL!</b><br><span style="font-size:10px">Escaneie o QR Code e fale com a gente do seu jeito.</span></div>
+<div style="text-align:center"><div style="font-size:6px;font-weight:800">ESCANEIE E<br>COMUNIQUE-SE</div><img id="qr2" style="width:70px"><div style="font-size:6px">Telefone/WhatsApp</div></div>
 </div>
-<div class="kit-item">
-<div class="cert"><b style="font-size:9px">CERTIFICADO</b><br><span id="certNome" style="color:#5B21B6;font-weight:900">Sua Empresa</span><br><span style="font-size:7px">Empresa Amiga da Comunicação Acessível</span></div>
-<h4>3. Certificado</h4>
-<button class="btn btn3" onclick="baixarCert()">Baixar</button>
+<button class="btn" onclick="window.print()">Imprimir Adesivo Porta/Balcão</button>
 </div>
-<div class="kit-item">
-<div style="background:#f5f3ff;padding:10px;border-radius:8px;font-size:9px;text-align:left"><b>Manual:</b><br>• Deixe QR visível<br>• Olhe WhatsApp<br>• Responda com calma</div>
-<h4>4. Manual</h4>
-<button class="btn btn3" onclick="alert('1-Deixe QR visível na entrada 2-Oriente equipe 3-Responda no WhatsApp')">Ver</button>
-</div>
-</div>
-<button class="btn btn1" onclick="encurtar()">⚡ Encurtar + Ativar Relatório</button>
-<div id="short" style="font-size:11px;color:#0F766E;text-align:center;margin-top:8px;display:none"></div>
-<div style="display:flex;gap:8px;margin-top:10px"><button class="btn btn3" onclick="copiar()" style="flex:1">Copiar Link</button><button class="btn btn2" onclick="baixarQR()" style="flex:1">Baixar QR</button></div>
-</div>
+
 <canvas id="cv" style="display:none"></canvas>
 <script>
-let longUrl="",shortUrl="";
+let longUrl="";
 function gerar(){
-let emp=document.getElementById('empresa').value||'Sua Empresa';
+let emp=document.getElementById('empresa').value||'Nome da Empresa';
 let msg=document.getElementById('msg').value;
 let num=document.getElementById('numero').value.replace(/\D/g,'');
 longUrl=`https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
 document.getElementById('link').innerText=longUrl;
-document.getElementById('sNome').innerText=emp;
-document.getElementById('cNome').innerText=emp;
 document.getElementById('certNome').innerText=emp;
 let qr=`https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent(longUrl)}`;
 document.getElementById('qr').src=qr;
-document.getElementById('q1').src=qr;
-}
-async function encurtar(){
-if(!longUrl) gerar();
-let el=document.getElementById('short');el.style.display='block';el.innerText='Encurtando...';
-try{let r=await fetch(`https://tinyurl.com/api-create.php?url=${encodeURIComponent(longUrl)}`);let t=await r.text();shortUrl=t;el.innerText='Link: '+t;let qr=`https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent(t)}`;document.getElementById('qr').src=qr;document.getElementById('q1').src=qr;}catch(e){el.innerText='Erro';}
-}
-function copiar(){navigator.clipboard.writeText(shortUrl||longUrl);alert('Copiado!');}
-function baixarQR(){window.open(document.getElementById('qr').src,'_blank');}
-function baixarSelo(){
-let emp=document.getElementById('empresa').value;
-let c=document.getElementById('cv');c.width=800;c.height=400;let x=c.getContext('2d');
-x.fillStyle='#5B21B6';x.fillRect(0,0,800,400);x.fillStyle='white';x.font='bold 40px Arial';x.textAlign='center';x.fillText(emp,400,200);x.font='bold 20px Arial';x.fillText('SELO QR ZAP - EMPRESA ACESSIVEL',400,260);
-let a=document.createElement('a');a.download='Selo-'+emp+'.png';a.href=c.toDataURL();a.click();
+document.getElementById('qr2').src=qr;
 }
 function baixarCert(){
 let emp=document.getElementById('empresa').value;
-let c=document.getElementById('cv');c.width=1000;c.height=700;let x=c.getContext('2d');
-x.fillStyle='white';x.fillRect(0,0,1000,700);x.strokeStyle='#0F766E';x.lineWidth=8;x.strokeRect(10,10,980,680);
-x.fillStyle='#5B21B6';x.font='bold 36px Arial';x.textAlign='center';x.fillText(emp,500,300);
-x.font='20px Arial';x.fillText('CERTIFICADO - Empresa Amiga da Comunicação Acessível',500,400);
-let a=document.createElement('a');a.download='Certificado-'+emp+'.png';a.href=c.toDataURL();a.click();
+let c=document.getElementById('cv');c.width=1000;c.height=650;let x=c.getContext('2d');
+x.fillStyle='#fff';x.fillRect(0,0,1000,650);x.strokeStyle='#6A2FB5';x.strokeRect(20,20,960,610);
+x.fillStyle='#6A2FB5';x.font='bold 24px Arial';x.textAlign='center';x.fillText('BrocheZap',500,60);
+x.fillStyle='#b8962e';x.font='22px Arial';x.fillText('CERTIFICADO',500,100);
+x.fillStyle='#6A2FB5';x.font='40px Brush Script MT';x.fillText(emp,500,180);
+let a=document.createElement('a');a.download='CERTIFICADO-'+emp+'.png';a.href=c.toDataURL();a.click();
 }
 gerar();
 </script>
