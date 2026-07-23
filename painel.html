@@ -2,79 +2,78 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kit Oficial BrocheZap - Certificado e Adesivo</title>
+<title>Kit Oficial BrocheZap - 100% Fiel</title>
 <style>
-*{box-sizing:border-box;font-family:Arial,sans-serif}
-body{margin:0;background:#f2f0ff}
-header{background:#6A2FB5;color:#fff;padding:12px;text-align:center;font-weight:900}
-.card{background:#fff;margin:12px;padding:16px;border-radius:12px;border:1px solid #e5e0ff}
+*{box-sizing:border-box;font-family:Arial}body{margin:0;background:#f5f0ff}
+header{background:#6A2FB5;color:#fff;padding:14px;text-align:center;font-weight:900}
+.card{background:#fff;margin:12px;padding:16px;border-radius:14px;border:1.5px solid #e9e0ff}
 label{font-size:11px;font-weight:800;color:#6A2FB5;display:block;margin-top:10px}
-input,textarea{width:100%;padding:10px;border:1.5px solid #ddd;border-radius:8px;margin-top:4px}
-.btn{background:#6A2FB5;color:#fff;padding:14px;border:0;border-radius:10px;width:100%;font-weight:900;margin-top:10px;cursor:pointer}
-.btn2{background:#00B894}
-.cert{border:2px solid #6A2FB5;border-radius:8px;padding:18px;background:#fff;position:relative;text-align:center}
-.adesivo{border:1px solid #ddd;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:10px;gap:8px}
+input,textarea{width:100%;padding:12px;border:1.5px solid #ddd;border-radius:10px;margin-top:4px}
+.btn{padding:14px;border:0;border-radius:10px;width:100%;font-weight:900;cursor:pointer;margin-top:8px}
+.btn-roxo{background:#6A2FB5;color:#fff}.btn-verde{background:#00B894;color:#fff}.btn-cinza{background:#eee;color:#333}
+.qr-box{border:2px dashed #6A2FB5;border-radius:12px;padding:12px;text-align:center;background:#faf8ff;margin-top:12px}
+.cert-wrap{position:relative;text-align:center}
+.cert-wrap img{width:100%;max-width:800px;border-radius:8px}
+.cert-nome{position:absolute;top:47%;left:50%;transform:translate(-50%,-50%);font-family:'Brush Script MT',cursive;font-size:32px;color:#6A2FB5;white-space:nowrap}
+.adesivo-wrap{position:relative;text-align:center}
+.adesivo-wrap img{width:100%;max-width:800px;border-radius:8px}
+.adesivo-qr{position:absolute;top:48%;right:12.5%;width:18%;transform:translateY(-50%)}
 </style>
 </head>
 <body>
-<header>KIT OFICIAL BROCHEZAP - PAGO - R$100/mês</header>
-<div class="card">
-<label>Nome da Empresa (vai no Certificado)</label>
-<input id="empresa" value="Nome da Empresa" oninput="gerar()">
-<label>WhatsApp com 55</label>
-<input id="numero" value="" oninput="gerar()">
-<label>Mensagem</label>
-<textarea id="msg">Olá! Estou neste estabelecimento e prefiro me comunicar por mensagem.</textarea>
-<button class="btn" onclick="gerar()">GERAR KIT FIEL COM MEUS DADOS</button>
-<div style="text-align:center;margin-top:12px"><img id="qr" style="width:160px;border:1px solid #ddd;padding:4px"><p id="link" style="font-size:7px;color:#999;word-break:break-all"></p></div>
-</div>
+<header>✅ KIT OFICIAL FIEL - 4 ITENS OFICIAIS</header>
 
 <div class="card">
-<h3 style="color:#6A2FB5;margin:0">1. CERTIFICADO - Empresa Amiga da Comunicação Acessível</h3>
-<div class="cert" id="certBox">
-<div style="font-weight:900;color:#6A2FB5;font-size:18px">BrocheZap</div>
-<div style="font-size:9px;color:#00B894">FALE COMIGO DE OUTRO JEITO</div>
-<div style="color:#b8962e;font-size:18px;letter-spacing:4px;margin:8px 0">CERTIFICADO</div>
-<div style="font-size:9px;color:#00B894">CERTIFICADO CONCEDIDO À</div>
-<div id="certNome" style="font-family:'Brush Script MT',cursive;font-size:36px;color:#6A2FB5;border-bottom:1px solid #ccc;display:inline-block;min-width:250px;margin:6px 0">Nome da Empresa</div>
-<div style="font-size:10px;line-height:1.3">por demonstrar compromisso com a inclusão e a comunicação acessível.<br>Esta empresa faz parte do Programa Broche Zap - Fale Comigo de Outro Jeito<br>e atende aos critérios do Selo Empresa Amiga da Comunicação Acessível.</div>
-<div style="display:flex;justify-content:space-around;margin-top:14px;font-size:7px;font-weight:800"><div>QR CODE<br>INSTALADO</div><div>EQUIPE<br>ORIENTADA</div><div>SERVIÇO<br>ATIVO</div><div>PRIVACIDADE E<br>ACESSIBILIDADE<br>RESPEITADAS</div></div>
-<div style="background:#6A2FB5;color:#fff;display:flex;justify-content:space-around;font-size:7px;padding:8px;border-radius:0 0 8px 8px;margin:14px -18px -18px -18px"><span>INCLUSÃO</span><span>RESPEITO</span><span>ACESSO</span><span>DIGNIDADE</span></div>
+<label>Nome da Empresa</label><input id="empresa" value="Nome da Empresa" oninput="gerar()">
+<label>WhatsApp com 55</label><input id="numero" value="551881670564" oninput="gerar()">
+<label>Mensagem</label><textarea id="msg" rows="2" oninput="gerar()">Olá! Estou neste estabelecimento e prefiro me comunicar por mensagem.</textarea>
+<button class="btn btn-roxo" onclick="gerar()">GERAR KIT FIEL</button>
+<div class="qr-box"><img id="qr" style="width:200px"><br><span id="linkTxt" style="font-size:8px;color:#777;word-break:break-all"></span><div style="display:flex;gap:8px;margin-top:8px"><button class="btn btn-cinza" onclick="copiar()">Copiar Link</button><button class="btn btn-verde" onclick="baixarQR()">Baixar QR</button></div><button class="btn btn-cinza" onclick="window.print()">🖨️ IMPRIMIR QR CODE</button></div>
 </div>
-<button class="btn btn2" onclick="baixarCert()">Baixar Certificado Oficial PNG</button>
 
-<h3 style="color:#6A2FB5;margin:20px 0 0 0">2. ADESIVO PARA PORTA OU BALCÃO</h3>
-<p style="font-size:10px;margin:0 0 6px 0">AQUI TEM COMUNICAÇÃO ACESSÍVEL</p>
-<div class="adesivo">
-<div style="background:#6A2FB5;color:#fff;border-radius:50%;width:70px;height:70px;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:900;text-align:center">SELO<br>OFICIAL<br>BrocheZap</div>
-<div style="flex:1;padding:0 6px"><b style="color:#6A2FB5;font-size:12px">AQUI TEM COMUNICAÇÃO ACESSÍVEL!</b><br><span style="font-size:10px">Escaneie o QR Code e fale com a gente do seu jeito.</span></div>
-<div style="text-align:center"><div style="font-size:6px;font-weight:800">ESCANEIE E<br>COMUNIQUE-SE</div><img id="qr2" style="width:70px"><div style="font-size:6px">Telefone/WhatsApp</div></div>
-</div>
-<button class="btn" onclick="window.print()">Imprimir Adesivo Porta/Balcão</button>
-</div>
+<div class="card"><h3 style="color:#6A2FB5;margin:0 0 8px 0">1. CERTIFICADO OFICIAL</h3><div class="cert-wrap" id="certWrap"><img id="certBase" src="certificado-base.png"><div id="certNome" class="cert-nome">Nome da Empresa</div></div><button class="btn btn-verde" onclick="baixarCert()">Baixar Certificado Fiel PNG</button></div>
+
+<div class="card"><h3 style="color:#6A2FB5;margin:0 0 8px 0">2. SELO OFICIAL</h3><div style="text-align:center"><img src="selo-base.png" style="width:100%;max-width:400px"></div><button class="btn btn-cinza" onclick="window.open('selo-base.png','_blank')">Baixar Selo</button></div>
+
+<div class="card"><h3 style="color:#6A2FB5;margin:0 0 8px 0">3. ADESIVO PORTA/BALCÃO</h3><div class="adesivo-wrap"><img src="adesivo-porta-base.png" id="adesivoBase"><img id="qr2" class="adesivo-qr"></div><button class="btn btn-verde" onclick="baixarAdesivo()">Baixar Adesivo Fiel PNG</button></div>
+
+<div class="card"><h3 style="color:#1e5aa8;margin:0 0 8px 0">4. QR AZUL REDONDO</h3><div style="position:relative;width:300px;height:300px;margin:0 auto"><img src="qr-azul-base.png" style="width:100%"><img id="qr3" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:140px;height:140px;background:#fff;padding:4px;border-radius:4px"></div><button class="btn" style="background:#1e5aa8;color:#fff" onclick="baixarQrAzul()">Baixar QR Azul Fiel PNG</button></div>
 
 <canvas id="cv" style="display:none"></canvas>
 <script>
 let longUrl="";
 function gerar(){
 let emp=document.getElementById('empresa').value||'Nome da Empresa';
-let msg=document.getElementById('msg').value;
 let num=document.getElementById('numero').value.replace(/\D/g,'');
+let msg=document.getElementById('msg').value;
 longUrl=`https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
-document.getElementById('link').innerText=longUrl;
+document.getElementById('linkTxt').innerText=longUrl;
 document.getElementById('certNome').innerText=emp;
-let qr=`https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent(longUrl)}`;
+let qr=`https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${encodeURIComponent(longUrl)}`;
+let qrAzul=`https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${encodeURIComponent(longUrl)}&color=30-90-168`;
 document.getElementById('qr').src=qr;
 document.getElementById('qr2').src=qr;
+document.getElementById('qr3').src=qrAzul;
 }
+function copiar(){navigator.clipboard.writeText(longUrl);alert('Copiado!');}
+function baixarQR(){window.open(document.getElementById('qr').src,'_blank');}
+function baixarQrAzul(){window.open(document.getElementById('qr3').src,'_blank');}
 function baixarCert(){
 let emp=document.getElementById('empresa').value;
-let c=document.getElementById('cv');c.width=1000;c.height=650;let x=c.getContext('2d');
-x.fillStyle='#fff';x.fillRect(0,0,1000,650);x.strokeStyle='#6A2FB5';x.strokeRect(20,20,960,610);
-x.fillStyle='#6A2FB5';x.font='bold 24px Arial';x.textAlign='center';x.fillText('BrocheZap',500,60);
-x.fillStyle='#b8962e';x.font='22px Arial';x.fillText('CERTIFICADO',500,100);
-x.fillStyle='#6A2FB5';x.font='40px Brush Script MT';x.fillText(emp,500,180);
-let a=document.createElement('a');a.download='CERTIFICADO-'+emp+'.png';a.href=c.toDataURL();a.click();
+let img=document.getElementById('certBase');
+let c=document.getElementById('cv');c.width=1600;c.height=1120;let x=c.getContext('2d');
+x.drawImage(img,0,0,c.width,c.height);
+x.fillStyle='#6A2FB5';x.font='70px Brush Script MT';x.textAlign='center';
+x.fillText(emp,c.width/2,c.height*0.49);
+let a=document.createElement('a');a.download='CERTIFICADO-FIEL-'+emp+'.png';a.href=c.toDataURL();a.click();
+}
+function baixarAdesivo(){
+let img=document.getElementById('adesivoBase');
+let qr=document.getElementById('qr2');
+let c=document.getElementById('cv');c.width=1600;c.height=800;let x=c.getContext('2d');
+x.drawImage(img,0,0,c.width,c.height);
+x.drawImage(qr,c.width*0.775,c.height*0.26,c.width*0.15,c.height*0.38);
+let a=document.createElement('a');a.download='ADESIVO-PORTA-FIEL.png';a.href=c.toDataURL();a.click();
 }
 gerar();
 </script>
