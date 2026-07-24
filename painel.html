@@ -6,84 +6,70 @@
 <style>
 *{box-sizing:border-box;font-family:Arial}body{margin:0;background:#f5f0ff}
 header{background:#6A2FB5;color:#fff;padding:12px;text-align:center}
-header b{display:block;font-size:16px}header small{display:block;font-size:11px;opacity:.9;margin-top:3px}
-.card{background:#fff;margin:12px;padding:14px;border-radius:14px;border:1.5px solid #e9e0ff;overflow:hidden}
+header b{display:block}header small{display:block;font-size:11px;opacity:.9;margin-top:3px}
+.card{background:#fff;margin:12px;padding:14px;border-radius:14px;border:1.5px solid #e9e0ff}
 label{font-size:11px;font-weight:800;color:#6A2FB5;display:block;margin-top:10px}
 input,textarea{width:100%;padding:12px;border:1.5px solid #ddd;border-radius:10px;margin-top:4px}
 .btn{padding:13px;border:0;border-radius:10px;width:100%;font-weight:900;cursor:pointer;margin-top:8px}
 .btn-roxo{background:#6A2FB5;color:#fff}.btn-verde{background:#00B894;color:#fff}.btn-cinza{background:#eee;color:#333}.btn-azul{background:#1e5aa8;color:#fff}
 .qr-box{border:2px dashed #6A2FB5;border-radius:12px;padding:12px;text-align:center;background:#faf8ff;margin-top:12px}
 .row{display:flex;gap:8px;margin-top:8px}
-/* CERTIFICADO COM UPLOAD ORIGINAL */
-.cert-wrap{position:relative;max-width:800px;margin:0 auto;background:#fff}
+.cert-wrap{position:relative;max-width:800px;margin:0 auto}
 .cert-wrap img{width:100%;display:block;border-radius:8px}
-.cert-nome{position:absolute;top:44.5%;left:50%;transform:translate(-50%,-50%);font-family:'Brush Script MT',cursive;color:#4b1f9c;font-size:36px;white-space:nowrap;max-width:72%;text-align:center;background:transparent}
-.cert-ass{position:absolute;top:70%;left:59%;transform:translate(-50%,-50%);font-family:'Brush Script MT',cursive;color:#111;font-size:20px;background:#fff;padding:2px 16px;white-space:nowrap;max-width:38%;text-align:center}
-.adesivo-outer{text-align:center;padding:10px}.adesivo-inner{position:relative;display:inline-block;max-width:800px;width:100%}.adesivo-inner .base{width:100%;display:block;border-radius:8px}.adesivo-qr{position:absolute;top:50.5%;right:7.8%;transform:translateY(-50%);width:19.2%;background:#fff;object-fit:contain}
-.qr-azul-wrap{position:relative;width:320px;height:320px;margin:0 auto;max-width:100%}.qr-azul-wrap .base{width:100%;height:100%;object-fit:contain;display:block}.qr-azul-qr{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:34%;height:34%;background:#fff;padding:2px;object-fit:contain}
+.cert-nome{position:absolute;top:44.5%;left:50%;transform:translate(-50%,-50%);font-family:'Brush Script MT',cursive;color:#4b1f9c;font-size:38px;white-space:nowrap;max-width:72%;text-align:center}
+.adesivo-outer{text-align:center;padding:10px}.adesivo-inner{position:relative;display:inline-block;max-width:800px;width:100%}.adesivo-inner .base{width:100%;display:block;border-radius:8px}.adesivo-qr{position:absolute;top:50.5%;right:7.8%;transform:translateY(-50%);width:19.2%;background:#fff}
+.qr-azul-wrap{position:relative;width:320px;height:320px;margin:0 auto}.qr-azul-wrap .base{width:100%;height:100%;object-fit:contain;display:block}.qr-azul-qr{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:34%;height:34%;background:#fff;padding:2px}
 </style>
 </head>
 <body>
 <header><b>QR ZAP - Kit Digital R$100</b><small>Você implanta comunicação acessível. O QR é só a ferramenta.</small></header>
 
 <div class="card">
-<label>Nome da Empresa (vai na linha em branco do certificado)</label><input id="empresa" value="Nome da Empresa" oninput="gerar()">
-<label style="color:#000">✍️ Sua Assinatura (substitui a fictícia)</label><input id="assinatura" value="Sua Assinatura" oninput="gerar()" style="font-family:'Brush Script MT',cursive">
-<label>WhatsApp com 55</label><input id="numero" value="551881670564" oninput="gerar()">
+<label>Nome da Empresa</label><input id="empresa" value="Nome da Empresa" oninput="gerar()">
+<label>WhatsApp com 55</label><input id="numero" value="" oninput="gerar()">
 <label>Mensagem</label><textarea id="msg" rows="2" oninput="gerar()">Olá! Estou neste estabelecimento e prefiro me comunicar por mensagem.</textarea>
-<button class="btn btn-roxo" onclick="gerar()">GERAR KIT ORIGINAL</button>
-<div class="qr-box"><img id="qr" style="width:220px;height:220px;background:#fff;padding:6px;border-radius:8px"><br><span id="linkTxt" style="font-size:8px;color:#777;word-break:break-all;display:block;margin-top:6px"></span><div class="row"><button class="btn btn-cinza" onclick="copiar()">Copiar Link</button><button class="btn btn-verde" onclick="baixarQR()">Baixar QR</button></div><button class="btn btn-cinza" onclick="window.print()">🖨️ IMPRIMIR QR CODE</button></div>
+<button class="btn btn-roxo" onclick="gerar()">GERAR KIT</button>
+<div class="qr-box"><img id="qr" style="width:220px;height:220px;background:#fff;padding:6px;border-radius:8px"><br><span id="linkTxt" style="font-size:8px;color:#777;word-break:break-all;display:block;margin-top:6px"></span><div class="row"><button class="btn btn-cinza" onclick="copiar()">Copiar Link</button><button class="btn btn-verde" onclick="baixarQR()">Baixar QR</button></div></div>
 </div>
 
 <div class="card">
-<h3 style="color:#6A2FB5;margin:0 0 8px 0">1. CERTIFICADO OFICIAL - ORIGINAL</h3>
-<div class="cert-wrap"><img id="certBase" src="certificado-base.png"><div id="certNome" class="cert-nome">Nome da Empresa</div><div id="certAss" class="cert-ass">Sua Assinatura</div></div>
-<div class="row"><button class="btn btn-verde" onclick="baixarCert()">Baixar Certificado com Minha Assinatura</button><button class="btn btn-cinza" onclick="window.print()">🖨️ Imprimir Certificado</button></div>
+<h3 style="color:#6A2FB5;margin:0 0 8px 0">1. CERTIFICADO OFICIAL</h3>
+<div class="cert-wrap">
+<img id="certBase" src="certificado-base.png">
+<div id="certNome" class="cert-nome">Nome da Empresa</div>
+</div>
+<div class="row"><button class="btn btn-verde" onclick="baixarCert()">Baixar Certificado</button></div>
 </div>
 
-<div class="card"><h3 style="color:#6A2FB5;margin:0 0 8px 0">2. SELO OFICIAL</h3><div style="text-align:center"><img src="selo-base.png" style="width:100%;max-width:380px"></div><div class="row"><button class="btn btn-cinza" onclick="window.open('selo-base.png','_blank')">Baixar Selo</button><button class="btn btn-cinza" onclick="window.print()">🖨️ Imprimir Selo</button></div></div>
-
-<div class="card"><h3 style="color:#6A2FB5;margin:0 0 8px 0">3. ADESIVO PORTA/BALCÃO</h3><div class="adesivo-outer"><div class="adesivo-inner"><img id="adesivoBase" class="base" src="adesivo-porta-base.png"><img id="qr2" class="adesivo-qr"></div></div><div class="row"><button class="btn btn-verde" onclick="baixarAdesivo()">Baixar Adesivo</button><button class="btn btn-cinza" onclick="window.print()">🖨️ Imprimir Adesivo</button></div></div>
-
-<div class="card"><h3 style="color:#1e5aa8;margin:0 0 8px 0">4. QR AZUL REDONDO</h3><div class="qr-azul-wrap"><img src="qr-azul-base.png" class="base"><img id="qr3" class="qr-azul-qr"></div><div class="row"><button class="btn btn-azul" onclick="baixarQrAzul()">Baixar QR Azul</button><button class="btn btn-cinza" onclick="window.print()">🖨️ Imprimir QR Azul</button></div></div>
+<div class="card"><h3 style="color:#6A2FB5;margin:0 0 8px 0">2. SELO OFICIAL</h3><div style="text-align:center"><img src="selo-base.png" style="width:100%;max-width:380px"></div></div>
+<div class="card"><h3 style="color:#6A2FB5;margin:0 0 8px 0">3. ADESIVO PORTA</h3><div class="adesivo-outer"><div class="adesivo-inner"><img id="adesivoBase" class="base" src="adesivo-porta-base.png"><img id="qr2" class="adesivo-qr"></div></div></div>
+<div class="card"><h3 style="color:#1e5aa8;margin:0 0 8px 0">4. QR AZUL REDONDO</h3><div class="qr-azul-wrap"><img src="qr-azul-base.png" class="base"><img id="qr3" class="qr-azul-qr"></div></div>
 
 <canvas id="cv" style="display:none"></canvas>
 <script>
 let longUrl="";
 function gerar(){
 let emp=document.getElementById('empresa').value||'Nome da Empresa';
-let ass=document.getElementById('assinatura').value||'Sua Assinatura';
 let num=document.getElementById('numero').value.replace(/\D/g,'');
 let msg=document.getElementById('msg').value;
 longUrl=`https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
 document.getElementById('linkTxt').innerText=longUrl;
 document.getElementById('certNome').innerText=emp;
-document.getElementById('certAss').innerText=ass;
-let f=emp.length>28?24:emp.length>20?30:36;
-document.getElementById('certNome').style.fontSize=f+'px';
 let qr=`https://api.qrserver.com/v1/create-qr-code/?size=600x600&data=${encodeURIComponent(longUrl)}`;
 let qrAzul=`https://api.qrserver.com/v1/create-qr-code/?size=600x600&data=${encodeURIComponent(longUrl)}&color=30-90-168`;
 document.getElementById('qr').src=qr;document.getElementById('qr2').src=qr;document.getElementById('qr3').src=qrAzul;
 }
 function copiar(){navigator.clipboard.writeText(longUrl);alert('Copiado!')}
-function baixarQR(){window.open(document.getElementById('qr').src,'_blank')}
 function baixarCert(){
 let emp=document.getElementById('empresa').value;
-let ass=document.getElementById('assinatura').value;
 let base=document.getElementById('certBase');
 let c=document.getElementById('cv');c.width=2400;c.height=1680;let x=c.getContext('2d');
 x.drawImage(base,0,0,c.width,c.height);
 let fs=emp.length>28?70:emp.length>20?88:108;
 x.fillStyle='#4b1f9c';x.font='bold '+fs+'px Brush Script MT';x.textAlign='center';
-x.fillText(emp,c.width/2,c.height*0.435);
-// apaga assinatura fictícia e coloca a sua
-x.fillStyle='#fff';x.fillRect(c.width*0.38,c.height*0.63,c.width*0.42,c.height*0.13);
-x.fillStyle='#111';x.font='italic 54px Brush Script MT';x.textAlign='center';
-x.fillText(ass,c.width*0.59,c.height*0.715);
+x.fillText(emp,c.width/2,c.height*0.445);
 let a=document.createElement('a');a.download='CERTIFICADO-'+emp+'.png';a.href=c.toDataURL();a.click();
 }
-function baixarAdesivo(){let base=document.getElementById('adesivoBase');let qr=document.getElementById('qr2');let c=document.getElementById('cv');c.width=2000;c.height=1130;let x=c.getContext('2d');x.drawImage(base,0,0,c.width,c.height);x.drawImage(qr,c.width*0.751,c.height*0.205,c.width*0.192,c.height*0.34);let a=document.createElement('a');a.download='ADESIVO-PORTA.png';a.href=c.toDataURL();a.click();}
-function baixarQrAzul(){let base=document.querySelector('.qr-azul-wrap .base');let qr=document.getElementById('qr3');let c=document.getElementById('cv');c.width=1000;c.height=1000;let x=c.getContext('2d');x.drawImage(base,0,0,c.width,c.height);x.drawImage(qr,c.width*0.33,c.height*0.33,c.width*0.34,c.height*0.34);let a=document.createElement('a');a.download='QR-AZUL.png';a.href=c.toDataURL();a.click();}
 gerar();
 </script>
 </body>
