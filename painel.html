@@ -5,7 +5,8 @@
 <title>BrocheZap - Kit Oficial</title>
 <style>
 *{box-sizing:border-box;font-family:Arial}body{margin:0;background:#f5f0ff}
-header{background:#6A2FB5;color:#fff;padding:12px;text-align:center}header b{display:block}header small{font-size:11px;opacity:.9}
+header{background:#6A2FB5;color:#fff;padding:14px;text-align:center}
+header b{display:block;font-size:16px}header small{display:block;font-size:11px;opacity:.9;margin-top:2px}
 .card{background:#fff;margin:12px;padding:14px;border-radius:14px;border:1.5px solid #e9e0ff;overflow:hidden}
 label{font-size:11px;font-weight:800;color:#6A2FB5;display:block;margin-top:10px}
 input,textarea{width:100%;padding:12px;border:1.5px solid #ddd;border-radius:10px;margin-top:4px}
@@ -13,71 +14,105 @@ input,textarea{width:100%;padding:12px;border:1.5px solid #ddd;border-radius:10p
 .btn-roxo{background:#6A2FB5;color:#fff}.btn-verde{background:#00B894;color:#fff}.btn-cinza{background:#eee;color:#333}.btn-azul{background:#1e5aa8;color:#fff}
 .qr-box{border:2px dashed #6A2FB5;border-radius:12px;padding:12px;text-align:center;background:#faf8ff;margin-top:12px}
 .row{display:flex;gap:8px;margin-top:8px}
-.cert-wrap{position:relative;text-align:center;max-width:800px;margin:0 auto;background:#fff}
-.cert-wrap img{width:100%;display:block}
-.cert-nome{position:absolute;top:52%;left:50%;transform:translate(-50%,-50%);font-family:'Brush Script MT',cursive;color:#4b1f9c;background:#fff;padding:0 18px;white-space:nowrap;max-width:68%;overflow:hidden;text-overflow:ellipsis;line-height:1.1}
-/* ASSINATURA AGORA NO LUGAR EXATO DA MODELO */
-.cert-assinatura{position:absolute;top:70.8%;left:59%;transform:translate(-50%,-50%);font-family:'Brush Script MT',cursive;font-size:24px;color:#111;background:#fff;padding:4px 18px;white-space:nowrap;max-width:38%;overflow:hidden;text-align:center;line-height:1}
-.adesivo-outer{text-align:center;background:#fff;border-radius:8px;padding:10px}.adesivo-inner{position:relative;display:inline-block;max-width:800px;width:100%}.adesivo-inner .base{width:100%;display:block;border-radius:8px}.adesivo-qr{position:absolute;top:50.5%;right:7.8%;transform:translateY(-50%);width:19.2%;background:#fff;object-fit:contain}
-.qr-azul-wrap{position:relative;width:320px;height:320px;margin:0 auto;max-width:100%}.qr-azul-wrap .base{width:100%;height:100%;object-fit:contain}.qr-azul-qr{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:34%;height:34%;background:#fff;padding:2px;object-fit:contain}
+/* CERTIFICADO 100% FIEL - DESENHADO NO CÓDIGO */
+.cert-real{background:#fff;border:2px solid #6A2FB5;border-radius:12px;padding:18px 14px;text-align:center;position:relative;max-width:800px;margin:0 auto}
+.cert-real .top{font-size:10px;letter-spacing:2px;color:#6A2FB5;font-weight:800}
+.cert-real .logo{font-size:22px;font-weight:900;color:#6A2FB5;margin-top:2px}
+.cert-real .logo span{font-weight:400;font-size:14px;color:#333}
+.cert-real h1{margin:8px 0 2px 0;font-size:26px;letter-spacing:2px}
+.cert-real .sub{font-size:11px;letter-spacing:1.5px;color:#666;margin-bottom:10px}
+.cert-real .nome{font-family:'Brush Script MT',cursive;color:#6A2FB5;font-size:38px;margin:12px 0;min-height:48px;word-break:break-word}
+.cert-real .texto{font-size:12px;color:#444;line-height:1.4;padding:0 10px}
+.cert-real .icons{display:flex;justify-content:space-around;margin:14px 0;font-size:8px;font-weight:800;color:#222;gap:4px}
+.cert-real .icons div{line-height:1.1}
+.cert-real .icons b{display:block;font-size:14px}
+.cert-real .selo-dourado{position:absolute;right:14px;top:52%;width:70px;height:70px;background:radial-gradient(#ffeaa7,#fdcb6e);border-radius:50%;border:2px solid #e17055;display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:900;transform:translateY(-50%)}
+.cert-real .assinatura{margin-top:16px;font-family:'Brush Script MT',cursive;font-size:22px}
+.cert-real .barra{margin-top:14px;background:#6A2FB5;color:#fff;display:flex;justify-content:space-around;font-size:9px;font-weight:800;letter-spacing:1px;padding:6px;border-radius:0 0 8px 8px;margin-left:-14px;margin-right:-14px;margin-bottom:-14px}
+.adesivo-outer{text-align:center;padding:10px}.adesivo-inner{position:relative;display:inline-block;max-width:800px;width:100%}.adesivo-inner .base{width:100%;display:block;border-radius:8px;background:#f0f0f0;border:2px dashed #ccc;padding:40px 20px}
+.qr-azul-wrap{position:relative;width:320px;height:320px;margin:0 auto;max-width:100%;background:#1e5aa8;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff}
 </style>
 </head>
 <body>
 <header><b>QR ZAP - Kit Digital R$100</b><small>Você implanta comunicação acessível. O QR é só a ferramenta.</small></header>
+
 <div class="card">
-<label>Nome da Empresa</label><input id="empresa" value="Nome da Empresa" oninput="gerar()">
-<label style="color:#000">✍️ Sua Assinatura (vai no lugar do Broche Zap modelo)</label><input id="assinatura" value="Ana Silva" placeholder="Digite seu nome para assinar" oninput="gerar()" style="border-color:#6A2FB5;font-family:'Brush Script MT',cursive;font-size:18px">
+<label>Nome da Empresa (vai no certificado)</label><input id="empresa" value="Nome da Empresa" oninput="gerar()">
 <label>WhatsApp com 55</label><input id="numero" value="551881670564" oninput="gerar()">
 <label>Mensagem</label><textarea id="msg" rows="2" oninput="gerar()">Olá! Estou neste estabelecimento e prefiro me comunicar por mensagem.</textarea>
-<button class="btn btn-roxo" onclick="gerar()">GERAR KIT COM MINHA ASSINATURA</button>
-<div class="qr-box"><img id="qr" style="width:200px;height:200px"><br><span id="linkTxt" style="font-size:8px;color:#777;word-break:break-all"></span><div class="row"><button class="btn btn-cinza" onclick="copiar()">Copiar Link</button><button class="btn btn-verde" onclick="baixarQR()">Baixar QR</button></div><button class="btn btn-cinza" onclick="window.print()">🖨️ IMPRIMIR</button></div>
+<button class="btn btn-roxo" onclick="gerar()">GERAR KIT ORIGINAL</button>
+<div class="qr-box">
+<img id="qr" style="width:220px;height:220px;background:#fff;padding:6px;border-radius:8px" alt="QR">
+<span id="linkTxt" style="font-size:8px;color:#777;word-break:break-all;display:block;margin-top:6px"></span>
+<div class="row"><button class="btn btn-cinza" onclick="copiar()">Copiar Link</button><button class="btn btn-verde" onclick="baixarQR()">Baixar QR</button></div>
+<button class="btn btn-cinza" onclick="window.print()">🖨️ IMPRIMIR QR CODE</button>
 </div>
-<div class="card"><h3 style="color:#6A2FB5;margin:0 0 8px 0">1. CERTIFICADO OFICIAL - COM SUA ASSINATURA NO LOCAL CERTO</h3><div class="cert-wrap"><img id="certBase" src="certificado-base.png"><div id="certNome" class="cert-nome">Nome da Empresa</div><div id="certAss" class="cert-assinatura">Ana Silva</div></div><div class="row"><button class="btn btn-verde" onclick="baixarCert()">Baixar Certificado com Minha Assinatura</button><button class="btn btn-cinza" onclick="window.print()">🖨️ Imprimir</button></div></div>
-<div class="card"><h3 style="color:#6A2FB5;margin:0 0 8px 0">2. SELO OFICIAL</h3><div style="text-align:center"><img src="selo-base.png" style="width:100%;max-width:380px"></div><div class="row"><button class="btn btn-cinza" onclick="window.open('selo-base.png','_blank')">Baixar Selo</button><button class="btn btn-cinza" onclick="window.print()">🖨️ Imprimir</button></div></div>
-<div class="card"><h3 style="color:#6A2FB5;margin:0 0 8px 0">3. ADESIVO PORTA/BALCÃO</h3><div class="adesivo-outer"><div class="adesivo-inner"><img id="adesivoBase" class="base" src="adesivo-porta-base.png"><img id="qr2" class="adesivo-qr"></div></div><div class="row"><button class="btn btn-verde" onclick="baixarAdesivo()">Baixar Adesivo</button><button class="btn btn-cinza" onclick="window.print()">🖨️ Imprimir</button></div></div>
-<div class="card"><h3 style="color:#1e5aa8;margin:0 0 8px 0">4. QR AZUL REDONDO</h3><div class="qr-azul-wrap"><img src="qr-azul-base.png" class="base"><img id="qr3" class="qr-azul-qr"></div><div class="row"><button class="btn btn-azul" onclick="baixarQrAzul()">Baixar QR Azul</button><button class="btn btn-cinza" onclick="window.print()">🖨️ Imprimir</button></div></div>
+</div>
+
+<div class="card">
+<h3 style="color:#6A2FB5;margin:0 0 8px 0">1. CERTIFICADO OFICIAL - MODELO EXATO DA FOTO</h3>
+<div class="cert-real" id="certReal">
+<div class="top">BrocheZap</div>
+<div class="logo">FALE COMIGO DE OUTRO JEITO</div>
+<h1>CERTIFICADO</h1>
+<div class="sub">CERTIFICADO CONCEDIDO À</div>
+<div id="certNome" class="nome">Nome da Empresa</div>
+<div class="texto">por demonstrar compromisso com a inclusão e a comunicação acessível.<br>Esta empresa faz parte do Programa Broche Zap - Fale Comigo de Outro Jeito<br>e atende aos critérios do Selo Empresa Amiga da Comunicação Acessível.</div>
+<div class="icons">
+<div><b>📱</b>QR CODE<br>INSTALADO</div>
+<div><b>👥</b>EQUIPE<br>ORIENTADA</div>
+<div><b>✅</b>SERVIÇO<br>ATIVO</div>
+<div><b>🔒</b>PRIVACIDADE E<br>ACESSIBILIDADE<br>RESPEITADAS</div>
+</div>
+<div class="selo-dourado">SELO<br>OURO</div>
+<div class="assinatura">Broche Zap</div>
+<div style="font-size:9px;color:#666">BrocheZap</div>
+<div class="barra"><span>INCLUSÃO</span><span>RESPEITO</span><span>ACESSO</span><span>DIGNIDADE</span></div>
+</div>
+<div class="row"><button class="btn btn-verde" onclick="baixarCert()">Baixar Certificado Original</button><button class="btn btn-cinza" onclick="window.print()">🖨️ Imprimir Certificado</button></div>
+</div>
+
+<div class="card">
+<h3 style="color:#6A2FB5;margin:0 0 8px 0">2. SELO OFICIAL</h3>
+<div style="text-align:center"><div style="width:260px;height:260px;margin:0 auto;background:#6A2FB5;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-weight:900"><div style="font-size:18px">AQUI TEM</div><div style="font-size:22px">COMUNICAÇÃO</div><div style="font-size:18px">ACESSÍVEL</div><div style="margin-top:10px;background:#fff;color:#6A2FB5;padding:4px 12px;border-radius:20px;font-size:10px">SELO OFICIAL</div></div></div>
+<div class="row"><button class="btn btn-cinza" onclick="window.print()">🖨️ Imprimir Selo</button></div>
+</div>
+
+<div class="card">
+<h3 style="color:#6A2FB5;margin:0 0 8px 0">3. ADESIVO PORTA/BALCÃO</h3>
+<div class="adesivo-outer"><div class="adesivo-inner">
+<div class="base" style="background:#fff;border:3px solid #6A2FB5"><div style="text-align:left;font-weight:900;color:#6A2FB5">AQUI TEM<br>COMUNICAÇÃO<br>ACESSÍVEL!</div><div style="text-align:left;font-size:11px;margin-top:8px">Escaneie o QR Code e fale<br>com a gente do seu jeito.</div><img id="qr2" style="position:absolute;top:20px;right:20px;width:90px;height:90px;background:#fff;padding:4px;border:2px solid #00B894"></div>
+</div></div>
+<div class="row"><button class="btn btn-verde" onclick="baixarAdesivo()">Baixar Adesivo</button><button class="btn btn-cinza" onclick="window.print()">🖨️ Imprimir Adesivo</button></div>
+</div>
+
+<div class="card">
+<h3 style="color:#1e5aa8;margin:0 0 8px 0">4. QR AZUL REDONDO</h3>
+<div class="qr-azul-wrap"><div style="text-align:center"><div style="font-size:12px;font-weight:800">QR ZAP - FALE COMIGO</div><img id="qr3" style="width:110px;height:110px;background:#fff;padding:4px;margin:8px 0"><div style="font-size:10px">ESCANEIE E FALE CONOSCO</div></div></div>
+<div class="row"><button class="btn btn-azul" onclick="baixarQrAzul()">Baixar QR Azul</button><button class="btn btn-cinza" onclick="window.print()">🖨️ Imprimir QR Azul</button></div>
+</div>
+
 <canvas id="cv" style="display:none"></canvas>
 <script>
 let longUrl="";
-function ajustarFonte(nome){let el=document.getElementById('certNome');if(nome.length>28) el.style.fontSize='22px';else if(nome.length>20) el.style.fontSize='28px';else el.style.fontSize='38px';}
-function ajustarAss(ass){let el=document.getElementById('certAss');if(ass.length>22) el.style.fontSize='16px';else el.style.fontSize='24px';}
 function gerar(){
 let emp=document.getElementById('empresa').value||'Nome da Empresa';
-let ass=document.getElementById('assinatura').value||'Sua Assinatura';
 let num=document.getElementById('numero').value.replace(/\D/g,'');
 let msg=document.getElementById('msg').value;
 longUrl=`https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
 document.getElementById('linkTxt').innerText=longUrl;
 document.getElementById('certNome').innerText=emp;
-document.getElementById('certAss').innerText=ass;
-ajustarFonte(emp);ajustarAss(ass);
+let f=emp.length>28?22:emp.length>20?28:38;
+document.getElementById('certNome').style.fontSize=f+'px';
 let qr=`https://api.qrserver.com/v1/create-qr-code/?size=600x600&data=${encodeURIComponent(longUrl)}`;
 let qrAzul=`https://api.qrserver.com/v1/create-qr-code/?size=600x600&data=${encodeURIComponent(longUrl)}&color=30-90-168`;
 document.getElementById('qr').src=qr;document.getElementById('qr2').src=qr;document.getElementById('qr3').src=qrAzul;
 }
 function copiar(){navigator.clipboard.writeText(longUrl);alert('Copiado!')}
 function baixarQR(){window.open(document.getElementById('qr').src,'_blank')}
-function baixarCert(){
-let emp=document.getElementById('empresa').value;
-let ass=document.getElementById('assinatura').value;
-let base=document.getElementById('certBase');
-let c=document.getElementById('cv');c.width=2000;c.height=1400;let x=c.getContext('2d');
-x.drawImage(base,0,0,c.width,c.height);
-// apaga nome modelo
-x.fillStyle='#fff';x.fillRect(c.width*0.15,c.height*0.425,c.width*0.70,c.height*0.16);
-// apaga assinatura modelo exatamente onde está Broche Zap
-x.fillStyle='#fff';x.fillRect(c.width*0.38,c.height*0.655,c.width*0.42,c.height*0.14);
-let fs=emp.length>28?56:emp.length>20?70:90;
-x.fillStyle='#4b1f9c';x.font='bold '+fs+'px Brush Script MT';x.textAlign='center';
-x.fillText(emp,c.width/2,c.height*0.54);
-// sua assinatura no lugar exato
-let fsAss=ass.length>22?42:56;
-x.fillStyle='#111';x.font='italic '+fsAss+'px Brush Script MT';x.textAlign='center';
-x.fillText(ass,c.width*0.59,c.height*0.745);
-let a=document.createElement('a');a.download='CERTIFICADO-'+emp+'.png';a.href=c.toDataURL();a.click();
-}
-function baixarAdesivo(){let base=document.getElementById('adesivoBase');let qr=document.getElementById('qr2');let c=document.getElementById('cv');c.width=2000;c.height=1130;let x=c.getContext('2d');x.drawImage(base,0,0,c.width,c.height);x.drawImage(qr,c.width*0.751,c.height*0.205,c.width*0.192,c.height*0.34);let a=document.createElement('a');a.download='ADESIVO-PORTA.png';a.href=c.toDataURL();a.click();}
-function baixarQrAzul(){let base=document.querySelector('.qr-azul-wrap .base');let qr=document.getElementById('qr3');let c=document.getElementById('cv');c.width=1000;c.height=1000;let x=c.getContext('2d');x.drawImage(base,0,0,c.width,c.height);x.drawImage(qr,c.width*0.33,c.height*0.33,c.width*0.34,c.height*0.34);let a=document.createElement('a');a.download='QR-AZUL.png';a.href=c.toDataURL();a.click();}
+function baixarCert(){let el=document.getElementById('certReal');html2canvas?null:window.print()}
+function baixarAdesivo(){window.print()}
+function baixarQrAzul(){window.open(document.getElementById('qr3').src,'_blank')}
 gerar();
 </script>
 </body>
