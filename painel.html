@@ -18,10 +18,10 @@ input,textarea{width:100%;padding:12px;border:1.5px solid #ddd;border-radius:10p
 .cert-wrap img{width:100%;display:block;border-radius:8px}
 .cert-nome{
 position:absolute;
-top:41.8%;
+top:36%;
 left:50%;
 transform:translate(-50%,-50%);
-width:65%;
+width:30%;
 font-family:'Brush Script MT',cursive;
 font-size:38px;
 font-weight:bold;
@@ -69,7 +69,7 @@ let msg=document.getElementById('msg').value;
 longUrl=`https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
 document.getElementById('linkTxt').innerText=longUrl;
 document.getElementById('certNome').innerText=emp;
-let f=emp.length>28?26:emp.length>20?32:36;
+let f=emp.length>28?22:emp.length>20?26:30;
 document.getElementById('certNome').style.fontSize=f+'px';
 let qr=`https://api.qrserver.com/v1/create-qr-code/?size=600x600&data=${encodeURIComponent(longUrl)}`;
 let qrAzul=`https://api.qrserver.com/v1/create-qr-code/?size=600x600&data=${encodeURIComponent(longUrl)}&color=30-90-168`;
