@@ -5,8 +5,7 @@
 <title>BrocheZap - Kit Oficial</title>
 <style>
 *{box-sizing:border-box;font-family:Arial}body{margin:0;background:#f5f0ff}
-header{background:#6A2FB5;color:#fff;padding:12px;text-align:center}
-header b{display:block}header small{font-size:11px;opacity:.9}
+header{background:#6A2FB5;color:#fff;padding:12px;text-align:center}header b{display:block}header small{font-size:11px;opacity:.9}
 .card{background:#fff;margin:12px;padding:14px;border-radius:14px;border:1.5px solid #e9e0ff;overflow:hidden}
 label{font-size:11px;font-weight:800;color:#6A2FB5;display:block;margin-top:10px}
 input,textarea{width:100%;padding:12px;border:1.5px solid #ddd;border-radius:10px;margin-top:4px}
@@ -14,34 +13,41 @@ input,textarea{width:100%;padding:12px;border:1.5px solid #ddd;border-radius:10p
 .btn-roxo{background:#6A2FB5;color:#fff}.btn-verde{background:#00B894;color:#fff}.btn-cinza{background:#eee;color:#333}.btn-azul{background:#1e5aa8;color:#fff}
 .qr-box{border:2px dashed #6A2FB5;border-radius:12px;padding:12px;text-align:center;background:#faf8ff;margin-top:12px}
 .row{display:flex;gap:8px;margin-top:8px}
-.cert-wrap{position:relative;text-align:center}.cert-wrap img{width:100%;max-width:800px;display:block;margin:0 auto}
-/* CORREÇÃO 1 - Nome com fundo branco para apagar o original */
-.cert-nome{position:absolute;top:52%;left:50%;transform:translate(-50%,-50%);font-family:'Brush Script MT',cursive;font-size:38px;color:#4b1f9c;background:#fff;padding:2px 22px;white-space:nowrap;line-height:1}
-.adesivo-wrap{position:relative;text-align:center;max-width:800px;margin:0 auto}.adesivo-wrap .base{width:100%;display:block}
-/* CORREÇÃO 2 - Adesivo QR mais pra dentro e menor */
-.adesivo-qr{position:absolute;top:38.5%;right:8.2%;width:17.8%;height:auto;aspect-ratio:1/1;transform:none;background:#fff;padding:0;object-fit:contain;border:0}
-.qr-azul-wrap{position:relative;width:320px;height:320px;margin:0 auto;max-width:100%}.qr-azul-wrap .base{width:100%;height:100%;object-fit:contain;display:block}
-/* CORREÇÃO 3 - QR Azul bem menor dentro do miolo branco */
-.qr-azul-qr{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:35%;height:35%;background:#fff;padding:2px;object-fit:contain}
+.cert-wrap{position:relative;text-align:center;max-width:800px;margin:0 auto}.cert-wrap img{width:100%;display:block}
+.cert-nome{position:absolute;top:52%;left:50%;transform:translate(-50%,-50%);font-family:'Brush Script MT',cursive;color:#4b1f9c;background:#fff;padding:0 18px;white-space:nowrap;max-width:68%;overflow:hidden;text-overflow:ellipsis;line-height:1.1}
+.cert-assinatura{position:absolute;top:76%;left:52%;transform:translateX(-50%);font-family:'Brush Script MT',cursive;font-size:22px;color:#222;white-space:nowrap;background:transparent}
+.adesivo-outer{text-align:center;background:#fff;border-radius:8px;padding:10px}.adesivo-inner{position:relative;display:inline-block;max-width:800px;width:100%}.adesivo-inner .base{width:100%;display:block;border-radius:8px}.adesivo-qr{position:absolute;top:50.5%;right:7.8%;transform:translateY(-50%);width:19.2%;background:#fff;object-fit:contain}
+.qr-azul-wrap{position:relative;width:320px;height:320px;margin:0 auto;max-width:100%}.qr-azul-wrap .base{width:100%;height:100%;object-fit:contain}.qr-azul-qr{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:34%;height:34%;background:#fff;padding:2px;object-fit:contain}
 </style>
 </head>
 <body>
 <header><b>QR ZAP - Kit Digital R$100</b><small>Você implanta comunicação acessível. O QR é só a ferramenta.</small></header>
-<div class="card"><label>Nome do estabelecimento</label><input id="empresa" value="Nome da Empresa" oninput="gerar()"><label>WhatsApp com 55</label><input id="numero" value="551881670564" oninput="gerar()"><label>Mensagem</label><textarea id="msg" rows="2" oninput="gerar()">Olá! Estou neste estabelecimento e prefiro me comunicar por mensagem.</textarea><button class="btn btn-roxo" onclick="gerar()">GERAR KIT</button><div class="qr-box"><img id="qr" style="width:200px;height:200px"><br><span id="linkTxt" style="font-size:8px;color:#777;word-break:break-all"></span><div class="row"><button class="btn btn-cinza" onclick="copiar()">Copiar Link</button><button class="btn btn-verde" onclick="baixarQR()">Baixar QR</button></div><button class="btn btn-cinza" onclick="window.print()">🖨️ IMPRIMIR QR CODE</button></div></div>
-<div class="card"><h3 style="color:#6A2FB5;margin:0 0 8px 0">1. CERTIFICADO OFICIAL</h3><div class="cert-wrap"><img id="certBase" src="certificado-base.png"><div id="certNome" class="cert-nome">Nome da Empresa</div></div><div class="row"><button class="btn btn-verde" onclick="baixarCert()">Baixar Certificado</button><button class="btn btn-cinza" onclick="window.print()">🖨️ Imprimir</button></div></div>
-<div class="card"><h3 style="color:#6A2FB5;margin:0 0 8px 0">2. SELO OFICIAL</h3><div style="text-align:center"><img src="selo-base.png" style="width:100%;max-width:380px"></div><div class="row"><button class="btn btn-cinza" onclick="window.open('selo-base.png','_blank')">Baixar Selo</button><button class="btn btn-cinza" onclick="window.print()">🖨️ Imprimir Selo</button></div></div>
-<div class="card"><h3 style="color:#6A2FB5;margin:0 0 8px 0">3. ADESIVO PORTA/BALCÃO</h3><div class="adesivo-wrap"><img id="adesivoBase" class="base" src="adesivo-porta-base.png"><img id="qr2" class="adesivo-qr"></div><div class="row"><button class="btn btn-verde" onclick="baixarAdesivo()">Baixar Adesivo</button><button class="btn btn-cinza" onclick="window.print()">🖨️ Imprimir</button></div></div>
+<div class="card">
+<label>Nome da Empresa</label><input id="empresa" value="Nome da Empresa" oninput="gerar()">
+<label>Assinatura do Certificado - Seu Nome (responsável)</label><input id="assinatura" value="Sua Assinatura" placeholder="Ex: Ana Paula Silva" oninput="gerar()">
+<label>WhatsApp com 55</label><input id="numero" value="" oninput="gerar()">
+<label>Mensagem</label><textarea id="msg" rows="2" oninput="gerar()">Olá! Estou neste estabelecimento e prefiro me comunicar por mensagem.</textarea>
+<button class="btn btn-roxo" onclick="gerar()">GERAR KIT ORIGINAL</button>
+<div class="qr-box"><img id="qr" style="width:200px;height:200px"><br><span id="linkTxt" style="font-size:8px;color:#777;word-break:break-all"></span><div class="row"><button class="btn btn-cinza" onclick="copiar()">Copiar Link</button><button class="btn btn-verde" onclick="baixarQR()">Baixar QR</button></div><button class="btn btn-cinza" onclick="window.print()">🖨️ IMPRIMIR</button></div>
+</div>
+<div class="card"><h3 style="color:#6A2FB5;margin:0 0 8px 0">1. CERTIFICADO OFICIAL - COM SUA ASSINATURA</h3><div class="cert-wrap"><img id="certBase" src="certificado-base.png"><div id="certNome" class="cert-nome">Nome da Empresa</div><div id="certAss" class="cert-assinatura">Sua Assinatura</div></div><div class="row"><button class="btn btn-verde" onclick="baixarCert()">Baixar Certificado com Minha Assinatura</button><button class="btn btn-cinza" onclick="window.print()">🖨️ Imprimir</button></div></div>
+<div class="card"><h3 style="color:#6A2FB5;margin:0 0 8px 0">2. SELO OFICIAL</h3><div style="text-align:center"><img src="selo-base.png" style="width:100%;max-width:380px"></div><div class="row"><button class="btn btn-cinza" onclick="window.open('selo-base.png','_blank')">Baixar Selo</button><button class="btn btn-cinza" onclick="window.print()">🖨️ Imprimir</button></div></div>
+<div class="card"><h3 style="color:#6A2FB5;margin:0 0 8px 0">3. ADESIVO PORTA/BALCÃO</h3><div class="adesivo-outer"><div class="adesivo-inner"><img id="adesivoBase" class="base" src="adesivo-porta-base.png"><img id="qr2" class="adesivo-qr"></div></div><div class="row"><button class="btn btn-verde" onclick="baixarAdesivo()">Baixar Adesivo</button><button class="btn btn-cinza" onclick="window.print()">🖨️ Imprimir</button></div></div>
 <div class="card"><h3 style="color:#1e5aa8;margin:0 0 8px 0">4. QR AZUL REDONDO</h3><div class="qr-azul-wrap"><img src="qr-azul-base.png" class="base"><img id="qr3" class="qr-azul-qr"></div><div class="row"><button class="btn btn-azul" onclick="baixarQrAzul()">Baixar QR Azul</button><button class="btn btn-cinza" onclick="window.print()">🖨️ Imprimir</button></div></div>
 <canvas id="cv" style="display:none"></canvas>
 <script>
 let longUrl="";
+function ajustarFonte(nome){let el=document.getElementById('certNome');if(nome.length>28) el.style.fontSize='22px';else if(nome.length>20) el.style.fontSize='28px';else el.style.fontSize='38px';}
 function gerar(){
 let emp=document.getElementById('empresa').value||'Nome da Empresa';
+let ass=document.getElementById('assinatura').value||'Sua Assinatura';
 let num=document.getElementById('numero').value.replace(/\D/g,'');
 let msg=document.getElementById('msg').value;
 longUrl=`https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
 document.getElementById('linkTxt').innerText=longUrl;
 document.getElementById('certNome').innerText=emp;
+document.getElementById('certAss').innerText=ass;
+ajustarFonte(emp);
 let qr=`https://api.qrserver.com/v1/create-qr-code/?size=600x600&data=${encodeURIComponent(longUrl)}`;
 let qrAzul=`https://api.qrserver.com/v1/create-qr-code/?size=600x600&data=${encodeURIComponent(longUrl)}&color=30-90-168`;
 document.getElementById('qr').src=qr;document.getElementById('qr2').src=qr;document.getElementById('qr3').src=qrAzul;
@@ -50,33 +56,24 @@ function copiar(){navigator.clipboard.writeText(longUrl);alert('Copiado!')}
 function baixarQR(){window.open(document.getElementById('qr').src,'_blank')}
 function baixarCert(){
 let emp=document.getElementById('empresa').value;
+let ass=document.getElementById('assinatura').value;
 let base=document.getElementById('certBase');
 let c=document.getElementById('cv');c.width=2000;c.height=1400;let x=c.getContext('2d');
 x.drawImage(base,0,0,c.width,c.height);
-// apaga o nome original da base com retângulo branco
-x.fillStyle='#ffffff';x.fillRect(c.width*0.18,c.height*0.44,c.width*0.64,c.height*0.14);
-x.fillStyle='#4b1f9c';x.font='bold 90px Brush Script MT';x.textAlign='center';
+// apaga nome original
+x.fillStyle='#fff';x.fillRect(c.width*0.15,c.height*0.425,c.width*0.70,c.height*0.16);
+// apaga assinatura antiga modelo
+x.fillStyle='#fff';x.fillRect(c.width*0.45,c.height*0.68,c.width*0.35,c.height*0.12);
+let fs=emp.length>28?56:emp.length>20?70:90;
+x.fillStyle='#4b1f9c';x.font='bold '+fs+'px Brush Script MT';x.textAlign='center';
 x.fillText(emp,c.width/2,c.height*0.54);
+// sua assinatura real
+x.fillStyle='#222';x.font='italic 46px Brush Script MT';x.textAlign='center';
+x.fillText(ass,c.width*0.62,c.height*0.765);
 let a=document.createElement('a');a.download='CERTIFICADO-'+emp+'.png';a.href=c.toDataURL();a.click();
 }
-function baixarAdesivo(){
-let base=document.getElementById('adesivoBase');
-let qr=document.getElementById('qr2');
-let c=document.getElementById('cv');c.width=2000;c.height=1130;let x=c.getContext('2d');
-x.drawImage(base,0,0,c.width,c.height);
-// posição corrigida para dentro do quadrado verde
-x.drawImage(qr,c.width*0.755,c.width*0.035,c.width*0.178,c.width*0.178);
-let a=document.createElement('a');a.download='ADESIVO-PORTA.png';a.href=c.toDataURL();a.click();
-}
-function baixarQrAzul(){
-let base=document.querySelector('.qr-azul-wrap .base');
-let qr=document.getElementById('qr3');
-let c=document.getElementById('cv');c.width=1000;c.height=1000;let x=c.getContext('2d');
-x.drawImage(base,0,0,c.width,c.height);
-// QR bem menor no miolo branco
-x.drawImage(qr,c.width*0.325,c.height*0.325,c.width*0.35,c.height*0.35);
-let a=document.createElement('a');a.download='QR-AZUL-REDONDO.png';a.href=c.toDataURL();a.click();
-}
+function baixarAdesivo(){let base=document.getElementById('adesivoBase');let qr=document.getElementById('qr2');let c=document.getElementById('cv');c.width=2000;c.height=1130;let x=c.getContext('2d');x.drawImage(base,0,0,c.width,c.height);x.drawImage(qr,c.width*0.751,c.height*0.205,c.width*0.192,c.height*0.34);let a=document.createElement('a');a.download='ADESIVO-PORTA.png';a.href=c.toDataURL();a.click();}
+function baixarQrAzul(){let base=document.querySelector('.qr-azul-wrap .base');let qr=document.getElementById('qr3');let c=document.getElementById('cv');c.width=1000;c.height=1000;let x=c.getContext('2d');x.drawImage(base,0,0,c.width,c.height);x.drawImage(qr,c.width*0.33,c.height*0.33,c.width*0.34,c.height*0.34);let a=document.createElement('a');a.download='QR-AZUL.png';a.href=c.toDataURL();a.click();}
 gerar();
 </script>
 </body>
