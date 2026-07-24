@@ -75,30 +75,22 @@ x.fillStyle='#4b1f9c';x.font='bold '+fs+'px Brush Script MT';x.textAlign='center
 x.fillText(emp,c.width/2,c.height*0.418);  
 let a=document.createElement('a');a.download='CERTIFICADO-'+emp+'.png';a.href=c.toDataURL();a.click();  
 }  
-function baixarAdesivo(){let base=document.getElementById('adesivoBase');let qr=document.getElementById('qr2');let c=document.getElementById('cv');c.width=2000;c.height=1130;let x=c.getContext('2d');x.drawImage(base,0,0,c.width,c.height);x.drawImage(qr,c.width*0.751,c.height*0.205,c.width*0.192,c.height*0.34);let a=document.createElement('a');a.download='ADESIVO-PORTA.png';a.href=c.toDataURL();a.click();}  
-function baixarQrAzul(){let base=document.querySelector('.qr-azul-wrap .base');let qr=document.getElementById('qr3');let c=document.getElementById('cv');c.width=1000;c.height=1000;let x=c.getContext('2d');x.drawImage(base,0,0,c.width,c.height);x.drawImage(qr,c.width*0.33,c.height*0.33,c.width*0.34,c.height*0.34);let a=document.createElement('a');a.download='QR-AZUL.png';a.href=c.toDataURL();a.click();}  
+function baixarAdesivo(){let base=document.getElementById('adesivoBase');let qr=document.getElementById('qr2');let c=document.getElementById('cv');c.width=2000;c.height=1130;let x=c.getContext('2d');x.drawImage(base,0,0,c.width,c.height);x.drawImage(qr,c.width*0.751,c.height*0.205,c.width*0.192,c.height*0.34);let a=document.createElement('a');a.download='ADESIVO-PORTA.png';a.href=c.toDataURL();document.body.appendChild(a);a.click();a.remove();}  
+function baixarQrAzul(){let base=document.querySelector('.qr-azul-wrap .base');let qr=document.getElementById('qr3');let c=document.getElementById('cv');c.width=1000;c.height=1000;let x=c.getContext('2d');x.drawImage(base,0,0,c.width,c.height);x.drawImage(qr,c.width*0.33,c.height*0.33,c.width*0.34,c.height*0.34);let a=document.createElement('a');a.download='QR-AZUL.png';a.href=c.toDataURL();document.body.appendChild(a);a.click();a.remove();}  
 
 function baixarSelo(){
-    let a=document.createElement('a');
+    const a=document.createElement('a');
     a.href='selo-base.png';
     a.download='SELO-OFICIAL.png';
+    document.body.appendChild(a);
     a.click();
+    a.remove();
 }
-function imprimirQR(){
-    window.print();
-}
-function imprimirCertificado(){
-    baixarCert();
-}
-function imprimirSelo(){
-    baixarSelo();
-}
-function imprimirAdesivo(){
-    baixarAdesivo();
-}
-function imprimirQrAzul(){
-    baixarQrAzul();
-}
+function imprimirQR(){ window.open(document.getElementById('qr').src,'_blank'); }
+function imprimirCertificado(){ baixarCert(); }
+function imprimirSelo(){ window.open('selo-base.png','_blank'); }
+function imprimirAdesivo(){ baixarAdesivo(); }
+function imprimirQrAzul(){ baixarQrAzul(); }
 
 gerar();  
 </script>  </body>  
