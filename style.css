@@ -1,1 +1,97 @@
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    color:#333;
+}
+
+.topo{
+    background:#5b21b6;
+    color:#fff;
+    text-align:center;
+    padding:25px;
+}
+
+.container{
+    width:95%;
+    max-width:900px;
+    margin:25px auto;
+}
+
+.card{
+    background:#fff;
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 2px 8px rgba(0,0,0,.12);
+}
+
+.card h2{
+    margin-bottom:15px;
+    color:#5b21b6;
+}
+
+label{
+    display:block;
+    margin-top:15px;
+    margin-bottom:5px;
+    font-weight:bold;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:16px;
+}
+
+textarea{
+    height:90px;
+    resize:vertical;
+}
+
+button{
+    margin-top:15px;
+    padding:12px 20px;
+    border:none;
+    border-radius:8px;
+    background:#5b21b6;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:#43158c;
+}
+
+#previewQR,
+#previewCertificado,
+#previewSelo,
+#previewAdesivo,
+#previewQrAzul{
+    margin-top:15px;
+    min-height:120px;
+    border:2px dashed #ccc;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+
+#previewQR img,
+#previewCertificado img,
+#previewSelo img,
+#previewAdesivo img,
+#previewQrAzul img{
+    max-width:100%;
+}
