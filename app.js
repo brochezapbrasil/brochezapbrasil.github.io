@@ -28,7 +28,18 @@ document.addEventListener("DOMContentLoaded", () => {
             mensagem,
             linkWhatsApp
         };
+const preview = document.getElementById("previewQR");
 
+preview.innerHTML = 
+<div style="
+padding:20px;
+text-align:center;
+font-weight:bold;
+color:#5b21b6;
+">
+QR pronto para ser gerado
+</div>
+`;
         console.log(window.kitQRZAP);
 
         alert("Kit preparado com sucesso!");
