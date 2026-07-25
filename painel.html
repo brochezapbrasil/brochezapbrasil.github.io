@@ -14,8 +14,9 @@ input,textarea{width:100%;padding:14px;border:1.5px solid #e0d4f5;border-radius:
 .qr-box{border:2px dashed #6A2FB5;border-radius:14px;padding:16px;text-align:center;background:#faf8ff;margin-top:16px}
 .row{display:flex;gap:8px;margin-top:10px}
 .cert-wrap{position:relative;max-width:800px;margin:0 auto}.cert-wrap img{width:100%;display:block;border-radius:10px}
-.cert-nome{position:absolute;top:41.8%;left:50%;transform:translate(-50%,-50%);width:70%;font-family:'Brush Script MT',cursive;font-size:36px;font-weight:bold;color:#4b1f9c;text-align:center}
-.adesivo-inner{position:relative;display:inline-block;max-width:800px;width:100%}.adesivo-qr{position:absolute;top:50.5%;right:2%;transform:translateY(-50%);width:19%;background:#fff;border-radius:3px}
+.cert-nome{position:absolute;top:41.8%;left:50%;transform:translate(-50%,-50%);width:70%;font-family:'Brush Script MT',cursive;font-size:30px;font-weight:bold;color:#4b1f9c;text-align:center}
+.adesivo-inner{position:relative;display:block;max-width:800px;width:100%;margin:0 auto}.adesivo-inner img.base{width:100%;display:block;border-radius:10px}
+.adesivo-qr{position:absolute;top:50%;right:3.5%;transform:translateY(-50%);width:20%;background:#fff;border-radius:4px;padding:2px}
 .qr-azul-wrap{position:relative;width:300px;height:300px;margin:0 auto}.qr-azul-qr{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:34%;height:34%;background:#fff;padding:3px;border-radius:3px}
 </style>
 </head>
@@ -23,50 +24,30 @@ input,textarea{width:100%;padding:14px;border:1.5px solid #e0d4f5;border-radius:
 <header><h1>QR ZAPE BRASIL</h1></header>
 <div class="card">
 <label>Empresa</label><input id="empresa" value="Nome da Empresa" oninput="gerar()">
-<label>WhatsApp 55</label><input id="numero" value="551881670564" oninput="gerar()">
-<label>Mensagem</label><textarea id="msg" rows="2" oninput="gerar()">Olá! Estou neste estabelecimento e prefiro me comunicar por mensagem.</textarea>
+<label>WhatsApp com 55</label><input id="numero" value="551881670564" oninput="gerar()">
+<label>Mensagem</label><textarea id="msg" rows="2" oninput="gerar()">Ola! Estou neste estabelecimento e prefiro me comunicar por mensagem.</textarea>
 <button class="btn btn-roxo" onclick="gerar()">GERAR KIT</button>
-<div class="qr-box">
-<img id="qr" style="width:220px;height:220px;background:#fff;padding:6px;border-radius:8px">
-<div id="linkTxt" style="font-size:9px;color:#777;word-break:break-all;margin-top:8px"></div>
-<div class="row"><button class="btn btn-cinza" onclick="copiar()">Copiar Link</button><button class="btn btn-verde" onclick="baixarQR()">Baixar QR</button></div>
-</div>
+<div class="qr-box"><img id="qr" style="width:220px;height:220px;background:#fff;padding:6px;border-radius:8px"><div id="linkTxt" style="font-size:9px;color:#777;word-break:break-all;margin-top:8px"></div><div class="row"><button class="btn btn-cinza" onclick="copiar()">Copiar Link</button><button class="btn btn-verde" onclick="baixarQR()">Baixar QR</button></div></div>
 </div>
 <div class="card"><h3 style="color:#6A2FB5">1. CERTIFICADO</h3><div class="cert-wrap"><img id="certBase" src="certificado-base.png"><div id="certNome" class="cert-nome">Nome da Empresa</div></div><div class="row"><button class="btn btn-verde" onclick="baixarCert()">Baixar</button><button class="btn btn-azul" onclick="imprimirCertificado()">Imprimir</button></div></div>
 <div class="card"><h3 style="color:#6A2FB5">2. SELO</h3><div style="text-align:center"><img id="seloBase" src="selo-base.png" style="width:100%;max-width:380px"></div><div class="row"><button class="btn btn-cinza" onclick="baixarSelo()">Baixar</button><button class="btn btn-cinza" onclick="imprimirSelo()">Imprimir</button></div></div>
-<div class="card"><h3 style="color:#6A2FB5">3. ADESIVO PORTA</h3><div style="text-align:center"><div class="adesivo-inner"><img id="adesivoBase" src="adesivo-porta-base.png" style="width:100%;border-radius:10px"><img id="qr2" class="adesivo-qr"></div></div><div class="row"><button class="btn btn-verde" onclick="baixarAdesivo()">Baixar</button><button class="btn btn-cinza" onclick="imprimirAdesivo()">Imprimir</button></div></div>
+<div class="card"><h3 style="color:#6A2FB5">3. ADESIVO PORTA / BALCAO</h3><div class="adesivo-inner"><img id="adesivoBase" class="base" src="adesivo-porta-base.png"><img id="qr2" class="adesivo-qr"></div><div class="row"><button class="btn btn-verde" onclick="baixarAdesivo()">Baixar</button><button class="btn btn-cinza" onclick="imprimirAdesivo()">Imprimir</button></div></div>
 <div class="card"><h3 style="color:#1e5aa8">4. QR AZUL</h3><div class="qr-azul-wrap"><img id="qrAzulBase" src="qr-azul-base.png" style="width:100%"><img id="qr3" class="qr-azul-qr"></div><div class="row"><button class="btn btn-azul" onclick="baixarQrAzul()">Baixar</button><button class="btn btn-cinza" onclick="imprimirQrAzul()">Imprimir</button></div></div>
 <canvas id="cv" style="display:none"></canvas>
 <script>
 let longUrl="",qrBlack="",qrBlue="";
 function loadImage(s){return new Promise((r,j)=>{const i=new Image();i.crossOrigin="anonymous";i.onload=()=>r(i);i.onerror=j;i.src=s;});}
 function download(d,f){const a=document.createElement('a');a.href=d;a.download=f;document.body.appendChild(a);a.click();a.remove();}
-function printImg(d){const w=window.open('','_blank');w.document.write(`<html><body style="margin:0;display:flex;justify-content:center;align-items:center;min-height:100vh"><img src="${d}" style="width:100%;max-width:900px" onload="setTimeout(()=>{window.print();},300)"></body></html>`);w.document.close();}
-function makeQR(text,color){const c=color.replace('#','');return `https://api.qrserver.com/v1/create-qr-code/?size=600x600&data=${encodeURIComponent(text)}&color=${c}&qzone=1`;}
-function gerar(){
-let emp=document.getElementById('empresa').value||'Nome da Empresa';
-let num=document.getElementById('numero').value.replace(/\D/g,'');
-let msg=document.getElementById('msg').value;
-longUrl=`https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
-document.getElementById('linkTxt').innerText=longUrl;
-document.getElementById('certNome').innerText=emp;
-qrBlack=makeQR(longUrl,'000000');
-qrBlue=makeQR(longUrl,'1e5aa8');
-document.getElementById('qr').src=qrBlack;
-document.getElementById('qr2').src=qrBlack;
-document.getElementById('qr3').src=qrBlue;
-}
-function copiar(){navigator.clipboard.writeText(longUrl).then(()=>alert('Copiado!'));}
-async function baixarQR(){const b=await loadImage(qrBlack);cv.width=600;cv.height=600;cv.getContext('2d').drawImage(b,0,0);download(cv.toDataURL(),'QR-CODE.png');}
-async function baixarCert(){const b=await loadImage(certBase.src);cv.width=2400;cv.height=1680;const x=cv.getContext('2d');x.drawImage(b,0,0,cv.width,cv.height);x.fillStyle='#4b1f9c';x.font='bold 70px "Brush Script MT",cursive';x.textAlign='center';x.fillText(document.getElementById('empresa').value||'Empresa',cv.width/2,cv.height*0.418);download(cv.toDataURL(),'CERTIFICADO.png');}
-async function baixarSelo(){const b=await loadImage(seloBase.src);cv.width=b.naturalWidth;cv.height=b.naturalHeight;cv.getContext('2d').drawImage(b,0,0);download(cv.toDataURL(),'SELO.png');}
-async function baixarAdesivo(){const b=await loadImage(adesivoBase.src);const q=await loadImage(qrBlack);cv.width=b.naturalWidth;cv.height=b.naturalHeight;const x=cv.getContext('2d');x.drawImage(b,0,0,cv.width,cv.height);const size=cv.height*0.82;const qx=cv.width-size-cv.width*0.02;const qy=(cv.height-size)/2;x.drawImage(q,qx,qy,size,size);download(cv.toDataURL(),'ADESIVO.png');}
-async function baixarQrAzul(){const b=await loadImage(qrAzulBase.src);const q=await loadImage(qrBlue);cv.width=1000;cv.height=1000;const x=cv.getContext('2d');x.drawImage(b,0,0,cv.width,cv.height);x.drawImage(q,cv.width*0.33,cv.height*0.33,cv.width*0.34,cv.height*0.34);download(cv.toDataURL(),'QR-AZUL.png');}
-function imprimirQR(){baixarQR().then(()=>printImg(cv.toDataURL()));}
-function imprimirCertificado(){baixarCert().then(()=>printImg(cv.toDataURL()));}
-function imprimirSelo(){baixarSelo().then(()=>printImg(cv.toDataURL()));}
-function imprimirAdesivo(){baixarAdesivo().then(()=>printImg(cv.toDataURL()));}
-function imprimirQrAzul(){baixarQrAzul().then(()=>printImg(cv.toDataURL()));}
+function printSingle(d){const w=window.open('','_blank');w.document.write(`<html><head><style>@page{margin:0}body{margin:0;display:flex;justify-content:center;align-items:center;min-height:100vh;background:#fff}img{max-width:100vw;max-height:100vh;object-fit:contain;display:block}</style></head><body><img src="${d}" onload="setTimeout(()=>{window.print();window.close()},400)"></body></html>`);w.document.close();}
+function makeQR(t,c){return `https://api.qrserver.com/v1/create-qr-code/?size=800x800&data=${encodeURIComponent(t)}&color=${c.replace('#','')}&qzone=1&margin=10`;}
+function gerar(){let e=document.getElementById('empresa').value||'Nome da Empresa';let n=document.getElementById('numero').value.replace(/\D/g,'');let m=document.getElementById('msg').value;longUrl=`https://wa.me/${n}?text=${encodeURIComponent(m)}`;document.getElementById('linkTxt').innerText=longUrl;document.getElementById('certNome').innerText=e;qrBlack=makeQR(longUrl,'000000');qrBlue=makeQR(longUrl,'1e5aa8');document.getElementById('qr').src=qrBlack;document.getElementById('qr2').src=qrBlack;document.getElementById('qr3').src=qrBlue;}
+function copiar(){navigator.clipboard.writeText(longUrl).then(()=>alert('Link copiado!'));}
+async function baixarQR(){const b=await loadImage(qrBlack);cv.width=800;cv.height=800;cv.getContext('2d').drawImage(b,0,0,800,800);download(cv.toDataURL(),'QR-CODE.png');}
+async function baixarCert(){const b=await loadImage(certBase.src);cv.width=2400;cv.height=1680;const x=cv.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,cv.width,cv.height);x.drawImage(b,0,0,cv.width,cv.height);x.fillStyle='#4b1f9c';x.font='bold 70px "Brush Script MT",cursive';x.textAlign='center';x.fillText(document.getElementById('empresa').value||'Empresa',cv.width/2,cv.height*0.418);return cv.toDataURL();}
+async function baixarSelo(){const b=await loadImage(seloBase.src);const s=Math.max(b.naturalWidth,b.naturalHeight);cv.width=s;cv.height=s;const x=cv.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,s,s);x.drawImage(b,(s-b.naturalWidth)/2,(s-b.naturalHeight)/2);return cv.toDataURL();}
+async function baixarAdesivo(){const b=await loadImage(adesivoBase.src);const q=await loadImage(qrBlack);cv.width=1800;cv.height=500;const x=cv.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,cv.width,cv.height);x.drawImage(b,0,0,cv.width,cv.height);const qrSize=cv.width*0.18;const qx=cv.width-qrSize-cv.width*0.025;const qy=(cv.height-qrSize)/2+5;x.fillStyle='#fff';x.fillRect(qx-4,qy-4,qrSize+8,qrSize+8);x.drawImage(q,qx,qy,qrSize,qrSize);return cv.toDataURL();}
+async function baixarQrAzul(){const b=await loadImage(qrAzulBase.src);const q=await loadImage(qrBlue);cv.width=1000;cv.height=1000;const x=cv.getContext('2d');x.drawImage(b,0,0,cv.width,cv.height);x.drawImage(q,cv.width*0.33,cv.height*0.33,cv.width*0.34,cv.height*0.34);return cv.toDataURL();}
+async function imprimirQR(){const d=await baixarQR();printSingle(d);}async function imprimirCertificado(){const d=await baixarCert();printSingle(d);}async function imprimirSelo(){const d=await baixarSelo();printSingle(d);}async function imprimirAdesivo(){const d=await baixarAdesivo();printSingle(d);}async function imprimirQrAzul(){const d=await baixarQrAzul();printSingle(d);}
 window.onload=gerar;
 </script>
 </body>
