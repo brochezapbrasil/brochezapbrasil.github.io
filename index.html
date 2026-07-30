@@ -22,8 +22,6 @@ section{padding:32px 20px;max-width:900px;margin:auto}
 .card{border:2px solid #e5e7eb;border-radius:16px;padding:20px;margin:18px 0;background:#fff}
 .card.cnpj{border-color:#081B33;background:#f0fdf4}
 .highlight{font-size:18px;font-weight:900;color:#081B33;margin-bottom:8px}
-.price{font-size:30px;font-weight:900;margin:8px 0}
-.price i{font-style:normal;font-size:14px;font-weight:700;color:#6A2FB5;margin-left:6px}
 ul{list-style:none;padding:0;margin:12px 0}
 ul li{padding:6px 0 6px 24px;position:relative;font-size:14px}
 ul li::before{content:"✔";position:absolute;left:0;color:#22C55E;font-weight:900}
@@ -31,26 +29,32 @@ ul li::before{content:"✔";position:absolute;left:0;color:#22C55E;font-weight:9
 .btn.roxo{background:#3C1660;color:#fff}
 .btn.verde{background:#22C55E;color:#000}
 .aviso{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;font-size:12px;color:#57534e;margin-top:12px;line-height:1.4}
-.inclusao{background:#f8fafc;padding:24px 20px;border-radius:12px;margin-top:20px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px}
-.pill{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:10px}
 footer{background:#f5f5f5;padding:20px;font-size:12px;color:#555;text-align:center;line-height:1.6}
+.kit-section{background:#f8fafc;border-top:2px solid #e2e8f0;border-bottom:2px solid #e2e8f0;padding:48px 20px;max-width:100%;margin:0}
+.kit-container{max-width:1000px;margin:0 auto}
+.kit-title{text-align:center;font-size:26px;font-weight:900;color:#081B33;line-height:1.2}
+.kit-subtitle{text-align:center;color:#64748b;font-size:13px;margin-top:10px;max-width:620px;margin-left:auto;margin-right:auto}
+.kit-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:28px}
+@media(min-width:640px){.kit-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:900px){.kit-grid{grid-template-columns:1fr 1fr 1fr}}
+.kit-card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;overflow:hidden;position:relative}
+.kit-card.destaque{border:2px solid #22C55E;box-shadow:0 8px 24px rgba(34,197,94,.15)}
+.kit-preview{height:200px;background:#fff;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:8px}
+.kit-preview img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+.watermark{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:2}
+.watermark span{transform:rotate(-28deg);border:3px solid #3C1660;color:#3C1660;font-weight:900;font-size:14px;letter-spacing:1px;padding:4px 14px;border-radius:6px;opacity:.22;background:rgba(255,255,255,.9)}
+.kit-info{padding:14px;border-top:1px solid #f1f5f9}
+.kit-info h4{font-size:13px;font-weight:900;margin:0 0 4px;color:#081B33}
+.kit-info p{font-size:11px;color:#64748b;margin:0;line-height:1.4}
+.kit-lock{font-size:10px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:20px;padding:4px 10px;display:inline-block;margin-top:8px;color:#64748b;font-weight:700}
+.kit-badge-new{position:absolute;top:10px;right:10px;background:#22C55E;color:#000;font-size:9px;font-weight:900;padding:4px 8px;border-radius:20px;z-index:3}
 @media(min-width:600px){.hero h1{font-size:48px}}
 </style>
 </head>
 <body>
 <header>
-  <div class="logo-wrap">
-    <div class="logo">
-        <b>QR ZAP</b>
-        <span>FALE COMIGO</span>
-    </div>
-    <div class="logo-icon">💬</div>
-</div>
-
-<div class="badge">
-    CNPJ 68.088.847/0001-03 • Marca com pedido de registro protocolado no INPI
-</div>
+  <div class="logo-wrap"><div class="logo"><b>QR ZAP</b><span>FALE COMIGO</span></div><div class="logo-icon">💬</div></div>
+  <div class="badge">CNPJ 68.088.847/0001-03 • Marca com pedido de registro protocolado no INPI</div>
 </header>
 <div class="hero">
   <h1>Fale Comigo<br><span class="verde">de Outro Jeito</span></h1>
@@ -58,73 +62,75 @@ footer{background:#f5f5f5;padding:20px;font-size:12px;color:#555;text-align:cent
   <a href="https://wa.me/5518981950799?text=Olá! Gostaria de conhecer o QR ZAP." class="btn-contratar">📲 Solicitar demonstração</a>
   <p style="font-size:11px;opacity:.6;margin-top:14px">Comunicação acessível com respeito e dignidade • Panorama SP</p>
 </div>
+
+<div class="kit-section">
+  <div class="kit-container">
+    <h2 class="kit-title">Veja o que você receberá ao aderir ao Programa QR ZAP</h2>
+    <p class="kit-subtitle">Kit oficial completo com identidade visual ACESSIBILIDADE PARA TODOS. Prévia em baixa com proteção. Arquivos em alta liberados após adesão no painel do cliente.</p>
+    <div class="kit-grid">
+      <div class="kit-card">
+        <div class="kit-preview"><img src="./certificado-base.png" alt="Certificado Oficial" onerror="this.src='https://brochezapbrasil.github.io/certificado-base.png'"><div class="watermark"><span>Exemplo ilustrativo</span></div></div>
+        <div class="kit-info"><h4>📜 Certificado Oficial</h4><p>A4 para recepção e moldura, com nome da empresa, cidade e protocolo INPI 944493262.</p><span class="kit-lock">🔒 Alta 300dpi • Após adesão</span></div>
+      </div>
+      <div class="kit-card">
+        <div class="kit-preview"><img src="./selo-base-v2.png" alt="Selo Empresa Amiga" onerror="this.src='selo-base-v2.png.';this.onerror=function(){this.src='https://brochezapbrasil.github.io/selo-base-v2.png.'}"><div class="watermark"><span>Exemplo ilustrativo</span></div></div>
+        <div class="kit-info"><h4>🏅 Selo Empresa Amiga da Comunicação Acessível</h4><p>Para site, Instagram, Google Meu Negócio. PNG transparente.</p><span class="kit-lock">🔒 Sem marca d'água • Após adesão</span></div>
+      </div>
+      <div class="kit-card destaque">
+        <div class="kit-badge-new">MAIS USADO</div>
+        <div class="kit-preview"><img src="./adesivo-porta-base.png" alt="Adesivo Porta" onerror="this.src='https://brochezapbrasil.github.io/adesivo-porta-base.png'"><div class="watermark"><span>Exemplo ilustrativo</span></div></div>
+        <div class="kit-info"><h4>🚪 Adesivo para Porta</h4><p>10x6cm vinil alta resistência. Quadro verde com QR centralizado perfeito.</p><span class="kit-lock">🔒 Pronto para gráfica • Após adesão</span></div>
+      </div>
+      <div class="kit-card">
+        <div class="kit-preview"><img src="./qr-azul-base.png" alt="Plaquinha QR Azul" onerror="this.src='https://brochezapbrasil.github.io/qr-azul-base.png'"><div class="watermark"><span>Exemplo ilustrativo</span></div></div>
+        <div class="kit-info"><h4>🔵 Plaquinha QR Azul</h4><p>Redonda para balcão, caixa e mesa. Texto: QR ZAP - FALE COMIGO - ESCANEIE.</p><span class="kit-lock">🔒 Alta resolução</span></div>
+      </div>
+      <div class="kit-card">
+        <div class="kit-preview" style="background:#fffbeb"><div style="width:80px;height:100px;background:#fff;border:1px solid #eab308;border-radius:8px;padding:8px;font-size:8px;font-weight:800;line-height:1.3">📘<br>MANUAL OFICIAL<br><br>✓ Atendimento<br>✓ Legislação<br>✓ Scripts</div><div class="watermark"><span>Exemplo ilustrativo</span></div></div>
+        <div class="kit-info"><h4>📘 Manual Oficial</h4><p>Guia completo de implantação, atendimento acessível e legislação.</p><span class="kit-lock">🔒 PDF completo</span></div>
+      </div>
+      <div class="kit-card">
+        <div class="kit-preview" style="background:#f8fafc"><div style="width:80px;height:80px;background:#cbd5e1;border-radius:8px;filter:blur(2px)"></div><div class="watermark"><span>Exemplo ilustrativo</span></div></div>
+        <div class="kit-info"><h4>📱 QR ZAP Personalizado</h4><p>QR único por CNPJ com WhatsApp direto, mensagem personalizada e rastreável.</p><span class="kit-lock">🔒 Link wa.me exclusivo</span></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:28px"><a href="#precos" style="display:inline-block;background:#081B33;color:#fff;padding:14px 28px;border-radius:30px;font-weight:900;text-decoration:none;font-size:14px">Quero garantir meu kit oficial →</a><p style="font-size:11px;color:#94a3b8;margin-top:8px">Prévia protegida • Arquivos originais liberados no painel do cliente após adesão</p></div>
+  </div>
+</div>
+
 <section id="precos">
 <h2 style="font-size:24px;font-weight:900">Como funciona</h2>
 <div class="card">
 <h3 style="color:#6A2FB5">Para Pessoas</h3>
 <div class="highlight">Uso gratuito para pessoas físicas</div>
+<p>A comunicação acessível é um direito. Por isso, o QR ZAP é oferecido gratuitamente às pessoas que necessitam de um recurso para facilitar sua comunicação.</p>
 <ul>
-  <p>
-A comunicação acessível é um direito.
-Por isso, o QR ZAP é oferecido gratuitamente às pessoas que necessitam de um recurso para facilitar sua comunicação.
-  </p>
-  <li>Receba gratuitamente seu QR ZAP digital para imprimir e usar onde quiser.</li>
-  <li>Ideal para pessoas surdas, autistas não verbais, com apraxia, gagueira ou qualquer outra dificuldade de comunicação.</li>
+<li>Receba gratuitamente seu QR ZAP digital para imprimir e usar onde quiser.</li>
+<li>Ideal para pessoas surdas, autistas não verbais, com apraxia, gagueira ou qualquer outra dificuldade de comunicação.</li>
 <li>Atualização do número de WhatsApp quando necessário</li>
-  <li>Solicitação diretamente pelo WhatsApp</li>
+<li>Solicitação diretamente pelo WhatsApp</li>
 </ul>
 <a href="https://wa.me/5518981950799?text=Olá! Gostaria de solicitar meu QR ZAP." target="_blank" class="btn roxo">Solicitar meu QR ZAP</a>
 </div>
 <div class="card cnpj">
 <h3>Selo Empresa Acessível</h3>
 <div class="highlight">Receba o Kit Digital Comunicação Acessível</div>
-<p class="highlight">
-Ao aderir ao Kit Digital QR ZAP, sua instituição demonstra seu compromisso com a comunicação acessível e passa a integrar a iniciativa QR ZAP de acolhimento social.
+<p>Ao aderir ao Kit Digital QR ZAP, sua instituição demonstra seu compromisso com a comunicação acessível e passa a integrar a iniciativa QR ZAP de acolhimento social.</p>
 <ul>
-  <li>Você recebe o QR ZAP digital e os arquivos para impressão, utilizando onde preferir.</li>
+<li>Você recebe o QR ZAP digital e os arquivos para impressão, utilizando onde preferir.</li>
 <li>🏅Selo QR ZAP – Empresa Amiga da Comunicação Acessível</li>
 <li>Arquivos para impressão (adesivo, display e cartaz)</li>
 <li>Certificado digital</li>
 <li>Manual de implantação e suporte</li>
 </ul>
-<div class="aviso">
-  🏛️ Empresas, instituições e órgãos públicos
-
-Projetos personalizados conforme a necessidade de cada organização.
-
-Solicite uma demonstração e uma proposta..
-</div>
-<p style="font-size:11px;color:#666;margin-top:10px">Impressão por conta do cliente. Arquivos em PDF via WhatsApp em até 24h.</p><div style="text-align:center;padding:16px;font-size:16px;font-weight:bold;">
-    💳 ASSINAR KIT DIGITAL POR R$100/MÊS - PAGAR AGORA
-</div>
+<div class="aviso">🏛️ Empresas, instituições e órgãos públicos - Projetos personalizados conforme a necessidade de cada organização. Solicite uma demonstração e uma proposta.</div>
+<p style="font-size:11px;color:#666;margin-top:10px">Impressão por conta do cliente. Arquivos em PDF via WhatsApp em até 24h.</p>
+<div style="text-align:center;padding:16px;font-size:16px;font-weight:bold;">💳 ASSINAR KIT DIGITAL POR R$100/MÊS - PAGAR AGORA</div>
 <a href="https://mpago.la/2c31hYW" target="_blank" class="btn roxo" style="background:#4F46E5;display:block;text-align:center;padding:18px;font-weight:bold;font-size:17px;border-radius:12px">💳 ASSINAR KIT DIGITAL - R$100/MÊS AUTOMÁTICO</a>
 <p style="font-size:12px;text-align:center;margin-top:8px;color:#333">✅ Cobrança recorrente • Cartão • Aprovação imediata • Cancele quando quiser</p>
 <a href="https://wa.me/5518981950799?text=Ol!%20Vim%20do%20site%20QR%20ZAP%20e%20quero%20contratar%20o%20Kit%20Comunica" target="_blank" style="font-size:12px;text-align:center;display:block;margin-top:8px;color:#666">Ou tire dúvidas no WhatsApp</a>
 </div>
-<div class="inclusao">
-  <section class="card">
-  <h2>📜 Certificado de Adesão QR ZAP</h2>
-
-  <p>
-    Ao aderir ao Kit Digital QR ZAP, a empresa recebe o Certificado Oficial de Adesão ao Programa QR ZAP, que comprova seu compromisso com a comunicação acessível.
-  </p>
-
-  <ul>
-    <li>📄 Documento oficial de adesão ao Programa QR ZAP.</li>
-    <li>🏛️ Pode ser apresentado ao Procon e aos demais órgãos competentes.</li>
-    <li>🔄 O cadastro da empresa é reavaliado anualmente para manutenção da certificação.</li>
-    <li>🛡️ A certificação poderá ser atualizada, suspensa ou cancelada conforme os critérios do Programa.</li>
-    <li>✅ A autenticidade poderá ser verificada pelo QR Code ou pelo cadastro oficial do QR ZAP.</li>
-  </ul>
-    <p style="margin-top:18px;text-align:center;font-size:14px;color:#444;line-height:1.6;">
-A autenticidade desta certificação poderá ser verificada a qualquer momento por meio do
-<strong>QR Code</strong> ou do <strong>cadastro oficial do Programa QR ZAP</strong>.
-</p>
 </section>
-</div>
-<p style="font-size:11px;color:#777;text-align:center;margin:20px 0;">
-QR ZAP é uma iniciativa independente de promoção da comunicação acessível. Utiliza tecnologias amplamente disponíveis para facilitar o contato entre pessoas e instituições, oferecendo identidade visual, materiais digitais e suporte à implantação.
-</p>
 <footer>
 <b>68.088.847 FRANCIELLE KUNAST POSSARI CALAZANS</b><br>
 CNPJ 68.088.847/0001-03 ATIVA desde 19/07/2026<br>
