@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
+<head><!-- PLAYABLE_TOUCH_PATCH_V1 --><script>
+(function() {
+  if (window.__playableTouchPatchInstalled) return;
+  window.__playableTouchPatchInstalled = true;
+  var origAdd = EventTarget.prototype.addEventListener;
+  var blockedTypes = { touchstart: 1, touchmove: 1, wheel: 1 };
+  EventTarget.prototype.addEventListener = function(type, listener, options) {
+    if (blockedTypes[type]) {
+      if (options === undefined || options === null) {
+        options = { passive: true };
+      } else if (typeof options === 'boolean') {
+        options = { capture: options, passive: true };
+      } else {
+        options = Object.assign({}, options, { passive: true });
+      }
+    }
+    return origAdd.call(this, type, listener, options);
+  };
+})();
+</script><script>window.Intl=window.Intl||{};Intl.t=function(s){return(Intl._locale&&Intl._locale[s])||s;};</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>QR ZAP — Fale Comigo de Outro Jeito</title>
@@ -52,8 +71,6 @@
     font-weight:800;
     color:var(--green);
   }
-
-  /* NAV */
   header.nav{
     position:sticky;top:0;z-index:50;
     background:rgba(251,250,252,.86);
@@ -84,8 +101,6 @@
   .btn:hover{transform:translateY(-1px);box-shadow:0 10px 20px -8px rgba(91,42,157,.6);}
   .btn.ghost{background:transparent;color:var(--purple);border:1.5px solid var(--purple);box-shadow:none;}
   .menu-toggle{display:none;background:none;border:none;font-size:22px;color:var(--purple-deep);cursor:pointer;}
-
-  /* HERO */
   .hero{padding:76px 0 40px;position:relative;overflow:hidden;}
   .hero::before{
     content:"";position:absolute;top:-140px;right:-160px;width:480px;height:480px;
@@ -103,8 +118,6 @@
   }
   .hero-art{position:relative;display:flex;justify-content:center;}
   .hero-art img{width:78%;filter:drop-shadow(0 30px 40px rgba(59,27,107,.22));}
-
-  /* VALUES STRIP */
   .values{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--card);}
   .values .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:26px 28px;}
   .value-item{display:flex;align-items:center;gap:12px;padding:10px 18px;border-left:1px solid var(--line);}
@@ -112,8 +125,6 @@
   .value-item .dot{width:9px;height:9px;border-radius:50%;background:var(--green);flex:none;}
   .value-item strong{display:block;font-size:14.5px;color:var(--purple-deep);}
   .value-item span{font-size:13px;color:var(--muted);}
-
-  /* SECTIONS */
   section.material{padding:96px 0;}
   section.material .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
   section.material.reverse .wrap{grid-template-columns:1fr 1fr;}
@@ -132,8 +143,6 @@
     color:var(--purple-deep);font-size:16px;border:none;
   }
   section.material:nth-of-type(odd){background:linear-gradient(180deg,transparent,rgba(91,42,157,.03) 50%,transparent);}
-
-  /* HOW TO JOIN - chat bubble timeline */
   .join{padding:100px 0;background:var(--purple-deep);color:#fff;position:relative;}
   .join .wrap{position:relative;z-index:1;}
   .join .head{max-width:640px;margin:0 auto 56px;text-align:center;}
@@ -158,8 +167,6 @@
   }
   .step .n::before{content:counter(step);}
   .step p{margin:0;color:#EDE7FA;font-size:15px;line-height:1.55;}
-
-  /* PULL QUOTE / MOTTO */
   .motto{padding:110px 0;text-align:center;}
   .motto .mark{font-family:'Fraunces',serif;font-size:70px;color:var(--green);line-height:0;display:block;margin-bottom:6px;}
   .motto p{
@@ -168,8 +175,6 @@
     max-width:900px;margin:0 auto;line-height:1.35;
   }
   .motto .sign{margin-top:26px;color:var(--green);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:13px;}
-
-  /* CONTACT / FOOTER */
   .contact{padding:90px 0 40px;}
   .contact .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;}
   .contact h2{font-size:clamp(26px,3vw,34px);}
@@ -190,13 +195,11 @@
   .card-info dd a{color:var(--purple);text-decoration:none;}
   .card-info dd a:hover{text-decoration:underline;}
   .card-info .actions{margin-top:24px;display:flex;gap:10px;flex-wrap:wrap;}
-
   footer{border-top:1px solid var(--line);padding:34px 0;}
   footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;}
   footer .foot-brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;color:var(--purple-deep);font-weight:600;}
   footer small{color:var(--muted);font-size:13px;}
   footer .foot-motto{font-family:'Fraunces',serif;font-style:italic;color:var(--muted);font-size:13.5px;text-align:right;}
-
   @media (max-width:900px){
     nav.links{display:none;}
     .menu-toggle{display:block;}
@@ -372,13 +375,29 @@
     </div>
   </section>
 
+  <section style="padding:70px 20px;text-align:center;background:#F7F4FC;">
+    <h2 style="color:#3B1B6B;">Pronto para fazer parte da comunicação acessível?</h2>
+    <p style="max-width:650px;margin:20px auto;">
+      Assine o Kit Digital QR ZAP e tenha acesso imediato ao Painel Oficial para gerar todos os materiais personalizados da sua empresa.
+    </p>
+    <a href="https://mpago.la/2c31hYW" target="_blank" class="btn">💳 Assinar Kit Digital</a>
+    <br><br>
+    <a href="https://wa.me/5518981950799" target="_blank" class="btn ghost">💬 Tirar dúvidas</a>
+  </section>
+
 </main>
 
 <footer>
   <div class="wrap">
-    <a href="#topo" class="foot-brand"><span class="bubbles" style="width:22px;height:16px;"><span style="width:13px;height:11px;background:var(--purple);border-radius:50% 50% 50% 4px;position:absolute;left:0;top:0;"></span><span style="width:11px;height:9px;background:var(--green);border-radius:50% 50% 4px 50%;position:absolute;right:0;bottom:0;"></span></span> QR ZAP</a>
-    <small>© 2026 QR ZAP – Fale Comigo de Outro Jeito · CNPJ 68.088.847/0001-03 · Panorama, SP</small>
-    <div class="foot-motto">"Comunicar é um direito. Incluir é uma escolha. Acolher é um compromisso."</div>
+    <div class="foot-brand">
+      <span style="position:relative;display:inline-block;width:22px;height:16px;">
+        <span style="width:13px;height:11px;background:var(--purple);border-radius:50% 50% 50% 4px;position:absolute;left:0;top:0;display:block"></span>
+        <span style="width:11px;height:9px;background:var(--green);border-radius:50% 50% 4px 50%;position:absolute;right:0;bottom:0;display:block"></span>
+      </span>
+      QR ZAP
+    </div>
+    <small>© 2026 QR ZAP • CNPJ 68.088.847/0001-03 • Panorama-SP • Marca com pedido de registro no INPI</small>
+    <div class="foot-motto">Fale comigo de outro jeito.</div>
   </div>
 </footer>
 
