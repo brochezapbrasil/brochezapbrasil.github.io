@@ -51,23 +51,24 @@ ul li::before{content:"✔";position:absolute;left:0;color:#22C55E;font-weight:9
 footer{background:#f5f5f5;padding:20px;font-size:12px;color:#555;text-align:center;line-height:1.6}
 footer a{color:#3C1660;font-weight:700}
 .kit-section{background:#f8fafc;border-top:2px solid #e2e8f0;border-bottom:2px solid #e2e8f0;padding:48px 20px;max-width:100%;margin:0}
-.kit-container{max-width:1000px;margin:0 auto}
+.kit-container{max-width:900px;margin:0 auto}
 .kit-title{text-align:center;font-size:26px;font-weight:900;color:#081B33;line-height:1.2}
 .kit-subtitle{text-align:center;color:#64748b;font-size:13px;margin-top:10px;max-width:620px;margin-left:auto;margin-right:auto}
-.kit-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:28px}
-@media(min-width:640px){.kit-grid{grid-template-columns:1fr 1fr}}
+.kit-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
 @media(min-width:900px){.kit-grid{grid-template-columns:1fr 1fr 1fr}}
 .kit-card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;overflow:hidden;position:relative}
 .kit-card.destaque{border:2px solid #22C55E;box-shadow:0 8px 24px rgba(34,197,94,.15)}
-.kit-preview{height:200px;background:#fff;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:8px}
+.kit-preview{height:160px;background:#fff;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:8px}
 .kit-preview img{max-width:100%;max-height:100%;object-fit:contain;display:block}
 .watermark{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:2}
-.watermark span{transform:rotate(-28deg);border:3px solid #3C1660;color:#3C1660;font-weight:900;font-size:14px;letter-spacing:1px;padding:4px 14px;border-radius:6px;opacity:.22;background:rgba(255,255,255,.9)}
-.kit-info{padding:14px;border-top:1px solid #f1f5f9}
-.kit-info h4{font-size:13px;font-weight:900;margin:0 0 4px;color:#081B33}
+.watermark span{transform:rotate(-28deg);border:3px solid #3C1660;color:#3C1660;font-weight:900;font-size:12px;letter-spacing:1px;padding:4px 12px;border-radius:6px;opacity:.22;background:rgba(255,255,255,.9)}
+.kit-info{padding:12px;border-top:1px solid #f1f5f9}
+.kit-info h4{font-size:12px;font-weight:900;margin:0 0 4px;color:#081B33}
 .kit-info p{font-size:11px;color:#64748b;margin:0;line-height:1.4}
 .kit-lock{font-size:10px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:20px;padding:4px 10px;display:inline-block;margin-top:8px;color:#64748b;font-weight:700}
 .kit-badge-new{position:absolute;top:10px;right:10px;background:#22C55E;color:#000;font-size:9px;font-weight:900;padding:4px 8px;border-radius:20px;z-index:3}
+.seguranca-section{background:#f0fdf4;border-top:2px solid #22C55E;border-bottom:2px solid #22C55E;padding:32px 20px;margin:0}
+.seguranca-container{max-width:900px;margin:0 auto}
 @media(min-width:600px){.hero h1{font-size:48px}}
 </style>
 </head>
@@ -90,31 +91,15 @@ footer a{color:#3C1660;font-weight:700}
     <div class="kit-grid">
       <div class="kit-card">
         <div class="kit-preview"><img src="./certificado-base.png" alt="Certificado QR ZAP" onerror="this.src='https://brochezapbrasil.github.io/certificado-base.png'"><div class="watermark"><span>Exemplo ilustrativo</span></div></div>
-        <div class="kit-info"><h4>📜 Certificado QR ZAP</h4><p> Modelo </p><span class="kit-lock">🔒 Alta 300dpi • Após adesão</span></div>
+        <div class="kit-info"><h4>📜 Certificado QR ZAP</h4><p>Modelo</p><span class="kit-lock">🔒 Alta 300dpi • Após adesão</span></div>
       </div>
       <div class="kit-card">
-    <div class="kit-preview">
-        <img src="./certificado-oficial.png"
-             alt="Certificado de Adesão QR ZAP"
-             onerror="this.src='https://brochezapbrasil.github.io/certificado-oficial.png'">
-        <div class="watermark">
-            <span>Exemplo ilustrativo</span>
-        </div>
-    </div>
-
-    <div class="kit-info">
-        <h4>📜 Certificado de Adesão QR ZAP</h4>
-        <p>Modelo. Certificado concedido às empresas participantes do Programa QR ZAP.</p>
-        <span class="kit-lock">🔒 Alta resolução • Após adesão</span>
-    </div>
-</div>
+        <div class="kit-preview"><img src="./certificado-oficial.png" alt="Certificado de Adesão QR ZAP" onerror="this.src='https://brochezapbrasil.github.io/certificado-oficial.png'"><div class="watermark"><span>Exemplo ilustrativo</span></div></div>
+        <div class="kit-info"><h4>📜 Certificado de Adesão QR ZAP</h4><p>Modelo. Certificado concedido às empresas participantes do Programa QR ZAP.</p><span class="kit-lock">🔒 Alta resolução • Após adesão</span></div>
+      </div>
       <div class="kit-card">
-        <div class="kit-preview"><img src="./selo-base-v2.png"
-alt="Selo Empresa Amiga"
-onerror="this.src='https://brochezapbrasil.github.io/selo-base-v2.png'"><div class="watermark"><span>Exemplo ilustrativo</span></div></div>
-        <div class="kit-info"><h4>🏅 Selo Empresa Amiga da Comunicação Acessível</h4><p> Modelo. QR Code inserido após a adesão.
-
-  .</p><span class="kit-lock">🔒 QR Code inserido• Após adesão</span></div>
+        <div class="kit-preview"><img src="./selo-base-v2.png" alt="Selo Empresa Amiga" onerror="this.src='https://brochezapbrasil.github.io/selo-base-v2.png'"><div class="watermark"><span>Exemplo ilustrativo</span></div></div>
+        <div class="kit-info"><h4>🏅 Selo Empresa Amiga da Comunicação Acessível</h4><p>Modelo. QR Code inserido após a adesão.</p><span class="kit-lock">🔒 QR Code inserido • Após adesão</span></div>
       </div>
       <div class="kit-card destaque">
         <div class="kit-badge-new">MAIS USADO</div>
@@ -125,47 +110,37 @@ onerror="this.src='https://brochezapbrasil.github.io/selo-base-v2.png'"><div cla
         <div class="kit-preview"><img src="./qr-azul-base.png" alt="Plaquinha QR Azul" onerror="this.src='https://brochezapbrasil.github.io/qr-azul-base.png'"><div class="watermark"><span>Exemplo ilustrativo</span></div></div>
         <div class="kit-info"><h4>🔵 Plaquinha QR Azul</h4><p>Modelo. Redonda para balcão, caixa e mesa.</p><span class="kit-lock">🔒 Alta resolução</span></div>
       </div>
-      
       <div class="kit-card">
         <div class="kit-preview" style="background:#f8fafc"><div style="width:80px;height:80px;background:#cbd5e1;border-radius:8px;filter:blur(2px)"></div><div class="watermark"><span>Exemplo ilustrativo</span></div></div>
-        <div class="kit-info"><h4>📱 QR Code da Empresa</h4><p>QR Code gerado com o número do telefone cadastrado pela empresa, mensagem inicial padrão fixada. Inserido após a adesão.</p><span class="kit-lock">🔒Vinculado ao telefone cadastrado</span></div>
+        <div class="kit-info"><h4>📱 QR Code da Empresa</h4><p>QR Code gerado com o número do telefone cadastrado pela empresa. Inserido após a adesão.</p><span class="kit-lock">🔒 Vinculado ao telefone cadastrado</span></div>
       </div>
     </div>
     <div style="text-align:center;margin-top:28px">
-
-    <a href="manual-qr-zap.html"
-       target="_blank"
-       style="display:inline-block;background:#081B33;color:#fff;padding:14px 28px;border-radius:30px;font-weight:900;text-decoration:none;font-size:14px">
-        📘 Leia o Manual QR ZAP antes de contratar → 
-    </a>
-
-    <p style="font-size:11px;color:#94a3b8;margin-top:8px">
-        Conheça o processo de adesão, pagamento e acesso aos materiais.
-    </p>
-
-</div>
-  </div>
-</div>
-
-<section style="background:#f0fdf4;border-top:2px solid #22C55E;border-bottom:2px solid #22C55E;padding:32px 20px;max-width:100%;margin:0">
-<div style="max-width:900px;margin:0 auto">
-  <h2 style="font-size:22px;font-weight:900;color:#081B33;margin-bottom:20px">🔒 Segurança, rastreamento e garantias</h2>
-  <div style="display:grid;grid-template-columns:1fr;gap:16px">
-    <div style="background:#fff;border:1px solid #d1fae5;border-radius:12px;padding:16px">
-      <strong style="color:#081B33">📱 QR Code vinculado ao seu WhatsApp</strong>
-      <p style="font-size:13px;color:#444;margin:8px 0 0">Cada QR Code gerado é vinculado exclusivamente ao número de WhatsApp cadastrado pela empresa. Isso garante que o atendimento seja direcionado diretamente para o canal oficial da empresa aderente.</p>
-    </div>
-    <div style="background:#fff;border:1px solid #d1fae5;border-radius:12px;padding:16px">
-      <strong style="color:#081B33">📜 Certificado com número serial único</strong>
-      <p style="font-size:13px;color:#444;margin:8px 0 0">Cada Certificado de Adesão recebe um número serial exclusivo no formato <strong>QRZAP-2026-XXXXX</strong>, gerado automaticamente no momento da adesão. Esse número identifica e rastreia cada empresa dentro do Programa QR ZAP.</p>
-    </div>
-    <div style="background:#fff;border:1px solid #d1fae5;border-radius:12px;padding:16px">
-      <strong style="color:#081B33">🧾 Nota Fiscal garantida</strong>
-      <p style="font-size:13px;color:#444;margin:8px 0 0">Emitimos nota fiscal para todas as empresas que adquirirem o Kit Digital QR ZAP. Sua contratação é segura, formal e documentada.</p>
+      <a href="manual-qr-zap.html" target="_blank" style="display:inline-block;background:#081B33;color:#fff;padding:14px 28px;border-radius:30px;font-weight:900;text-decoration:none;font-size:14px">📘 Leia o Manual QR ZAP antes de contratar →</a>
+      <p style="font-size:11px;color:#94a3b8;margin-top:8px">Conheça o processo de adesão, pagamento e acesso aos materiais.</p>
     </div>
   </div>
 </div>
-</section>
+
+<div class="seguranca-section">
+  <div class="seguranca-container">
+    <h2 style="font-size:22px;font-weight:900;color:#081B33;margin-bottom:20px">🔒 Segurança, rastreamento e garantias</h2>
+    <div style="display:grid;gap:16px">
+      <div style="background:#fff;border:1px solid #d1fae5;border-radius:12px;padding:16px">
+        <strong style="color:#081B33">📱 QR Code vinculado ao seu WhatsApp</strong>
+        <p style="font-size:13px;color:#444;margin:8px 0 0">Cada QR Code gerado é vinculado exclusivamente ao número de WhatsApp cadastrado pela empresa. Isso garante que o atendimento seja direcionado diretamente para o canal oficial da empresa aderente.</p>
+      </div>
+      <div style="background:#fff;border:1px solid #d1fae5;border-radius:12px;padding:16px">
+        <strong style="color:#081B33">📜 Certificado com número serial único</strong>
+        <p style="font-size:13px;color:#444;margin:8px 0 0">Cada Certificado de Adesão recebe um número serial exclusivo no formato <strong>QRZAP-2026-XXXXX</strong>, gerado automaticamente no momento da adesão. Esse número identifica e rastreia cada empresa dentro do Programa QR ZAP.</p>
+      </div>
+      <div style="background:#fff;border:1px solid #d1fae5;border-radius:12px;padding:16px">
+        <strong style="color:#081B33">🧾 Nota Fiscal garantida</strong>
+        <p style="font-size:13px;color:#444;margin:8px 0 0">Emitimos nota fiscal para todas as empresas que adquirirem o Kit Digital QR ZAP. Sua contratação é segura, formal e documentada.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <section id="precos">
 <h2 style="font-size:24px;font-weight:900">Como funciona</h2>
@@ -175,12 +150,12 @@ onerror="this.src='https://brochezapbrasil.github.io/selo-base-v2.png'"><div cla
 <p>Ao aderir ao Kit Digital QR ZAP, sua instituição demonstra seu compromisso com a comunicação acessível e passa a integrar a iniciativa QR ZAP de acolhimento social.</p>
 <ul>
 <li>Você recebe o QR ZAP digital e os arquivos para impressão, utilizando onde preferir.</li>
-<li>🏅Selo QR ZAP – Empresa Amiga da Comunicação Acessível</li>
-<li>Arquivos para impressão </li>
+<li>🏅 Selo QR ZAP – Empresa Amiga da Comunicação Acessível</li>
+<li>Arquivos para impressão</li>
 <li>Certificado digital</li>
 <li>Manual de implantação para suporte contate a fornecedora</li>
 </ul>
-<div class="aviso">🏛️ Empresas, instituições e órgãos públicos. O QR ZAP não é apenas uma ferramenta de acessibilidade. É um diferencial de atendimento que torna sua empresa mais preparada para receber todos os clientes..</div>
+<div class="aviso">🏛️ Empresas, instituições e órgãos públicos. O QR ZAP não é apenas uma ferramenta de acessibilidade. É um diferencial de atendimento que torna sua empresa mais preparada para receber todos os clientes.</div>
 <p style="font-size:11px;color:#666;margin-top:10px">Impressão por conta do cliente. Arquivos para serem utilizados na hora.</p>
 <div style="text-align:center;padding:20px 16px;background:linear-gradient(135deg,#0a2a1a,#1a4a2e);border-radius:14px;margin-top:16px">
 <p style="color:#22C55E;font-family:Georgia,serif;font-size:17px;font-style:italic;margin:0 0 14px">Faça parte da rede de comunicação acessível do Brasil</p>
