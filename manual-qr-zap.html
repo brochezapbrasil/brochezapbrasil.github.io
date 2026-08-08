@@ -1,12 +1,52 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" type="text/css" href="cid:css-618f7943-e3f8-4a1b-b330-77386d348010@mhtml.blink" /><!-- PLAYABLE_TOUCH_PATCH_V1 -->
-
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><!-- PLAYABLE_TOUCH_PATCH_V1 --><script>
+(function() {
+  if (window.__playableTouchPatchInstalled) return;
+  window.__playableTouchPatchInstalled = true;
+  var origAdd = EventTarget.prototype.addEventListener;
+  var blockedTypes = { touchstart: 1, touchmove: 1, wheel: 1 };
+  EventTarget.prototype.addEventListener = function(type, listener, options) {
+    if (blockedTypes[type]) {
+      if (options === undefined || options === null) {
+        options = { passive: true };
+      } else if (typeof options === 'boolean') {
+        options = { capture: options, passive: true };
+      } else {
+        options = Object.assign({}, options, { passive: true });
+      }
+    }
+    return origAdd.call(this, type, listener, options);
+  };
+})();
+</script><script>window.Intl=window.Intl||{};Intl.t=function(s){return(Intl._locale&&Intl._locale[s])||s;};</script>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Manual Oficial – Programa QR ZAP</title>
+<title>Manual QR ZAP – Programa QR ZAP</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
-
+<style>
+:root{--purple-deep:#3B1B6B;--purple:#5B2A9D;--green:#17A579;--ink:#211B2E;--muted:#685F79;--bg:#FBFAFC;--card:#FFF;--line:#E7E1F2;--radius:20px}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:'Manrope',sans-serif;line-height:1.7}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px}header{padding:28px 0;border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:10}
+.brand{font-family:'Fraunces',serif;font-weight:600;color:var(--purple-deep);font-size:20px;text-decoration:none}
+h1,h2{font-family:'Fraunces',serif;color:var(--purple-deep);line-height:1.2}h1{font-size:clamp(32px,4vw,42px);margin:0}
+.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:800;color:var(--green);display:block;margin-bottom:12px}
+.hero{padding:56px 0 32px}.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:32px;box-shadow:0 20px 44px -28px rgba(59,27,107,.25)}
+.step-list{display:grid;gap:18px;margin:24px 0}.step{display:flex;gap:14px;align-items:flex-start}
+.step-num{width:36px;height:36px;border-radius:50%;background:var(--purple-deep);color:#fff;display:grid;place-items:center;font-weight:800;flex:none}
+.kit-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+.kit-item{background:#F7F4FC;border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-weight:700;font-size:14.5px;display:flex;gap:10px;align-items:center}
+.section{padding:40px 0}.divider{height:1px;background:var(--line);margin:40px 0}
+ul.clean{list-style:none;padding:0;margin:16px 0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+ul.clean li{padding-left:24px;position:relative;font-size:15px}ul.clean li::before{content:"✔";position:absolute;left:0;color:var(--green);font-weight:900}
+.cert-img{width:100%;border-radius:16px;border:1px solid var(--line);box-shadow:0 24px 48px -24px rgba(59,27,107,.28);margin:20px 0}
+blockquote{margin:28px 0;padding:20px 24px;background:#EFE8FB;border-radius:14px;font-family:'Fraunces',serif;font-style:italic;color:var(--purple-deep);font-size:17px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--purple);color:#fff;padding:14px 24px;border-radius:999px;font-weight:800;font-size:15px;text-decoration:none}
+.btn.ghost{background:transparent;color:var(--purple);border:1.5px solid var(--purple)}footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:var(--muted);font-size:13px;margin-top:40px}
+</style>
 </head>
 <body>
-<header><div class="wrap"><a class="brand" href="https://brochezapbrasil.github.io/">QR ZAP — Fale Comigo de Outro Jeito</a></div></header>
+<header><div class="wrap"><a class="brand" href="./">QR ZAP — Fale Comigo de Outro Jeito</a></div></header>
 <main class="wrap">
 <div class="hero"><span class="eyebrow">Manual QR ZAP – Programa QR ZAP</span><h1>Bem-vindo ao Programa QR ZAP</h1></div>
 <div class="card">
@@ -16,28 +56,9 @@
 <h2>📜 Sobre o Certificado de Adesão</h2>
 <p>O <strong>Certificado de Adesão QR ZAP</strong> é o documento que comprova que sua empresa aderiu ao programa e se compromete com os princípios da comunicação acessível, do respeito, da inclusão e do atendimento humanizado.</p>
 <img src="certificado-oficial.png" alt="Certificado de Adesão QR ZAP" class="cert-img">
-<p style="font-size:14px;color:var(--muted)">Modelo oficial — gerado automaticamente com os dados da sua empresa, data de adesão e CNPJ verificável.</p>
+<p style="font-size:14px;color:var(--muted)">Modelo oficial — gerado automaticamente com nome da empresa, instituição e data de adesão.</p>
 <p>Deve ser exposto em local visível — recepção, balcão ou área de atendimento — e demonstra que a empresa remove barreiras de comunicação.</p>
-<p><strong>CT-001 — Código do Documento:</strong> é o código fixo que identifica o tipo de documento emitido pelo Programa QR ZAP. Ele aparece no canto inferior direito do certificado e garante a autenticidade do material.</p>
-<p><strong>QRZAP-2026-XXXXX — Número Serial:</strong> é o número único gerado automaticamente para cada empresa aderente. Ele registra a ordem de adesão ao programa e funciona como identificador exclusivo do seu certificado.</p>
 <blockquote>"O certificado representa o compromisso diário de acolher, respeitar e facilitar a comunicação de quem necessita de um atendimento acessível."</blockquote>
-<div style="background:#f0fdf4;border:2px solid #17A579;border-radius:16px;padding:24px;margin:32px 0;">
-  <h3 style="color:#0a4a2e;margin:0 0 16px;">🔒 Segurança e garantias do seu Kit</h3>
-  <div style="display:grid;gap:14px;">
-    <div style="background:#fff;border:1px solid #bbf7d0;border-radius:12px;padding:16px;">
-      <strong style="color:#3B1B6B;">📱 QR Code vinculado ao seu WhatsApp</strong>
-      <p style="font-size:14px;color:#444;margin:8px 0 0;">Cada QR Code gerado é vinculado exclusivamente ao número de WhatsApp cadastrado pela empresa, garantindo que o atendimento seja direcionado ao canal oficial da empresa aderente.</p>
-    </div>
-    <div style="background:#fff;border:1px solid #bbf7d0;border-radius:12px;padding:16px;">
-      <strong style="color:#3B1B6B;">📜 Certificado com número serial único</strong>
-      <p style="font-size:14px;color:#444;margin:8px 0 0;">Cada Certificado de Adesão recebe um número serial exclusivo no formato <strong>QRZAP-2026-XXXXX</strong>, gerado automaticamente no momento da adesão, identificando cada empresa dentro do Programa QR ZAP.</p>
-    </div>
-    <div style="background:#fff;border:1px solid #bbf7d0;border-radius:12px;padding:16px;">
-      <strong style="color:#3B1B6B;">🧾 Nota Fiscal garantida</strong>
-      <p style="font-size:14px;color:#444;margin:8px 0 0;">Emitimos nota fiscal para todas as empresas que adquirirem o Kit Digital QR ZAP. Sua contratação é segura, formal e documentada.</p>
-    </div>
-  </div>
-</div>
 </div>
 <div class="section">
 <h2>Como receber seu Kit para impressão</h2>
@@ -52,7 +73,7 @@
 <div class="kit-item">🏅 Selo Empresa Amiga da Comunicação Acessível</div>
 <div class="kit-item">🔵 Plaquinha QR ZAP</div>
 <div class="kit-item">🚪 Adesivo para Porta</div>
-<div class="kit-item" style="grid-column:1/-1;justify-content:center;background:#E4F8F0">📱 QR Code personalizado da empresa</div>
+<div class="kit-item" style="grid-column:1/-1;justify-content:center;background:#E4F8F0">📱 QR Code da empresa</div>
 </div>
 <p style="font-size:14px;color:var(--muted);text-align:center">Todos os arquivos são fornecidos em alta resolução, prontos para impressão e utilização.</p>
 </div>
@@ -60,7 +81,7 @@
 <div class="section" style="padding-top:0">
 <h2>Onde utilizar os materiais</h2>
 <ul class="clean">
-<li>Recepção</li><li>Balcão de atendimento</li><li>Porta de entrada</li><li>Caixa</li><li>Site institucional</li><li>Redes sociais</li><li>Google Meu Negócio</li><li>Materiais de divulgação</li>
+<li>Recepção</li><li>Balcão de atendimento</li><li>Porta de entrada</li><li>Caixa</li>
 </ul>
 </div>
 <div class="card" style="background:#3B1B6B;color:#fff;border-color:#3B1B6B;text-align:center">
@@ -76,6 +97,5 @@
 </div>
 </main>
 <footer>© 2026 QR ZAP • CNPJ 68.088.847/0001-03 • Panorama-SP<br>Iniciativa privada, sem vínculo com órgãos públicos.</footer>
-
-
-</body></html>
+</body>
+</html>
