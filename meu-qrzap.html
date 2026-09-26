@@ -63,6 +63,7 @@
   section.band{padding:48px 0}
   section.band h2{font-size:clamp(24px,4.5vw,32px);line-height:1.2;margin:0 0 10px;font-weight:900}
   section.band p{max-width:62ch;margin:0 0 14px}
+  section.band.inst{padding-top:0}
   .how ol{margin:0;padding-left:22px;max-width:62ch}
   .how li{margin-bottom:8px}
 
@@ -176,6 +177,22 @@
     </div>
   </section>
 
+  <section class="band inst">
+    <div class="wrap">
+      <div class="panel">
+        <h2 style="font-size:clamp(22px,4vw,28px);margin:0 0 10px;font-weight:900">Instituições podem usar livremente</h2>
+        <p>Órgãos públicos, ONGs, APAEs, escolas e centros de atendimento podem usar esta página gratuitamente para criar cartões para as pessoas que atendem.</p>
+        <p style="font-weight:800;margin-bottom:6px">Condições de uso</p>
+        <ul style="margin:0 0 16px;padding-left:22px;max-width:62ch">
+          <li>Os cartões devem ser entregues de graça, sem venda.</li>
+          <li>Não é permitido alterar a marca QR ZAP nem o aviso "Não é documento oficial".</li>
+          <li>Use o número de WhatsApp com autorização da pessoa ou do responsável.</li>
+        </ul>
+        <a class="btn btn-navy" id="btnInst" href="#" target="_blank" rel="noopener">Fazer uma parceria</a>
+      </div>
+    </div>
+  </section>
+
   <section class="band biz">
     <div class="wrap row">
       <div>
@@ -223,6 +240,7 @@
   var ready=false;
 
   $("btnDepo").href="https://wa.me/"+CONTATO+"?text="+encodeURIComponent("Olá! Quero deixar meu depoimento sobre o cartão QR ZAP Fale Comigo:");
+  $("btnInst").href="https://wa.me/"+CONTATO+"?text="+encodeURIComponent("Olá! Sou de uma instituição e tenho interesse em uma parceria com o QR ZAP Fale Comigo.");
   $("btnDoar").href="https://wa.me/"+CONTATO+"?text="+encodeURIComponent("Olá! Tenho interesse em patrocinar cordões e cartões QR ZAP.");
 
   function phone(){
