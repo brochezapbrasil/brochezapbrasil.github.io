@@ -157,6 +157,7 @@
           <div class="actions">
             <button class="btn btn-green" id="btnDown" type="button" disabled>Baixar cartão</button>
             <button class="btn btn-line" id="btnPrint" type="button" disabled>Imprimir</button>
+            <button class="btn btn-line" id="btnWall" type="button" disabled>Baixar para tela do celular</button>
           </div>
         </div>
         <p style="font-size:14px;color:var(--muted);margin:12px 0 0">Antes de usar, teste: escaneie com outro celular e veja se abre o WhatsApp certo.</p>
@@ -172,6 +173,7 @@
         <li>Recorte, faça um furinho no círculo de cima e, se puder, plastifique.</li>
         <li>Pendure no cordão que você já usa, como o de girassol.</li>
         <li>No atendimento, mostre o cartão. A pessoa escaneia e vocês conversam por mensagem.</li>
+        <li>Prefere usar o celular? Toque em "Baixar para tela do celular" e coloque a imagem como papel de parede da tela de bloqueio.</li>
       </ol>
       <p style="margin-top:16px;font-size:15px;color:var(--muted)">O cartão QR ZAP é uma ferramenta de comunicação. Não é documento oficial e não substitui a CIPTEA, laudos ou documentos de identificação.</p>
     </div>
@@ -316,7 +318,7 @@
     ctx.lineWidth=2;ctx.strokeStyle="#c7cede";ctx.strokeRect(1,1,W-2,H-2);
 
     ready=!!(num&&src);
-    $("btnDown").disabled=!ready; $("btnPrint").disabled=!ready;
+    $("btnDown").disabled=!ready; $("btnPrint").disabled=!ready; $("btnWall").disabled=!ready;
     $("stageNote").textContent=ready?"Prévia do seu cartão.":"Digite o WhatsApp para ver seu QR Code.";
   }
 
@@ -349,6 +351,42 @@
     var a=document.createElement("a");
     a.download="meu-cartao-qrzap.png";
     a.href=canvas.toDataURL("image/png");
+    document.body.appendChild(a);a.click();a.remove();
+  });
+  function wallpaper(){
+    var src=qrBox.querySelector("canvas"); if(!src) return null;
+    var WW=1080, WH=2400, c=document.createElement("canvas"); c.width=WW; c.height=WH;
+    var g=c.getContext("2d");
+    g.fillStyle=NAVY; g.fillRect(0,0,WW,WH);
+    g.textAlign="center"; g.textBaseline="alphabetic";
+    // painel branco (a parte de cima fica livre para o relógio)
+    var px=70, py=700, pw=WW-140, ph=1200;
+    g.beginPath(); g.moveTo(px+48,py); g.arcTo(px+pw,py,px+pw,py+ph,48); g.arcTo(px+pw,py+ph,px,py+ph,48); g.arcTo(px,py+ph,px,py,48); g.arcTo(px,py,px+pw,py,48); g.closePath();
+    g.fillStyle="#fff"; g.fill();
+    // frase
+    g.fillStyle=NAVY; g.font="900 58px "+FONT;
+    var old=ctx; ctx=g; var ls=wrap(frase(),pw-100).slice(0,2); ctx=old;
+    var y=py+110; ls.forEach(function(l){g.fillText(l,WW/2,y); y+=70;});
+    // QR
+    var q=640, qx=(WW-q)/2, qy=y-20;
+    g.lineWidth=8; g.strokeStyle=GREEN; g.strokeRect(qx-22,qy-22,q+44,q+44);
+    g.imageSmoothingEnabled=false; g.drawImage(src,qx,qy,q,q);
+    y=qy+q+100;
+    g.fillStyle="#1f9e40"; g.font="900 56px "+FONT; g.fillText("Escaneie e fale comigo",WW/2,y);
+    var nome=$("nome").value.trim();
+    if(nome){ y+=70; g.fillStyle=NAVY; g.font="800 44px "+FONT; g.fillText("Meu nome é "+nome,WW/2,y); }
+    // marca e aviso
+    g.fillStyle=GREEN; g.font="900 64px "+FONT; g.fillText("QR ZAP",WW/2,2010);
+    g.fillStyle="#fff"; g.font="800 28px "+FONT; g.fillText("F A L E   C O M I G O",WW/2,2060);
+    g.fillStyle="#c9d2ea"; g.font="700 26px "+FONT; g.fillText("Cartão de comunicação. Não é documento oficial.",WW/2,2130);
+    return c;
+  }
+  $("btnWall").addEventListener("click",function(){
+    if(!ready) return;
+    var c=wallpaper(); if(!c) return;
+    var a=document.createElement("a");
+    a.download="qrzap-tela-celular.png";
+    a.href=c.toDataURL("image/png");
     document.body.appendChild(a);a.click();a.remove();
   });
   $("btnPrint").addEventListener("click",function(){
