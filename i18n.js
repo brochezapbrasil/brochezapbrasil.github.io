@@ -66,7 +66,7 @@
     "Ou tire dúvidas no WhatsApp":["Or ask your questions on WhatsApp","O resuelva sus dudas por WhatsApp"],
     "O Programa QR ZAP é uma iniciativa privada de promoção da comunicação acessível, sem vínculo ou credenciamento por órgãos públicos.":["The QR ZAP Program is a private initiative to promote accessible communication, with no link to or accreditation by public bodies.","El Programa QR ZAP es una iniciativa privada de promoción de la comunicación accesible, sin vínculo ni acreditación por parte de organismos públicos."],
     "Consulte nossos":["See our","Consulte nuestros"],
-    "Termos de Uso e Política de Privacidade":["Terms of Use and Privacy Policy (in Portuguese)","Términos de Uso y Política de Privacidad (en portugués)"]
+    "Termos de Uso e Política de Privacidade":["Terms of Use and Privacy Policy","Términos de Uso y Política de Privacidad"]
   };
   var TITLE=["QR ZAP - Talk to Me in a Different Way | Accessible Communication","QR ZAP - Háblame de Otra Manera | Comunicación Accesible"];
   // Mensagens prontas dos links do WhatsApp
