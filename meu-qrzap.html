@@ -45,6 +45,9 @@
   textarea{min-height:84px;resize:vertical}
   .err{color:#b3261e;font-weight:700;font-size:15px;margin-top:6px;display:none}
   .err.on{display:block}
+  .phone-row{display:grid;grid-template-columns:1fr;gap:10px}
+  @media(min-width:520px){.phone-row{grid-template-columns:.9fr 1.1fr}}
+  .ddi-other{display:none;margin-top:10px}
 
   .preview{position:sticky;top:16px;text-align:center}
   .card-stage{background:var(--navy);border-radius:22px;padding:26px 20px 22px}
@@ -118,20 +121,45 @@
       <form id="f" novalidate>
         <div class="field">
           <label for="tel">WhatsApp que vai receber a conversa</label>
-          <input id="tel" type="tel" inputmode="numeric" autocomplete="tel" placeholder="(18) 99999-9999" required>
-          <span class="hint">O seu número ou o de um responsável. Com DDD.</span>
+          <div class="phone-row">
+            <select id="pais" aria-label="País do WhatsApp">
+              <option value="55" selected>🇧🇷 Brasil (+55)</option>
+              <option value="1">🇺🇸 EUA / Canadá (+1)</option>
+              <option value="351">🇵🇹 Portugal (+351)</option>
+              <option value="34">🇪🇸 Espanha (+34)</option>
+              <option value="54">🇦🇷 Argentina (+54)</option>
+              <option value="598">🇺🇾 Uruguai (+598)</option>
+              <option value="595">🇵🇾 Paraguai (+595)</option>
+              <option value="56">🇨🇱 Chile (+56)</option>
+              <option value="57">🇨🇴 Colômbia (+57)</option>
+              <option value="51">🇵🇪 Peru (+51)</option>
+              <option value="52">🇲🇽 México (+52)</option>
+              <option value="44">🇬🇧 Reino Unido (+44)</option>
+              <option value="33">🇫🇷 França (+33)</option>
+              <option value="49">🇩🇪 Alemanha (+49)</option>
+              <option value="39">🇮🇹 Itália (+39)</option>
+              <option value="other">🌍 Outro país…</option>
+            </select>
+            <input id="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="(18) 99999-9999" required>
+          </div>
+          <input id="ddiOutro" class="ddi-other" type="tel" inputmode="numeric" maxlength="4" placeholder="Código do país, ex.: 81" aria-label="Código do país">
+          <span class="hint" id="telHint">O seu número ou o de um responsável. Com DDD.</span>
           <div class="err" id="telErr">Digite o número com DDD, por exemplo (18) 99999-9999.</div>
         </div>
 
         <div class="field">
-          <label for="frase">Frase do cartão</label>
-          <select id="frase">
-            <option>Não me comunico pela fala.</option>
-            <option>Tenho dificuldade para falar.</option>
-            <option>Sou surdo(a). Prefiro conversar por mensagem.</option>
-            <option>Prefiro me comunicar por mensagem.</option>
-            <option value="__outra">Escrever outra frase…</option>
+          <label for="idioma">Idioma do cartão</label>
+          <select id="idioma">
+            <option value="pt" selected>Português</option>
+            <option value="en">English</option>
+            <option value="es">Español</option>
           </select>
+          <span class="hint">É o idioma da frase, do texto do cartão e da primeira mensagem.</span>
+        </div>
+
+        <div class="field">
+          <label for="frase">Frase do cartão</label>
+          <select id="frase"></select>
           <input id="fraseOutra" type="text" maxlength="60" placeholder="Sua frase (até 60 letras)" style="display:none;margin-top:10px">
         </div>
 
@@ -241,18 +269,99 @@
   var FONT='"Nunito", system-ui, sans-serif';
   var ready=false;
 
+  // Textos do cartão por idioma
+  var T={
+    pt:{
+      frases:["Não me comunico pela fala.","Tenho dificuldade para falar.","Sou surdo(a). Prefiro conversar por mensagem.","Prefiro me comunicar por mensagem."],
+      outra:"Escrever outra frase…",
+      scan:"Escaneie e fale comigo",
+      nome:"Meu nome é ",
+      aviso:"Cartão de comunicação. Não é documento oficial.",
+      criar:"Crie o seu grátis: qrzap-falecomigo.com.br",
+      msg:"Olá! Vi seu cartão QR ZAP e estou aqui para te atender."
+    },
+    en:{
+      frases:["I don't communicate through speech.","I have difficulty speaking.","I am deaf. I prefer to chat by message.","I prefer to communicate by message."],
+      outra:"Write another phrase…",
+      scan:"Scan and talk to me",
+      nome:"My name is ",
+      aviso:"Communication card. Not an official document.",
+      criar:"Create yours for free: qrzap-falecomigo.com.br",
+      msg:"Hello! I saw your QR ZAP card and I'm here to help you."
+    },
+    es:{
+      frases:["No me comunico hablando.","Tengo dificultad para hablar.","Soy sordo(a). Prefiero conversar por mensaje.","Prefiero comunicarme por mensaje."],
+      outra:"Escribir otra frase…",
+      scan:"Escanea y habla conmigo",
+      nome:"Me llamo ",
+      aviso:"Tarjeta de comunicación. No es un documento oficial.",
+      criar:"Crea la tuya gratis: qrzap-falecomigo.com.br",
+      msg:"¡Hola! Vi tu tarjeta QR ZAP y estoy aquí para atenderte."
+    }
+  };
+  function L(){ return T[$("idioma").value] || T.pt; }
+  var msgEditada=false;
+
   $("btnDepo").href="https://wa.me/"+CONTATO+"?text="+encodeURIComponent("Olá! Quero deixar meu depoimento sobre o cartão QR ZAP Fale Comigo:");
   $("btnInst").href="https://wa.me/"+CONTATO+"?text="+encodeURIComponent("Olá! Sou de uma instituição e tenho interesse em uma parceria com o QR ZAP Fale Comigo.");
   $("btnDoar").href="https://wa.me/"+CONTATO+"?text="+encodeURIComponent("Olá! Tenho interesse em patrocinar cordões e cartões QR ZAP.");
 
-  function phone(){
-    var d=$("tel").value.replace(/\D/g,"");
-    if(d.length===10||d.length===11) d="55"+d;
-    if(/^55\d{10,11}$/.test(d)) return d;
-    return null;
+  // Preenche o menu de frases no idioma escolhido
+  function montaFrases(){
+    var sel=$("frase"), antes=sel.value, t=L();
+    sel.innerHTML="";
+    t.frases.forEach(function(f,i){
+      var o=document.createElement("option"); o.value=String(i); o.textContent=f; sel.appendChild(o);
+    });
+    var o=document.createElement("option"); o.value="__outra"; o.textContent=t.outra; sel.appendChild(o);
+    if(antes && sel.querySelector('option[value="'+antes+'"]')) sel.value=antes;
+    $("fraseOutra").style.display=sel.value==="__outra"?"block":"none";
   }
+
+  // Código do país (DDI) escolhido
+  function ddi(){
+    var v=$("pais").value;
+    if(v==="other") return $("ddiOutro").value.replace(/\D/g,"")||null;
+    return v;
+  }
+
+  // Monta o número completo (DDI + número), só dígitos, ou null se inválido
+  function phone(){
+    var raw=$("tel").value.trim(), d=raw.replace(/\D/g,"");
+    if(!d) return null;
+    // Se a pessoa digitou com "+", já é o número internacional completo
+    if(raw.charAt(0)==="+") return (d.length>=8&&d.length<=15)?d:null;
+    var c=ddi();
+    if(!c) return null;
+    if(c==="55"){
+      if(d.length===10||d.length===11) return "55"+d;
+      if(/^55\d{10,11}$/.test(d)) return d;
+      return null;
+    }
+    d=d.replace(/^0+/,"");
+    // Argentina: celular no WhatsApp usa 54 9 + DDD + número
+    if(c==="54" && d.length===10) d="9"+d;
+    if(d.length<6) return null;
+    var full=c+d;
+    return full.length<=15?full:null;
+  }
+
+  function atualizaDicas(){
+    var br=$("pais").value==="55";
+    $("ddiOutro").style.display=$("pais").value==="other"?"block":"none";
+    $("tel").placeholder=br?"(18) 99999-9999":"Número com código de área";
+    $("telHint").textContent=br
+      ? "O seu número ou o de um responsável. Com DDD."
+      : "O seu número ou o de um responsável. Sem o código do país, ele já vem do campo ao lado. Ou digite tudo começando com +.";
+    $("telErr").textContent=br
+      ? "Digite o número com DDD, por exemplo (18) 99999-9999."
+      : "Confira o número. Digite com o código de área, sem o código do país, ou use o formato +código número.";
+  }
+
   function frase(){
-    return $("frase").value==="__outra" ? ($("fraseOutra").value.trim()||"Não me comunico pela fala.") : $("frase").value;
+    var v=$("frase").value, t=L();
+    if(v==="__outra") return $("fraseOutra").value.trim()||t.frases[0];
+    return t.frases[parseInt(v,10)||0];
   }
   function wrap(text,maxW){
     var words=text.split(/\s+/), lines=[], line="";
@@ -266,7 +375,7 @@
   function rr(x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();}
 
   function draw(){
-    var num=phone();
+    var num=phone(), t=L();
     ctx.clearRect(0,0,W,H);
     ctx.fillStyle="#fff";ctx.fillRect(0,0,W,H);
 
@@ -278,10 +387,10 @@
     ctx.textAlign="center";ctx.textBaseline="alphabetic";
     ctx.fillStyle=GREEN;ctx.font="900 76px "+FONT;ctx.fillText("QR ZAP",W/2,168);
     ctx.fillStyle="#fff";ctx.font="800 28px "+FONT;
-    var t="FALE COMIGO", sp=6, tw=0, i;
-    for(i=0;i<t.length;i++) tw+=ctx.measureText(t[i]).width+(i?sp:0);
+    var tt="FALE COMIGO", sp=6, tw=0, i;
+    for(i=0;i<tt.length;i++) tw+=ctx.measureText(tt[i]).width+(i?sp:0);
     var x=W/2-tw/2; ctx.textAlign="left";
-    for(i=0;i<t.length;i++){ctx.fillText(t[i],x,216);x+=ctx.measureText(t[i]).width+sp;}
+    for(i=0;i<tt.length;i++){ctx.fillText(tt[i],x,216);x+=ctx.measureText(tt[i]).width+sp;}
     ctx.textAlign="center";
 
     // frase
@@ -304,15 +413,15 @@
     }
     y=qy+size+62;
 
-    ctx.fillStyle="#1f9e40";ctx.font="900 36px "+FONT;ctx.fillText("Escaneie e fale comigo",W/2,y);
+    ctx.fillStyle="#1f9e40";ctx.font="900 36px "+FONT;ctx.fillText(t.scan,W/2,y);
     var nome=$("nome").value.trim();
-    if(nome){ y+=46; ctx.fillStyle=NAVY; ctx.font="800 30px "+FONT; ctx.fillText("Meu nome é "+nome,W/2,y); }
+    if(nome){ y+=46; ctx.fillStyle=NAVY; ctx.font="800 30px "+FONT; ctx.fillText(t.nome+nome,W/2,y); }
 
     // rodapé
     ctx.fillStyle=MUTED;ctx.font="700 18px "+FONT;
-    ctx.fillText("Cartão de comunicação. Não é documento oficial.",W/2,H-54);
+    ctx.fillText(t.aviso,W/2,H-54);
     ctx.font="600 18px "+FONT;
-    ctx.fillText("Crie o seu grátis: qrzap-falecomigo.com.br",W/2,H-26);
+    ctx.fillText(t.criar,W/2,H-26);
 
     // borda de corte
     ctx.lineWidth=2;ctx.strokeStyle="#c7cede";ctx.strokeRect(1,1,W-2,H-2);
@@ -327,7 +436,7 @@
     clearTimeout(timer);
     timer=setTimeout(function(){
       var num=phone();
-      $("telErr").classList.toggle("on", $("tel").value.replace(/\D/g,"").length>=8 && !num);
+      $("telErr").classList.toggle("on", $("tel").value.replace(/\D/g,"").length>=6 && !num);
       qrBox.innerHTML="";
       if(num && window.QRCode){
         var link="https://wa.me/"+num+"?text="+encodeURIComponent($("msg").value.trim());
@@ -343,7 +452,19 @@
     if(this.value==="__outra") $("fraseOutra").focus();
     update();
   });
-  ["tel","fraseOutra","nome","msg"].forEach(function(id){$(id).addEventListener("input",update);});
+  $("pais").addEventListener("change",function(){
+    atualizaDicas();
+    if(this.value==="other") $("ddiOutro").focus();
+    update();
+  });
+  $("idioma").addEventListener("change",function(){
+    montaFrases();
+    // só troca a mensagem se a pessoa ainda não editou
+    if(!msgEditada) $("msg").value=L().msg;
+    update();
+  });
+  $("msg").addEventListener("input",function(){ msgEditada=true; });
+  ["tel","ddiOutro","fraseOutra","nome","msg"].forEach(function(id){$(id).addEventListener("input",update);});
   $("f").addEventListener("submit",function(e){e.preventDefault();});
 
   $("btnDown").addEventListener("click",function(){
@@ -355,6 +476,7 @@
   });
   function wallpaper(){
     var src=qrBox.querySelector("canvas"); if(!src) return null;
+    var t=L();
     var WW=1080, WH=2400, c=document.createElement("canvas"); c.width=WW; c.height=WH;
     var g=c.getContext("2d");
     g.fillStyle=NAVY; g.fillRect(0,0,WW,WH);
@@ -372,13 +494,13 @@
     g.lineWidth=8; g.strokeStyle=GREEN; g.strokeRect(qx-22,qy-22,q+44,q+44);
     g.imageSmoothingEnabled=false; g.drawImage(src,qx,qy,q,q);
     y=qy+q+100;
-    g.fillStyle="#1f9e40"; g.font="900 56px "+FONT; g.fillText("Escaneie e fale comigo",WW/2,y);
+    g.fillStyle="#1f9e40"; g.font="900 56px "+FONT; g.fillText(t.scan,WW/2,y);
     var nome=$("nome").value.trim();
-    if(nome){ y+=70; g.fillStyle=NAVY; g.font="800 44px "+FONT; g.fillText("Meu nome é "+nome,WW/2,y); }
+    if(nome){ y+=70; g.fillStyle=NAVY; g.font="800 44px "+FONT; g.fillText(t.nome+nome,WW/2,y); }
     // marca e aviso
     g.fillStyle=GREEN; g.font="900 64px "+FONT; g.fillText("QR ZAP",WW/2,2010);
     g.fillStyle="#fff"; g.font="800 28px "+FONT; g.fillText("F A L E   C O M I G O",WW/2,2060);
-    g.fillStyle="#c9d2ea"; g.font="700 26px "+FONT; g.fillText("Cartão de comunicação. Não é documento oficial.",WW/2,2130);
+    g.fillStyle="#c9d2ea"; g.font="700 26px "+FONT; g.fillText(t.aviso,WW/2,2130);
     return c;
   }
   $("btnWall").addEventListener("click",function(){
@@ -396,6 +518,8 @@
     img.src=canvas.toDataURL("image/png");
   });
 
+  montaFrases();
+  atualizaDicas();
   (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(draw);
   draw();
 })();
