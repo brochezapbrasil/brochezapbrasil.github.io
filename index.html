@@ -91,24 +91,24 @@ footer a{color:#3C1660;font-weight:700}
     <p class="kit-subtitle">Kit completo QR ZAP com identidade visual ACESSIBILIDADE PARA TODOS. Prévia em baixa com proteção. Arquivos em alta liberados após adesão no painel do cliente.</p>
     <div class="kit-grid">
       <div class="kit-card">
-        <div class="kit-preview"><img src="./certificado-base.png" alt="Certificado QR ZAP" onerror="this.src='https://brochezapbrasil.github.io/certificado-base.png'"><div class="watermark"><span>Exemplo ilustrativo</span></div></div>
+        <div class="kit-preview"><img class="kit-img" data-pt="certificado-base.png" data-en="certificado.base-en.png" data-es="certificado.base-es%20%281%29.png" src="./certificado-base.png" alt="Certificado QR ZAP" onerror="this.src='https://brochezapbrasil.github.io/certificado-base.png'"><div class="watermark"><span>Exemplo ilustrativo</span></div></div>
         <div class="kit-info"><h4>📜 Certificado QR ZAP</h4><p>Modelo</p><span class="kit-lock">🔒 Alta 300dpi • Após adesão</span></div>
       </div>
       <div class="kit-card">
-        <div class="kit-preview"><img src="./certificado-oficial.png" alt="Certificado de Adesão QR ZAP" onerror="this.src='https://brochezapbrasil.github.io/certificado-oficial.png'"><div class="watermark"><span>Exemplo ilustrativo</span></div></div>
+        <div class="kit-preview"><img class="kit-img" data-pt="certificado-oficial.png" data-en="certificado.oficial-en.png" data-es="certificado.oficial-es.png" src="./certificado-oficial.png" alt="Certificado de Adesão QR ZAP" onerror="this.src='https://brochezapbrasil.github.io/certificado-oficial.png'"><div class="watermark"><span>Exemplo ilustrativo</span></div></div>
         <div class="kit-info"><h4>📜 Certificado de Adesão QR ZAP</h4><p>Modelo. Certificado concedido às empresas participantes do Programa QR ZAP.</p><span class="kit-lock">🔒 Alta resolução • Após adesão</span></div>
       </div>
       <div class="kit-card">
-        <div class="kit-preview"><img src="./selo-base-v2.png" alt="Selo Empresa Amiga" onerror="this.src='https://brochezapbrasil.github.io/selo-base-v2.png'"><div class="watermark"><span>Exemplo ilustrativo</span></div></div>
+        <div class="kit-preview"><img class="kit-img" data-pt="selo-base-v2.png" data-en="selo-base-en.png" data-es="selo-base-es.png" src="./selo-base-v2.png" alt="Selo Empresa Amiga" onerror="this.src='https://brochezapbrasil.github.io/selo-base-v2.png'"><div class="watermark"><span>Exemplo ilustrativo</span></div></div>
         <div class="kit-info"><h4>🏅 Selo Empresa Amiga da Comunicação Acessível</h4><p>Modelo. QR Code inserido após a adesão.</p><span class="kit-lock">🔒 QR Code inserido • Após adesão</span></div>
       </div>
       <div class="kit-card destaque">
         <div class="kit-badge-new">MAIS USADO</div>
-        <div class="kit-preview"><img src="./adesivo-porta-base.png" alt="Adesivo Porta" onerror="this.src='https://brochezapbrasil.github.io/adesivo-porta-base.png'"><div class="watermark"><span>Exemplo ilustrativo</span></div></div>
+        <div class="kit-preview"><img class="kit-img" data-pt="adesivo-porta-base.png" data-en="adesivo.porta-en.png" data-es="adesivo.porta-es.png" src="./adesivo-porta-base.png" alt="Adesivo Porta" onerror="this.src='https://brochezapbrasil.github.io/adesivo-porta-base.png'"><div class="watermark"><span>Exemplo ilustrativo</span></div></div>
         <div class="kit-info"><h4>🚪 Adesivo para Porta</h4><p>Modelo</p><span class="kit-lock">🔒 Pronto para gráfica • Após adesão</span></div>
       </div>
       <div class="kit-card">
-        <div class="kit-preview"><img src="./qr-azul-base.png" alt="Plaquinha QR Azul" onerror="this.src='https://brochezapbrasil.github.io/qr-azul-base.png'"><div class="watermark"><span>Exemplo ilustrativo</span></div></div>
+        <div class="kit-preview"><img class="kit-img" data-pt="qr-azul-base.png" data-en="qr-azul-base-en.png" data-es="qr-azul-base-es.png" src="./qr-azul-base.png" alt="Plaquinha QR Azul" onerror="this.src='https://brochezapbrasil.github.io/qr-azul-base.png'"><div class="watermark"><span>Exemplo ilustrativo</span></div></div>
         <div class="kit-info"><h4>🔵 Plaquinha QR Azul</h4><p>Modelo. Redonda para balcão, caixa e mesa.</p><span class="kit-lock">🔒 Alta resolução</span></div>
       </div>
       <div class="kit-card">
@@ -179,5 +179,36 @@ O Programa QR ZAP é uma iniciativa privada de promoção da comunicação acess
 Consulte nossos <a href="termos.html">Termos de Uso e Política de Privacidade</a>.
 </footer>
 <script src="i18n.js"></script>
+<script>
+/* Troca as imagens do kit conforme o idioma (PT/EN/ES) */
+(function(){
+  var imgs=document.querySelectorAll('img.kit-img');
+  function norm(v){v=(v||'').toLowerCase().trim().slice(0,2);return (v==='en'||v==='es'||v==='pt')?v:null;}
+  function apply(l){
+    l=norm(l)||'pt';
+    imgs.forEach(function(img){
+      var f=img.getAttribute('data-'+l)||img.getAttribute('data-pt');
+      img.onerror=function(){this.onerror=null;this.src=this.getAttribute('data-pt');};
+      if(img.getAttribute('src')!==f) img.src=f;
+    });
+  }
+  function detect(){
+    var l=norm(document.documentElement.lang);
+    try{for(var i=0;i<localStorage.length;i++){var v=norm(localStorage.getItem(localStorage.key(i)));
+      if(v&&/lang|idioma|locale/i.test(localStorage.key(i))){l=v;break;}}}catch(e){}
+    return l||'pt';
+  }
+  document.addEventListener('click',function(e){
+    var el=e.target.closest('button,a,span,div,li');
+    if(!el) return;
+    var t=(el.textContent||'').trim().toLowerCase();
+    if(t==='pt'||t==='en'||t==='es'){ setTimeout(function(){apply(t);},0); }
+  },true);
+  new MutationObserver(function(){apply(detect());}).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+  window.addEventListener('load',function(){apply(detect());});
+  window.qrzapKitLang=apply;
+})();
+</script>
+
 </body>
 </html>
