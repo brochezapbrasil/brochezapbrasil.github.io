@@ -23,6 +23,7 @@
   .hero h1 span{color:#4ade80;display:block;}
   .hero p{color:#cbd5e1;max-width:480px;margin:0 auto;line-height:1.6;}
   .botao{display:inline-block;background:#22c55e;color:#06220f;font-weight:800;padding:15px 26px;border-radius:30px;text-decoration:none;margin-top:20px;box-shadow:0 8px 20px rgba(34,197,94,0.25);}
+  .hero-sec{display:block;margin-top:12px;font-size:0.8rem;color:#94a3b8;text-decoration:underline;}
   .conteudo{max-width:760px;margin:0 auto;padding:32px 18px;}
   h2{text-align:center;font-size:1.4rem;color:#0f172a;font-weight:800;}
   .sub{text-align:center;color:#64748b;font-size:0.92rem;max-width:500px;margin:8px auto 24px;}
@@ -52,6 +53,15 @@
   .faixa{background:#ecfdf5;border-top:1px solid #bbf7d0;border-bottom:1px solid #bbf7d0;padding:28px 18px;}
   .faixa .item{max-width:680px;margin:0 auto 16px;}
   .faixa strong{display:block;margin-bottom:2px;}
+
+  .faq{max-width:680px;margin:0 auto;padding:36px 18px;}
+  .faq details{background:#fff;border:1px solid #e2e8f0;border-radius:12px;margin-bottom:10px;padding:4px 16px;}
+  .faq summary{font-weight:700;cursor:pointer;list-style:none;padding:12px 0;font-size:0.95rem;position:relative;padding-right:24px;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"+";position:absolute;right:0;top:12px;font-size:1.1rem;color:#22c55e;font-weight:800;}
+  .faq details[open] summary::after{content:"–";}
+  .faq p{color:#475569;font-size:0.88rem;line-height:1.6;margin:0 0 14px;}
+
   .final{text-align:center;padding:32px 18px;}
   .preco-antigo{text-decoration:line-through;color:#94a3b8;}
   .preco-novo{font-size:1.7rem;font-weight:800;color:#0f172a;margin:6px 0 18px;}
@@ -70,7 +80,8 @@
   <div class="lang"><a class="ativo" href="index.html">PT</a><a href="index-en.html">EN</a><a href="index-es.html">ES</a></div>
   <h1>Fale Comigo<br><span>de Outro Jeito</span></h1>
   <p>QR Code que facilita a comunicação para quem se comunica de outro jeito. Ideal para pessoas surdas, autistas não verbais, com dificuldade de fala, apraxia, gagueira ou qualquer limitação na comunicação oral.</p>
-  <a class="botao" href="https://wa.me/5518981950799?text=Olá! Gostaria de conhecer o QR ZAP.">📲 Solicitar demonstração</a>
+  <a class="botao" href="#comprar">💳 Quero o Kit Digital — R$99</a><br>
+  <a class="hero-sec" href="https://wa.me/5518981950799?text=Olá! Gostaria de tirar dúvidas sobre o QR ZAP antes de contratar.">Prefere tirar dúvidas antes no WhatsApp?</a>
   <p style="font-size:0.78rem;color:#94a3b8;margin-top:16px;">Comunicação acessível com respeito e dignidade · Panorama SP</p>
 </div>
 
@@ -137,7 +148,35 @@
   <div class="item"><strong>🧾 Nota Fiscal garantida</strong>Emitimos nota fiscal para todas as empresas que adquirirem o Kit Digital QR ZAP.</div>
 </div>
 
-<div class="final">
+<div class="faq">
+  <h2>Perguntas frequentes</h2>
+  <details>
+    <summary>Preciso ter WhatsApp Business?</summary>
+    <p>Não. O QR ZAP funciona com qualquer WhatsApp, comum ou Business — o número que sua empresa já usa no dia a dia.</p>
+  </details>
+  <details>
+    <summary>Funciona em qualquer celular?</summary>
+    <p>Sim. Não exige aparelho ou chip específico. A plaquinha e o adesivo são impressos e ficam no balcão; o cliente só escaneia com a câmera do próprio celular dele, que abre o WhatsApp automaticamente.</p>
+  </details>
+  <details>
+    <summary>Posso cancelar depois dos 7 dias?</summary>
+    <p>O pagamento é único, não existe mensalidade para cancelar. Dentro de 7 dias corridos após a compra você pode pedir reembolso integral, sem justificativa, conforme o Código de Defesa do Consumidor. Depois desse prazo não há reembolso, mas você pode deixar de usar os materiais quando quiser, sem multa.</p>
+  </details>
+  <details>
+    <summary>Preciso de internet o tempo todo?</summary>
+    <p>Não. A plaquinha, o adesivo e o selo são materiais impressos — funcionam sem energia ou internet. Só é necessária conexão no momento em que o cliente escaneia o QR Code e o WhatsApp abre no celular dele.</p>
+  </details>
+  <details>
+    <summary>Como recebo a nota fiscal?</summary>
+    <p>Emitimos a nota fiscal de todas as compras do Kit Digital QR ZAP e enviamos para o e-mail informado na adesão.</p>
+  </details>
+  <details>
+    <summary>Posso usar em mais de uma unidade da empresa?</summary>
+    <p>Cada Kit é vinculado a um único WhatsApp e CNPJ. Para outra unidade ou outro número, é necessária uma nova adesão.</p>
+  </details>
+</div>
+
+<div class="final" id="comprar">
   <h2>Faça parte da rede de comunicação acessível do Brasil</h2>
   <p class="preco-antigo">R$100/mês</p>
   <p class="preco-novo">R$ 99,00 — pagamento único</p>
