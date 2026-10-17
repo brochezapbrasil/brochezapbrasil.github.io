@@ -4,39 +4,56 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>QR ZAP - Fale Comigo de Outro Jeito | Comunicação Acessível</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-  body{font-family:Arial,sans-serif;margin:0;background:#f8fafc;color:#1e293b;}
-  .hero{background:#0f172a;color:#fff;padding:28px 20px;text-align:center;}
-  .hero-topo{display:flex;justify-content:center;align-items:center;gap:8px;font-weight:bold;font-size:1.1rem;}
+  *{box-sizing:border-box;}
+  body{font-family:'Manrope',Arial,sans-serif;margin:0;background:#f8fafc;color:#1e293b;}
+  .hero{position:relative;color:#fff;padding:36px 20px;text-align:center;background:#0f172a;overflow:hidden;}
+  .hero::before{content:"";position:absolute;inset:0;background:url('foto-hotel.jpg') center/cover;opacity:0.28;}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,0.75),rgba(15,23,42,0.96));}
+  .hero > *{position:relative;z-index:1;}
+  .hero-topo{display:flex;justify-content:center;align-items:center;gap:8px;font-weight:800;font-size:1.15rem;letter-spacing:0.3px;}
   .hero-cnpj{font-size:0.75rem;color:#94a3b8;margin-top:6px;}
-  .lang{margin-top:10px;font-size:0.8rem;}
-  .lang a{color:#94a3b8;text-decoration:none;margin:0 4px;}
-  .lang a.ativo{color:#fff;font-weight:bold;}
-  .hero h1{font-size:1.6rem;margin:18px 0 10px;}
+  .lang{margin-top:14px;display:inline-flex;background:rgba(255,255,255,0.08);border-radius:30px;padding:4px;}
+  .lang a{color:#cbd5e1;text-decoration:none;padding:6px 14px;border-radius:20px;font-size:0.8rem;font-weight:700;}
+  .lang a.ativo{background:#4ade80;color:#06220f;}
+  .hero h1{font-size:1.9rem;margin:20px 0 10px;font-weight:800;}
   .hero h1 span{color:#4ade80;display:block;}
-  .hero p{color:#cbd5e1;max-width:480px;margin:0 auto;line-height:1.5;}
-  .botao{display:inline-block;background:#22c55e;color:#06220f;font-weight:bold;padding:14px 24px;border-radius:30px;text-decoration:none;margin-top:18px;}
-  .conteudo{max-width:720px;margin:0 auto;padding:28px 18px;}
-  h2{text-align:center;font-size:1.3rem;color:#0f172a;}
-  .sub{text-align:center;color:#64748b;font-size:0.9rem;max-width:480px;margin:6px auto 20px;}
+  .hero p{color:#cbd5e1;max-width:480px;margin:0 auto;line-height:1.6;}
+  .botao{display:inline-block;background:#22c55e;color:#06220f;font-weight:800;padding:15px 26px;border-radius:30px;text-decoration:none;margin-top:20px;box-shadow:0 8px 20px rgba(34,197,94,0.25);}
+  .conteudo{max-width:760px;margin:0 auto;padding:32px 18px;}
+  h2{text-align:center;font-size:1.4rem;color:#0f172a;font-weight:800;}
+  .sub{text-align:center;color:#64748b;font-size:0.92rem;max-width:500px;margin:8px auto 24px;}
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-  .card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;position:relative;}
+  .card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden;position:relative;}
   .card img{width:100%;display:block;}
-  .card .tag{position:absolute;top:8px;right:8px;background:#22c55e;color:#06220f;font-size:0.65rem;font-weight:bold;padding:3px 8px;border-radius:20px;}
-  .card .corpo{padding:10px;}
-  .card .corpo strong{font-size:0.9rem;}
+  .card .tag{position:absolute;top:8px;right:8px;background:#22c55e;color:#06220f;font-size:0.65rem;font-weight:800;padding:3px 9px;border-radius:20px;}
+  .card .corpo{padding:11px;}
+  .card .corpo strong{font-size:0.92rem;}
   .card .corpo .obs{font-size:0.78rem;color:#64748b;display:block;margin-top:2px;}
   .card .corpo .cadeado{font-size:0.72rem;color:#94a3b8;display:block;margin-top:6px;}
-  .manual-link{display:block;text-align:center;margin:20px 0;font-weight:bold;}
-  .faixa{background:#ecfdf5;border-top:1px solid #bbf7d0;border-bottom:1px solid #bbf7d0;padding:24px 18px;}
-  .faixa .item{max-width:680px;margin:0 auto 14px;}
+  .manual-link{display:block;text-align:center;margin:22px 0;font-weight:700;}
+
+  .onde{background:#0f172a;padding:36px 18px;}
+  .onde h2{color:#fff;}
+  .onde .sub{color:#94a3b8;}
+  .onde-grid{max-width:960px;margin:20px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .onde-card{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3;}
+  .onde-card img{width:100%;height:100%;object-fit:cover;display:block;}
+  .onde-card .legenda{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,0.75));color:#fff;font-size:0.78rem;font-weight:700;padding:16px 10px 8px;}
+
+  .faixa{background:#ecfdf5;border-top:1px solid #bbf7d0;border-bottom:1px solid #bbf7d0;padding:28px 18px;}
+  .faixa .item{max-width:680px;margin:0 auto 16px;}
   .faixa strong{display:block;margin-bottom:2px;}
-  .final{text-align:center;padding:28px 18px;}
+  .final{text-align:center;padding:32px 18px;}
   .preco-antigo{text-decoration:line-through;color:#94a3b8;}
-  .preco-novo{font-size:1.6rem;font-weight:bold;color:#0f172a;margin:6px 0 16px;}
-  .botao-pag{display:block;max-width:420px;margin:0 auto;background:#22c55e;color:#06220f;font-weight:bold;padding:16px;border-radius:12px;text-decoration:none;font-size:1.05rem;}
-  .botao-whats{display:block;max-width:420px;margin:12px auto 0;background:#fff;border:1px solid #cbd5e1;color:#0f172a;font-weight:bold;padding:14px;border-radius:12px;text-decoration:none;}
-  .rodape{text-align:center;font-size:0.78rem;color:#64748b;padding:20px;border-top:1px solid #e2e8f0;}
+  .preco-novo{font-size:1.7rem;font-weight:800;color:#0f172a;margin:6px 0 18px;}
+  .botao-pag{display:block;max-width:420px;margin:0 auto;background:#22c55e;color:#06220f;font-weight:800;padding:17px;border-radius:14px;text-decoration:none;font-size:1.08rem;box-shadow:0 8px 20px rgba(34,197,94,0.22);}
+  .botao-sec{display:block;max-width:420px;margin:12px auto 0;background:transparent;border:1.5px solid #cbd5e1;color:#475569;font-weight:700;padding:13px;border-radius:14px;text-decoration:none;font-size:0.92rem;}
+  .botao-whats{display:block;max-width:420px;margin:12px auto 0;background:#fff;border:1px solid #cbd5e1;color:#0f172a;font-weight:700;padding:14px;border-radius:14px;text-decoration:none;}
+  .rodape{text-align:center;font-size:0.78rem;color:#64748b;padding:22px;border-top:1px solid #e2e8f0;}
   .rodape a{color:#0ea5e9;}
 </style>
 </head>
@@ -45,11 +62,11 @@
 <div class="hero">
   <div class="hero-topo">💬 QR ZAP · FALE COMIGO</div>
   <div class="hero-cnpj">CNPJ 68.088.847/0001-03 · Marca com pedido de registro nº 944493203 no INPI</div>
-  <div class="lang"><a class="ativo" href="index.html">PT</a> | <a href="index-en.html">EN</a> | <a href="index-es.html">ES</a></div>
+  <div class="lang"><a class="ativo" href="index.html">PT</a><a href="index-en.html">EN</a><a href="index-es.html">ES</a></div>
   <h1>Fale Comigo<br><span>de Outro Jeito</span></h1>
   <p>QR Code que facilita a comunicação para quem se comunica de outro jeito. Ideal para pessoas surdas, autistas não verbais, com dificuldade de fala, apraxia, gagueira ou qualquer limitação na comunicação oral.</p>
   <a class="botao" href="https://wa.me/5518981950799?text=Olá! Gostaria de conhecer o QR ZAP.">📲 Solicitar demonstração</a>
-  <p style="font-size:0.78rem;color:#94a3b8;margin-top:14px;">Comunicação acessível com respeito e dignidade · Panorama SP</p>
+  <p style="font-size:0.78rem;color:#94a3b8;margin-top:16px;">Comunicação acessível com respeito e dignidade · Panorama SP</p>
 </div>
 
 <div class="conteudo">
@@ -86,6 +103,19 @@
   <a class="manual-link" href="manual-qr-zap.html">📘 Leia o Manual QR ZAP antes de contratar →</a>
 </div>
 
+<div class="onde">
+  <h2>Onde o QR ZAP já funciona</h2>
+  <p class="sub">De hotéis a cartórios, de farmácias a correios — qualquer negócio pode se tornar mais acessível.</p>
+  <div class="onde-grid">
+    <div class="onde-card"><img src="foto-hotel.jpg" alt="QR ZAP em hotel"><div class="legenda">🏨 Hotéis e recepções</div></div>
+    <div class="onde-card"><img src="foto-correios.jpg" alt="QR ZAP nos Correios"><div class="legenda">📦 Correios e logística</div></div>
+    <div class="onde-card"><img src="foto-farmacia.jpg" alt="QR ZAP em farmácia"><div class="legenda">💊 Farmácias</div></div>
+    <div class="onde-card"><img src="foto-clinica-ginecologia.jpg" alt="QR ZAP em clínica"><div class="legenda">🏥 Clínicas e consultórios</div></div>
+    <div class="onde-card"><img src="foto-cartorio.jpg" alt="QR ZAP em cartório"><div class="legenda">📋 Cartórios</div></div>
+    <div class="onde-card"><img src="foto-loterica.jpg" alt="QR ZAP em lotérica"><div class="legenda">🎰 Lotéricas</div></div>
+  </div>
+</div>
+
 <div class="faixa">
   <div class="item"><strong>📱 QR Code vinculado ao seu WhatsApp</strong>Cada QR Code gerado é vinculado exclusivamente ao número de WhatsApp cadastrado pela empresa.</div>
   <div class="item"><strong>📜 Certificado com número serial único</strong>Cada Certificado recebe um número serial exclusivo no formato QRZAP-2026-XXXXX.</div>
@@ -96,8 +126,8 @@
   <h2>Faça parte da rede de comunicação acessível do Brasil</h2>
   <p class="preco-antigo">R$100/mês</p>
   <p class="preco-novo">R$ 99,00 — pagamento único</p>
-  <a class="botao-pag" href="https://mpago.la/1vmotHD">💳 GARANTIR KIT DIGITAL — R$99 (Mercado Pago)</a>
-  <a class="botao-pag" style="background:#635bff;color:#fff;margin-top:10px;" href="https://buy.stripe.com/dRm9ASbgddrAe2t5yp1ck02">🍎 Pagar com Cartão ou Apple Pay — R$99 (Stripe)</a>
+  <a class="botao-pag" href="https://mpago.la/1vmotHD">💳 GARANTIR KIT DIGITAL — R$99</a>
+  <a class="botao-sec" href="https://buy.stripe.com/dRm9ASbgddrAe2t5yp1ck02">🍎 ou pague com Apple Pay / Stripe</a>
   <p style="font-size:0.8rem;color:#64748b;margin-top:10px;">✅ Pagamento único · Cartão · Sem mensalidade · Nota fiscal garantida</p>
   <a class="botao-whats" href="https://wa.me/5518981950799?text=Olá! Vim do site QR ZAP e quero tirar dúvidas sobre o Kit Digital QR ZAP">Ou tire dúvidas no WhatsApp</a>
 </div>
