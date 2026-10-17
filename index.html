@@ -36,6 +36,9 @@
   .card .corpo .cadeado{font-size:0.72rem;color:#94a3b8;display:block;margin-top:6px;}
   .selo-wrap{position:relative;}
   .selo-nota{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(15,23,42,0.85);color:#fff;font-size:0.62rem;font-weight:700;padding:6px 10px;border-radius:20px;text-align:center;line-height:1.3;max-width:70%;}
+  .qr-placeholder{aspect-ratio:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:#f1f5f9;border-bottom:1px dashed #cbd5e1;color:#64748b;text-align:center;padding:14px;}
+  .qr-placeholder .icone{font-size:1.8rem;}
+  .qr-placeholder .texto{font-size:0.72rem;font-weight:700;max-width:140px;line-height:1.3;}
   .manual-link{display:block;text-align:center;margin:22px 0;font-weight:700;}
 
   .onde{background:#0f172a;padding:36px 18px;}
@@ -97,11 +100,18 @@
       <div class="corpo"><strong>🚪 Adesivo para Porta</strong><span class="obs">Modelo</span><span class="cadeado">🔒 Pronto para gráfica</span></div>
     </div>
     <div class="card">
-      <img src="qr-azul-base.png" alt="Plaquinha QR Azul">
+      <div class="selo-wrap">
+        <img src="qr-azul-base.png" alt="Plaquinha QR Azul">
+        <span class="selo-nota">📲 Seu QR Code<br>aqui</span>
+      </div>
       <div class="corpo"><strong>🔵 Plaquinha QR Azul</strong><span class="obs">Redonda, balcão e mesa</span><span class="cadeado">🔒 Alta resolução</span></div>
     </div>
     <div class="card">
-      <div class="corpo" style="padding-top:18px;"><strong>📱 QR Code da Empresa</strong><span class="obs">Gerado com seu telefone cadastrado</span><span class="cadeado">🔒 Vinculado ao telefone</span></div>
+      <div class="qr-placeholder">
+        <span class="icone">📱</span>
+        <span class="texto">QR Code da sua empresa, gerado após a adesão</span>
+      </div>
+      <div class="corpo"><strong>📱 QR Code da Empresa</strong><span class="obs">Gerado com seu telefone cadastrado</span><span class="cadeado">🔒 Vinculado ao telefone</span></div>
     </div>
   </div>
 
