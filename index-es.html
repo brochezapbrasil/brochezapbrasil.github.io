@@ -7,17 +7,27 @@
 <style>
   body{font-family:Arial,sans-serif;margin:0;background:#f8fafc;color:#1e293b;}
   .hero{background:#0f172a;color:#fff;padding:28px 20px;text-align:center;}
-  .hero-topo{display:flex;justify-content:center;align-items:center;gap:8px;font-weight:bold;font-size:1.1rem;}
+  .hero-topo{display:flex;justify-content:center;align-items:center;gap:8px;font-weight:bold;font-size:0.95rem;}
   .hero-cnpj{font-size:0.75rem;color:#94a3b8;margin-top:6px;}
   .lang{margin-top:10px;font-size:0.8rem;}
   .lang a{color:#94a3b8;text-decoration:none;margin:0 4px;}
   .lang a.ativo{color:#fff;font-weight:bold;}
-  .hero h1{font-size:1.6rem;margin:18px 0 10px;}
+  .hero h1{font-size:2rem;line-height:1.15;margin:20px 0 14px;font-weight:bold;}
   .hero h1 span{color:#4ade80;display:block;}
-  .hero p{color:#cbd5e1;max-width:480px;margin:0 auto;line-height:1.5;}
-  .botao{display:inline-block;background:#22c55e;color:#06220f;font-weight:bold;padding:14px 24px;border-radius:30px;text-decoration:none;margin-top:18px;}
+  .hero p{color:#f1f5f9;max-width:520px;margin:0 auto;line-height:1.65;}
+  .hero p.lead{font-size:1.1rem;text-align:left;}
+  .hero p.para{font-size:0.95rem;color:#cbd5e1;text-align:left;margin-top:14px;}
+  .hero-img{width:150px;max-width:50%;margin:18px auto 0;}
+  .hero-img img{width:100%;display:block;border-radius:16px;box-shadow:0 14px 30px rgba(0,0,0,0.35);}
+  .hero-micro{font-size:0.85rem;color:#cbd5e1;margin-top:12px;}
+  .botao{display:block;max-width:420px;margin:22px auto 0;font-size:1.05rem;background:#22c55e;color:#06220f;font-weight:bold;padding:16px 22px;border-radius:30px;text-decoration:none;}
   .conteudo{max-width:720px;margin:0 auto;padding:28px 18px;}
-  h2{text-align:center;font-size:1.3rem;color:#0f172a;}
+  h2{text-align:center;font-size:1.3rem;color:#0f172a;overflow-wrap:break-word;}
+  img{max-width:100%;}
+  .compromisso{background:#ecfdf5;border:1px solid #bbf7d0;border-radius:14px;padding:18px;margin:26px 0 0;}
+  .compromisso h3{margin:0 0 8px;font-size:1.1rem;color:#0f172a;}
+  .compromisso p{margin:0 0 10px;line-height:1.6;color:#334155;}
+  .compromisso .aviso{font-size:0.8rem;color:#64748b;margin:0;}
   .sub{text-align:center;color:#64748b;font-size:0.9rem;max-width:480px;margin:6px auto 20px;}
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
   .card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;position:relative;}
@@ -42,13 +52,16 @@
 <body>
 
 <div class="hero">
-  <div class="hero-topo">💬 QR ZAP · HÁBLAME</div>
+  <div class="hero-topo">💬 QR ZAP · HÁBLAME DE OTRA MANERA</div>
   <div class="hero-cnpj">Empresa registrada en Brasil · CNPJ 68.088.847/0001-03 · Marca con solicitud de registro nº 944493203 (INPI)</div>
   <div class="lang"><a href="index.html">PT</a> | <a href="index-en.html">EN</a> | <a class="ativo" href="index-es.html">ES</a></div>
-  <h1>Háblame<br><span>de Otra Manera</span></h1>
-  <p>Código QR que facilita la comunicación para quienes se comunican de otra manera. Ideal para personas sordas, autistas no verbales, con dificultad de habla, apraxia, tartamudez o cualquier limitación en la comunicación oral.</p>
+  <h1>Todo cliente merece ser atendido.<span>De la manera en que puede comunicarse.</span></h1>
+  <p class="lead">Con QR ZAP, quien no oye, no habla o prefiere conversar por escrito escanea el código QR y habla con tu equipo por mensaje, en el WhatsApp de tu empresa. Y tu establecimiento muestra, con un sello y un certificado, que le importa.</p>
+  <div class="hero-img"><img src="qr-azul-base.png" alt="Placa QR ZAP con código QR para mostrador"></div>
   <a class="botao" href="https://wa.me/5518981950799?text=¡Hola! Me gustaría conocer QR ZAP.">📲 Solicitar demostración</a>
-  <p style="font-size:0.78rem;color:#94a3b8;margin-top:14px;">Comunicación accesible con respeto y dignidad · Panorama, Brasil</p>
+  <div class="hero-micro">Pago único · sin suscripción</div>
+  <p class="para">Para personas sordas, autistas, con afasia, apraxia, tartamudez o cualquier dificultad de comunicación oral — y también para quien prefiere escribir.</p>
+  <p style="font-size:0.78rem;color:#94a3b8;margin-top:16px;text-align:center;">Comunicación accesible con respeto y dignidad · Panorama, Brasil</p>
 </div>
 
 <div class="conteudo">
@@ -82,6 +95,12 @@
     </div>
   </div>
 
+  <div class="compromisso">
+    <h3>Muestra que tu establecimiento se preocupa</h3>
+    <p>El Sello Empresa Amiga de la Comunicación Accesible y el Certificado de Adhesión hacen visible, en la puerta y en el mostrador, el compromiso de tu negocio de atender a todas las personas con respeto y dignidad.</p>
+    <p class="aviso">El kit ayuda a demostrar compromiso con la accesibilidad y con los principios de la Ley Brasileña de Inclusión (Ley 13.146/2015). No es una certificación oficial y no sustituye las obligaciones legales del establecimiento.</p>
+  </div>
+
   <a class="manual-link" href="https://wa.me/5518981950799?text=¡Hola! Quisiera el manual de QR ZAP en español.">📘 ¿Dudas antes de contratar? Escríbenos →</a>
 </div>
 
@@ -95,7 +114,7 @@
   <h2>Únete a la red de comunicación accesible de Brasil</h2>
   <p class="preco-novo">R$ 99,00 (BRL) — pago único</p>
   <a class="botao-pag" href="https://mpago.la/1vmotHD">💳 OBTENER KIT DIGITAL — R$99 (Mercado Pago)</a>
-  <a class="botao-pag" style="background:#635bff;color:#fff;margin-top:10px;" href="https://buy.stripe.com/dRm9ASbgddrAe2t5yp1ck02">🍎 Pagar con Tarjeta o Apple Pay — R$99 (Stripe)</a>
+  <a class="botao-pag" style="background:#635bff;color:#fff;margin-top:10px;" href="https://buy.stripe.com/cNi8wO4RP5Z83nPgd31ck03">🍎 Pagar con Tarjeta o Apple Pay — R$99 (Stripe)</a>
   <p style="font-size:0.8rem;color:#64748b;margin-top:10px;">✅ Pago único · Tarjeta · Sin suscripción · Factura garantizada</p>
   <a class="botao-whats" href="https://wa.me/5518981950799?text=¡Hola! Encontré QR ZAP y tengo algunas dudas sobre el Kit Digital">¿Dudas? Escríbenos por WhatsApp</a>
 </div>
