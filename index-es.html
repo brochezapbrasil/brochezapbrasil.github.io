@@ -47,6 +47,11 @@
   .botao-whats{display:block;max-width:420px;margin:12px auto 0;background:#fff;border:1px solid #cbd5e1;color:#0f172a;font-weight:bold;padding:14px;border-radius:12px;text-decoration:none;}
   .rodape{text-align:center;font-size:0.78rem;color:#64748b;padding:20px;border-top:1px solid #e2e8f0;}
   .rodape a{color:#0ea5e9;}
+  .como{max-width:760px;margin:0 auto;padding:8px 18px 28px;}
+  .passos{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:12px;counter-reset:p;}
+  .passos li{counter-increment:p;background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:14px 16px 14px 56px;position:relative;line-height:1.5;color:#334155;}
+  .passos li::before{content:counter(p);position:absolute;left:14px;top:12px;width:30px;height:30px;border-radius:50%;background:#22c55e;color:#06220f;font-weight:800;display:flex;align-items:center;justify-content:center;}
+  .passos strong{color:#0f172a;}
 </style>
 </head>
 <body>
@@ -102,6 +107,15 @@
   </div>
 
   <a class="manual-link" href="https://wa.me/5518981950799?text=¡Hola! Quisiera el manual de QR ZAP en español.">📘 ¿Dudas antes de contratar? Escríbenos →</a>
+</div>
+
+<div class="como">
+  <h2>Cómo funciona</h2>
+  <ol class="passos">
+    <li><strong>Paga el kit.</strong> Con tarjeta, por Mercado Pago o Stripe, en pago único de R$ 99.</li>
+    <li><strong>Accede al panel.</strong> Al confirmarse el pago, se libera el enlace al panel. Indica el nombre de la empresa, el CNPJ y el WhatsApp que atenderá.</li>
+    <li><strong>Descarga e imprime.</strong> Genera el código QR, el sello, el certificado, el adhesivo y la placa, y colócalos en el mostrador y en la puerta.</li>
+  </ol>
 </div>
 
 <div class="faixa">
