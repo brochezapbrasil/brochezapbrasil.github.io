@@ -14,18 +14,28 @@
   .hero::before{content:"";position:absolute;inset:0;background:url('foto-hotel.jpg') center/cover;opacity:0.28;}
   .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,0.75),rgba(15,23,42,0.96));}
   .hero > *{position:relative;z-index:1;}
-  .hero-topo{display:flex;justify-content:center;align-items:center;gap:8px;font-weight:800;font-size:1.15rem;letter-spacing:0.3px;}
+  .hero-topo{display:flex;justify-content:center;align-items:center;gap:8px;font-weight:800;font-size:0.95rem;letter-spacing:0.3px;}
   .hero-cnpj{font-size:0.75rem;color:#94a3b8;margin-top:6px;}
   .lang{margin-top:14px;display:inline-flex;background:rgba(255,255,255,0.08);border-radius:30px;padding:4px;}
   .lang a{color:#cbd5e1;text-decoration:none;padding:6px 14px;border-radius:20px;font-size:0.8rem;font-weight:700;}
   .lang a.ativo{background:#4ade80;color:#06220f;}
-  .hero h1{font-size:1.9rem;margin:20px 0 10px;font-weight:800;}
+  .hero h1{font-size:2.15rem;line-height:1.15;margin:22px 0 14px;font-weight:800;}
   .hero h1 span{color:#4ade80;display:block;}
-  .hero p{color:#cbd5e1;max-width:480px;margin:0 auto;line-height:1.6;}
-  .botao{display:inline-block;background:#22c55e;color:#06220f;font-weight:800;padding:15px 26px;border-radius:30px;text-decoration:none;margin-top:20px;box-shadow:0 8px 20px rgba(34,197,94,0.25);}
+  .hero p{color:#f1f5f9;max-width:520px;margin:0 auto;line-height:1.65;}
+  .hero p.lead{font-size:1.15rem;text-align:left;}
+  .hero p.para{font-size:0.95rem;color:#cbd5e1;text-align:left;margin-top:14px;}
+  .hero-img{width:150px;max-width:50%;margin:18px auto 0;position:relative;}
+  .hero-img img{width:100%;display:block;border-radius:16px;box-shadow:0 14px 30px rgba(0,0,0,0.35);}
+  .hero-micro{font-size:0.85rem;color:#cbd5e1;margin-top:12px;}
+  .botao{display:block;max-width:420px;margin:22px auto 0;font-size:1.1rem;background:#22c55e;color:#06220f;font-weight:800;padding:17px 22px;border-radius:30px;text-decoration:none;box-shadow:0 8px 20px rgba(34,197,94,0.25);}
   .hero-sec{display:block;margin-top:12px;font-size:0.8rem;color:#94a3b8;text-decoration:underline;}
   .conteudo{max-width:760px;margin:0 auto;padding:32px 18px;}
-  h2{text-align:center;font-size:1.4rem;color:#0f172a;font-weight:800;}
+  h2{text-align:center;font-size:1.4rem;color:#0f172a;font-weight:800;overflow-wrap:break-word;}
+  img{max-width:100%;}
+  .compromisso{background:#ecfdf5;border:1px solid #bbf7d0;border-radius:14px;padding:18px;margin:26px 0 0;}
+  .compromisso h3{margin:0 0 8px;font-size:1.1rem;color:#0f172a;}
+  .compromisso p{margin:0 0 10px;line-height:1.6;color:#334155;}
+  .compromisso .aviso{font-size:0.8rem;color:#64748b;margin:0;}
   .sub{text-align:center;color:#64748b;font-size:0.92rem;max-width:500px;margin:8px auto 24px;}
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
   .card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden;position:relative;}
@@ -75,14 +85,17 @@
 <body>
 
 <div class="hero">
-  <div class="hero-topo">💬 QR ZAP · FALE COMIGO</div>
+  <div class="hero-topo">💬 QR ZAP · FALE COMIGO DE OUTRO JEITO</div>
   <div class="hero-cnpj">CNPJ 68.088.847/0001-03 · Marca com pedido de registro nº 944493203 no INPI</div>
   <div class="lang"><a class="ativo" href="index.html">PT</a><a href="index-en.html">EN</a><a href="index-es.html">ES</a></div>
-  <h1>Fale Comigo<br><span>de Outro Jeito</span></h1>
-  <p>QR Code que facilita a comunicação para quem se comunica de outro jeito. Ideal para pessoas surdas, autistas não verbais, com dificuldade de fala, apraxia, gagueira ou qualquer limitação na comunicação oral.</p>
-  <a class="botao" href="#comprar">💳 Quero o Kit Digital — R$99</a><br>
+  <h1>Todo cliente merece ser atendido.<span>Do jeito que consegue se comunicar.</span></h1>
+  <p class="lead">Com o QR ZAP, quem não ouve, não fala ou prefere conversar por escrito escaneia o QR Code e fala com a sua equipe por mensagem, no WhatsApp da sua empresa. E o seu estabelecimento mostra, com selo e certificado, que se importa.</p>
+  <div class="hero-img"><img src="qr-azul-base.png" alt="Plaquinha QR ZAP com QR Code para balcão"></div>
+  <a class="botao" href="#comprar">💳 Quero o Kit Digital — R$99</a>
+  <div class="hero-micro">Pagamento único · sem mensalidade · garantia de 7 dias</div>
   <a class="hero-sec" href="https://wa.me/5518981950799?text=Olá! Gostaria de tirar dúvidas sobre o QR ZAP antes de contratar.">Prefere tirar dúvidas antes no WhatsApp?</a>
-  <p style="font-size:0.78rem;color:#94a3b8;margin-top:16px;">Comunicação acessível com respeito e dignidade · Panorama SP</p>
+  <p class="para">Para pessoas surdas, autistas, com afasia, apraxia, gagueira ou qualquer dificuldade de comunicação oral — e também para quem prefere escrever.</p>
+  <p style="font-size:0.78rem;color:#94a3b8;margin-top:16px;text-align:center;">Comunicação acessível com respeito e dignidade · Panorama SP</p>
 </div>
 
 <div class="conteudo">
@@ -124,6 +137,12 @@
       </div>
       <div class="corpo"><strong>📱 QR Code da Empresa</strong><span class="obs">Gerado com seu telefone cadastrado</span><span class="cadeado">🔒 Vinculado ao telefone</span></div>
     </div>
+  </div>
+
+  <div class="compromisso">
+    <h3>Mostre que o seu estabelecimento se importa</h3>
+    <p>O Selo Empresa Amiga da Comunicação Acessível e o Certificado de Adesão deixam visível, na porta e no balcão, o compromisso do seu negócio em atender todas as pessoas com respeito e dignidade.</p>
+    <p class="aviso">O kit ajuda a demonstrar compromisso com a acessibilidade e com os princípios da Lei Brasileira de Inclusão (Lei 13.146/2015). Não é certificação oficial e não substitui as obrigações legais do estabelecimento.</p>
   </div>
 
   <a class="manual-link" href="manual-qr-zap.html">📘 Leia o Manual QR ZAP antes de contratar →</a>
@@ -181,7 +200,7 @@
   <p class="preco-antigo">R$100/mês</p>
   <p class="preco-novo">R$ 99,00 — pagamento único</p>
   <a class="botao-pag" href="https://mpago.la/1vmotHD">💳 GARANTIR KIT DIGITAL — R$99</a>
-  <a class="botao-sec" href=https://buy.stripe.com/cNi8wO4RP5Z83nPgd31ck03">🍎 ou pague com Apple Pay / Stripe</a>
+  <a class="botao-sec" href="https://buy.stripe.com/cNi8wO4RP5Z83nPgd31ck03">🍎 ou pague com Apple Pay / Stripe</a>
   <p style="font-size:0.8rem;color:#64748b;margin-top:10px;">✅ Pagamento único · Cartão · Sem mensalidade · Nota fiscal garantida</p>
   <a class="botao-whats" href="https://wa.me/5518981950799?text=Olá! Vim do site QR ZAP e quero tirar dúvidas sobre o Kit Digital QR ZAP">Ou tire dúvidas no WhatsApp</a>
 </div>
